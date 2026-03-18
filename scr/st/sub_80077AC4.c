@@ -1,0 +1,38 @@
+#include "recomp.h"
+#include "disable_warnings.h"
+
+void sub_80077AC4(uint8_t* rdram, recomp_context* ctx) {
+    uint64_t hi = 0, lo = 0, result = 0;
+    unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
+    int c1cs = 0; 
+    // beq         $a1, $zero, L_80077AE0
+    if (ctx->r5 == 0) {
+        // addiu       $v0, $a1, -0x1
+        ctx->r2 = ADD32(ctx->r5, -0X1);
+        goto L_80077AE0;
+    }
+    // addiu       $v0, $a1, -0x1
+    ctx->r2 = ADD32(ctx->r5, -0X1);
+    // addiu       $v1, $zero, -0x1
+    ctx->r3 = ADD32(0, -0X1);
+L_80077AD0:
+    // sw          $zero, 0x0($a0)
+    MEM_W(0X0, ctx->r4) = 0;
+    // addiu       $v0, $v0, -0x1
+    ctx->r2 = ADD32(ctx->r2, -0X1);
+    // bne         $v0, $v1, L_80077AD0
+    if (ctx->r2 != ctx->r3) {
+        // addiu       $a0, $a0, 0x4
+        ctx->r4 = ADD32(ctx->r4, 0X4);
+        goto L_80077AD0;
+    }
+    // addiu       $a0, $a0, 0x4
+    ctx->r4 = ADD32(ctx->r4, 0X4);
+L_80077AE0:
+    // jr          $ra
+    // nop
+
+    return;
+    // nop
+
+;}

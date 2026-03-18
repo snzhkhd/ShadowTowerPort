@@ -1,0 +1,1282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{6fc4d307-442d-4033-a169-f489261c97b6}</ProjectGuid>
+    <RootNamespace>ShadowTowerPort</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <ExecutablePath>$(ProjectDir)scr;$(ProjectDir)PsyCross\include\;$(ProjectDir)PsyCross\src\psx;$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)PsyCross\src;$(ProjectDir)PsyCross\include;$(ProjectDir)scr;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="PsyCross\src\audio\PsyX_SPUAL.cpp" />
+    <ClCompile Include="PsyCross\src\gpu\PsyX_GPU.cpp" />
+    <ClCompile Include="PsyCross\src\gte\half_float.cpp" />
+    <ClCompile Include="PsyCross\src\gte\PsyX_GTE.cpp" />
+    <ClCompile Include="PsyCross\src\pad\PsyX_pad.cpp" />
+    <ClCompile Include="PsyCross\src\psx\ABS.C" />
+    <ClCompile Include="PsyCross\src\psx\INLINE_C.C" />
+    <ClCompile Include="PsyCross\src\psx\LIBAPI.C" />
+    <ClCompile Include="PsyCross\src\psx\LIBCD.C" />
+    <ClCompile Include="PsyCross\src\psx\LIBETC.C" />
+    <ClCompile Include="PsyCross\src\psx\LIBGPU.C" />
+    <ClCompile Include="PsyCross\src\psx\LIBGTE.C" />
+    <ClCompile Include="PsyCross\src\psx\LIBMCRD.C" />
+    <ClCompile Include="PsyCross\src\psx\LIBPAD.C" />
+    <ClCompile Include="PsyCross\src\psx\LIBSN.C" />
+    <ClCompile Include="PsyCross\src\psx\LIBSPU.C" />
+    <ClCompile Include="PsyCross\src\PsyX_main.cpp" />
+    <ClCompile Include="PsyCross\src\render\glad.c" />
+    <ClCompile Include="PsyCross\src\render\PsyX_render.cpp" />
+    <ClCompile Include="PsyCross\src\util\crash_handler.cpp" />
+    <ClCompile Include="PsyCross\src\util\timer.c" />
+    <ClCompile Include="scr\gte.cpp" />
+    <ClCompile Include="scr\kf_cd.cpp" />
+    <ClCompile Include="scr\recomp.cpp" />
+    <ClCompile Include="scr\st\AddPrim.c" />
+    <ClCompile Include="scr\st\AddPrims.c" />
+    <ClCompile Include="scr\st\ApplyMatrix.c" />
+    <ClCompile Include="scr\st\ApplyMatrixSV.c" />
+    <ClCompile Include="scr\st\bzero_recomp.c" />
+    <ClCompile Include="scr\st\catan.c" />
+    <ClCompile Include="scr\st\CdComstr.c" />
+    <ClCompile Include="scr\st\CdControl.c" />
+    <ClCompile Include="scr\st\CdControlB.c" />
+    <ClCompile Include="scr\st\CdControlF.c" />
+    <ClCompile Include="scr\st\CdDataCallback.c" />
+    <ClCompile Include="scr\st\CdDataSync.c" />
+    <ClCompile Include="scr\st\CdFlush.c" />
+    <ClCompile Include="scr\st\CdGetSector.c" />
+    <ClCompile Include="scr\st\CdGetSector2.c" />
+    <ClCompile Include="scr\st\CdIntstr.c" />
+    <ClCompile Include="scr\st\CdIntToPos.c" />
+    <ClCompile Include="scr\st\CdLastCom.c" />
+    <ClCompile Include="scr\st\CdLastPos.c" />
+    <ClCompile Include="scr\st\CdMix.c" />
+    <ClCompile Include="scr\st\CdMode.c" />
+    <ClCompile Include="scr\st\CdPosToInt.c" />
+    <ClCompile Include="scr\st\CdReady.c" />
+    <ClCompile Include="scr\st\CdReadyCallback.c" />
+    <ClCompile Include="scr\st\CdReset.c" />
+    <ClCompile Include="scr\st\CdSearchFile.c" />
+    <ClCompile Include="scr\st\CdSetDebug.c" />
+    <ClCompile Include="scr\st\CdStatus.c" />
+    <ClCompile Include="scr\st\CdSync.c" />
+    <ClCompile Include="scr\st\CdSyncCallback.c" />
+    <ClCompile Include="scr\st\CD_cw.c" />
+    <ClCompile Include="scr\st\CD_datasync.c" />
+    <ClCompile Include="scr\st\CD_flush.c" />
+    <ClCompile Include="scr\st\CD_getsector.c" />
+    <ClCompile Include="scr\st\CD_getsector2.c" />
+    <ClCompile Include="scr\st\CD_init.c" />
+    <ClCompile Include="scr\st\CD_initintr.c" />
+    <ClCompile Include="scr\st\CD_initvol.c" />
+    <ClCompile Include="scr\st\CD_ready.c" />
+    <ClCompile Include="scr\st\CD_set_test_parmnum.c" />
+    <ClCompile Include="scr\st\CD_sync.c" />
+    <ClCompile Include="scr\st\CD_vol.c" />
+    <ClCompile Include="scr\st\ChangeClearPAD.c" />
+    <ClCompile Include="scr\st\ChangeClearRCnt.c" />
+    <ClCompile Include="scr\st\CheckCallback.c" />
+    <ClCompile Include="scr\st\chkRC2wait.c" />
+    <ClCompile Include="scr\st\ClearImage.c" />
+    <ClCompile Include="scr\st\ClearImage2.c" />
+    <ClCompile Include="scr\st\ClearOTag.c" />
+    <ClCompile Include="scr\st\ClearOTagR.c" />
+    <ClCompile Include="scr\st\close.c" />
+    <ClCompile Include="scr\st\CloseEvent.c" />
+    <ClCompile Include="scr\st\DeliverEvent.c" />
+    <ClCompile Include="scr\st\DisableEvent.c" />
+    <ClCompile Include="scr\st\DisablePAD.c" />
+    <ClCompile Include="scr\st\DMACallback.c" />
+    <ClCompile Include="scr\st\DrawOTag.c" />
+    <ClCompile Include="scr\st\DrawOTag2.c" />
+    <ClCompile Include="scr\st\DrawOTagEnv.c" />
+    <ClCompile Include="scr\st\DrawPrim.c" />
+    <ClCompile Include="scr\st\DrawSync.c" />
+    <ClCompile Include="scr\st\DrawSyncCallback.c" />
+    <ClCompile Include="scr\st\EnableEvent.c" />
+    <ClCompile Include="scr\st\EnablePAD.c" />
+    <ClCompile Include="scr\st\EnterCriticalSection.c" />
+    <ClCompile Include="scr\st\exit.c" />
+    <ClCompile Include="scr\st\ExitCriticalSection.c" />
+    <ClCompile Include="scr\st\firstfile.c" />
+    <ClCompile Include="scr\st\firstfile2.c" />
+    <ClCompile Include="scr\st\FlushCache.c" />
+    <ClCompile Include="scr\st\format.c" />
+    <ClCompile Include="scr\st\GetClut.c" />
+    <ClCompile Include="scr\st\GetDispEnv.c" />
+    <ClCompile Include="scr\st\GetDrawEnv.c" />
+    <ClCompile Include="scr\st\GetGraphDebug.c" />
+    <ClCompile Include="scr\st\GetIntrMask.c" />
+    <ClCompile Include="scr\st\GetODE.c" />
+    <ClCompile Include="scr\st\GetRCnt.c" />
+    <ClCompile Include="scr\st\GetTPage.c" />
+    <ClCompile Include="scr\st\GetVideoMode.c" />
+    <ClCompile Include="scr\st\GPU_cw.c" />
+    <ClCompile Include="scr\st\gteMIMefunc.c" />
+    <ClCompile Include="scr\st\HookEntryInt.c" />
+    <ClCompile Include="scr\st\InitCARD.c" />
+    <ClCompile Include="scr\st\InitCARD2.c" />
+    <ClCompile Include="scr\st\InitHeap3.c" />
+    <ClCompile Include="scr\st\InitPAD.c" />
+    <ClCompile Include="scr\st\InitPAD2.c" />
+    <ClCompile Include="scr\st\InterruptCallback.c" />
+    <ClCompile Include="scr\st\InvSquareRoot.c" />
+    <ClCompile Include="scr\st\itoa.c" />
+    <ClCompile Include="scr\st\LoadClut2.c" />
+    <ClCompile Include="scr\st\LoadImage.c" />
+    <ClCompile Include="scr\st\LoadTPage.c" />
+    <ClCompile Include="scr\st\lseek.c" />
+    <ClCompile Include="scr\st\malloc3.c" />
+    <ClCompile Include="scr\st\MatrixNormal.c" />
+    <ClCompile Include="scr\st\MemCardEnd.c" />
+    <ClCompile Include="scr\st\MemCardInit.c" />
+    <ClCompile Include="scr\st\memchr.c" />
+    <ClCompile Include="scr\st\memcpy_recomp.c" />
+    <ClCompile Include="scr\st\memmove_recomp.c" />
+    <ClCompile Include="scr\st\memset_recomp.c" />
+    <ClCompile Include="scr\st\MoveImage.c" />
+    <ClCompile Include="scr\st\MoveImage2.c" />
+    <ClCompile Include="scr\st\MulMatrix.c" />
+    <ClCompile Include="scr\st\MulMatrix2.c" />
+    <ClCompile Include="scr\st\nextfile.c" />
+    <ClCompile Include="scr\st\nullsub_1.c" />
+    <ClCompile Include="scr\st\nullsub_2.c" />
+    <ClCompile Include="scr\st\open.c" />
+    <ClCompile Include="scr\st\OpenEvent.c" />
+    <ClCompile Include="scr\st\PadChkMtap_0.c" />
+    <ClCompile Include="scr\st\PadChkVsync.c" />
+    <ClCompile Include="scr\st\PadChkVsync_0.c" />
+    <ClCompile Include="scr\st\PadGetState_0.c" />
+    <ClCompile Include="scr\st\PadInfoComb_0.c" />
+    <ClCompile Include="scr\st\PadInfoMode_0.c" />
+    <ClCompile Include="scr\st\PadInitDirect.c" />
+    <ClCompile Include="scr\st\PadSetMainMode_0.c" />
+    <ClCompile Include="scr\st\PadStartCom.c" />
+    <ClCompile Include="scr\st\PadStartCom_0.c" />
+    <ClCompile Include="scr\st\PadStopCom_0.c" />
+    <ClCompile Include="scr\st\PAD_init.c" />
+    <ClCompile Include="scr\st\PAD_init2.c" />
+    <ClCompile Include="scr\st\printf.c" />
+    <ClCompile Include="scr\st\PutDispEnv.c" />
+    <ClCompile Include="scr\st\PutDrawEnv.c" />
+    <ClCompile Include="scr\st\rand_recomp.c" />
+    <ClCompile Include="scr\st\ratan2.c" />
+    <ClCompile Include="scr\st\rcos.c" />
+    <ClCompile Include="scr\st\RCpolyFT3.c" />
+    <ClCompile Include="scr\st\RCpolyFT3A.c" />
+    <ClCompile Include="scr\st\RCpolyFT4.c" />
+    <ClCompile Include="scr\st\RCpolyFT4A.c" />
+    <ClCompile Include="scr\st\RCpolyGT3.c" />
+    <ClCompile Include="scr\st\RCpolyGT3A.c" />
+    <ClCompile Include="scr\st\RCpolyGT4.c" />
+    <ClCompile Include="scr\st\RCpolyGT4A.c" />
+    <ClCompile Include="scr\st\read.c" />
+    <ClCompile Include="scr\st\ReadInitPadFlag.c" />
+    <ClCompile Include="scr\st\ResetCallback.c" />
+    <ClCompile Include="scr\st\ResetEntryInt.c" />
+    <ClCompile Include="scr\st\ResetGraph.c" />
+    <ClCompile Include="scr\st\ResetRCnt.c" />
+    <ClCompile Include="scr\st\RestartCallback.c" />
+    <ClCompile Include="scr\st\ReturnFromException.c" />
+    <ClCompile Include="scr\st\RotMatrix.c" />
+    <ClCompile Include="scr\st\RotMatrixX.c" />
+    <ClCompile Include="scr\st\RotMatrixY.c" />
+    <ClCompile Include="scr\st\RotMatrixZ.c" />
+    <ClCompile Include="scr\st\RotMatrixZYX.c" />
+    <ClCompile Include="scr\st\RotMatrixZYX_gte.c" />
+    <ClCompile Include="scr\st\rsin.c" />
+    <ClCompile Include="scr\st\ScaleMatrix.c" />
+    <ClCompile Include="scr\st\SetDispMask.c" />
+    <ClCompile Include="scr\st\SetDrawArea.c" />
+    <ClCompile Include="scr\st\SetDrawEnv.c" />
+    <ClCompile Include="scr\st\SetDrawOffset.c" />
+    <ClCompile Include="scr\st\SetDrawTPage.c" />
+    <ClCompile Include="scr\st\SetGraphDebug.c" />
+    <ClCompile Include="scr\st\SetGraphQueue.c" />
+    <ClCompile Include="scr\st\SetInitPadFlag.c" />
+    <ClCompile Include="scr\st\SetIntrMask.c" />
+    <ClCompile Include="scr\st\SetPolyFT4.c" />
+    <ClCompile Include="scr\st\setRC2wait.c" />
+    <ClCompile Include="scr\st\SetRCnt.c" />
+    <ClCompile Include="scr\st\SetSemiTrans.c" />
+    <ClCompile Include="scr\st\SetVib.c" />
+    <ClCompile Include="scr\st\SetVideoMode.c" />
+    <ClCompile Include="scr\st\SeVibOn.c" />
+    <ClCompile Include="scr\st\sin_1.c" />
+    <ClCompile Include="scr\st\sprintf_recomp.c" />
+    <ClCompile Include="scr\st\SpuClearReverbWorkArea.c" />
+    <ClCompile Include="scr\st\SpuFree.c" />
+    <ClCompile Include="scr\st\SpuGetAllKeysStatus.c" />
+    <ClCompile Include="scr\st\SpuGetVoiceEnvelope.c" />
+    <ClCompile Include="scr\st\SpuInitMalloc.c" />
+    <ClCompile Include="scr\st\SpuIsTransferCompleted.c" />
+    <ClCompile Include="scr\st\SpuMalloc.c" />
+    <ClCompile Include="scr\st\SpuQuit.c" />
+    <ClCompile Include="scr\st\SpuRGetAllKeysStatus.c" />
+    <ClCompile Include="scr\st\SpuSetCommonAttr.c" />
+    <ClCompile Include="scr\st\SpuSetKey.c" />
+    <ClCompile Include="scr\st\SpuSetNoiseClock.c" />
+    <ClCompile Include="scr\st\SpuSetNoiseVoice.c" />
+    <ClCompile Include="scr\st\SpuSetReverb.c" />
+    <ClCompile Include="scr\st\SpuSetReverbModeParam.c" />
+    <ClCompile Include="scr\st\SpuSetReverbVoice.c" />
+    <ClCompile Include="scr\st\SpuSetTransferMode.c" />
+    <ClCompile Include="scr\st\SpuSetTransferStartAddr.c" />
+    <ClCompile Include="scr\st\SpuSetVoiceAttr.c" />
+    <ClCompile Include="scr\st\SpuStart.c" />
+    <ClCompile Include="scr\st\SpuWritePartly.c" />
+    <ClCompile Include="scr\st\SquareRoot0.c" />
+    <ClCompile Include="scr\st\SsEnd.c" />
+    <ClCompile Include="scr\st\SsInitHot.c" />
+    <ClCompile Include="scr\st\SsInitHot_0.c" />
+    <ClCompile Include="scr\st\SsQuit.c" />
+    <ClCompile Include="scr\st\SsSepStop.c" />
+    <ClCompile Include="scr\st\SsSeqCalledTbyT.c" />
+    <ClCompile Include="scr\st\SsSeqStop.c" />
+    <ClCompile Include="scr\st\SsSetMVol.c" />
+    <ClCompile Include="scr\st\SsSetSerialAttr.c" />
+    <ClCompile Include="scr\st\SsSetSerialVol.c" />
+    <ClCompile Include="scr\st\SsSetTickMode.c" />
+    <ClCompile Include="scr\st\SsStart.c" />
+    <ClCompile Include="scr\st\SsStart2.c" />
+    <ClCompile Include="scr\st\SsUtGetReverbType.c" />
+    <ClCompile Include="scr\st\SsUtKeyOn.c" />
+    <ClCompile Include="scr\st\SsUtKeyOnV.c" />
+    <ClCompile Include="scr\st\SsUtReverbOn.c" />
+    <ClCompile Include="scr\st\SsUtSetReverbDepth.c" />
+    <ClCompile Include="scr\st\SsUtSetReverbType.c" />
+    <ClCompile Include="scr\st\SsUtVibrateOff.c" />
+    <ClCompile Include="scr\st\SsUtVibrateOn.c" />
+    <ClCompile Include="scr\st\SsVabTransCompleted.c" />
+    <ClCompile Include="scr\st\start.c" />
+    <ClCompile Include="scr\st\StartCARD.c" />
+    <ClCompile Include="scr\st\StartCARD2.c" />
+    <ClCompile Include="scr\st\startIntrDMA.c" />
+    <ClCompile Include="scr\st\StartPAD.c" />
+    <ClCompile Include="scr\st\StartPAD2.c" />
+    <ClCompile Include="scr\st\StartRCnt.c" />
+    <ClCompile Include="scr\st\StopCallback.c" />
+    <ClCompile Include="scr\st\StopCARD.c" />
+    <ClCompile Include="scr\st\StopCARD2.c" />
+    <ClCompile Include="scr\st\StopPAD.c" />
+    <ClCompile Include="scr\st\StopPAD2.c" />
+    <ClCompile Include="scr\st\StopRCnt.c" />
+    <ClCompile Include="scr\st\StoreImage.c" />
+    <ClCompile Include="scr\st\StoreImage2.c" />
+    <ClCompile Include="scr\st\strcat_recomp.c" />
+    <ClCompile Include="scr\st\strcmp_recomp.c" />
+    <ClCompile Include="scr\st\strcpy_recomp.c" />
+    <ClCompile Include="scr\st\strlen_recomp.c" />
+    <ClCompile Include="scr\st\strncmp.c" />
+    <ClCompile Include="scr\st\sub_8001435C.c" />
+    <ClCompile Include="scr\st\sub_80014410.c" />
+    <ClCompile Include="scr\st\sub_80014450.c" />
+    <ClCompile Include="scr\st\sub_80014544.c" />
+    <ClCompile Include="scr\st\sub_80014A30.c" />
+    <ClCompile Include="scr\st\sub_80014CFC.c" />
+    <ClCompile Include="scr\st\sub_80014D2C.c" />
+    <ClCompile Include="scr\st\sub_80014D5C.c" />
+    <ClCompile Include="scr\st\sub_80014DA4.c" />
+    <ClCompile Include="scr\st\sub_80014E20.c" />
+    <ClCompile Include="scr\st\sub_80014E4C.c" />
+    <ClCompile Include="scr\st\sub_80014F90.c" />
+    <ClCompile Include="scr\st\sub_80015024.c" />
+    <ClCompile Include="scr\st\sub_80015144.c" />
+    <ClCompile Include="scr\st\sub_80015164.c" />
+    <ClCompile Include="scr\st\sub_80015230.c" />
+    <ClCompile Include="scr\st\sub_80015250.c" />
+    <ClCompile Include="scr\st\sub_80015258.c" />
+    <ClCompile Include="scr\st\sub_80015264.c" />
+    <ClCompile Include="scr\st\sub_8001526C.c" />
+    <ClCompile Include="scr\st\sub_80015278.c" />
+    <ClCompile Include="scr\st\sub_8001528C.c" />
+    <ClCompile Include="scr\st\sub_800152D0.c" />
+    <ClCompile Include="scr\st\sub_8001531C.c" />
+    <ClCompile Include="scr\st\sub_8001535C.c" />
+    <ClCompile Include="scr\st\sub_800153B4.c" />
+    <ClCompile Include="scr\st\sub_800154E8.c" />
+    <ClCompile Include="scr\st\sub_8001561C.c" />
+    <ClCompile Include="scr\st\sub_80015848.c" />
+    <ClCompile Include="scr\st\sub_800158F4.c" />
+    <ClCompile Include="scr\st\sub_80015914.c" />
+    <ClCompile Include="scr\st\sub_80015950.c" />
+    <ClCompile Include="scr\st\sub_800159D4.c" />
+    <ClCompile Include="scr\st\sub_80015A94.c" />
+    <ClCompile Include="scr\st\sub_80015AD4.c" />
+    <ClCompile Include="scr\st\sub_80015B2C.c" />
+    <ClCompile Include="scr\st\sub_80015B78.c" />
+    <ClCompile Include="scr\st\sub_80015BCC.c" />
+    <ClCompile Include="scr\st\sub_80015CD0.c" />
+    <ClCompile Include="scr\st\sub_80015D54.c" />
+    <ClCompile Include="scr\st\sub_80015DA8.c" />
+    <ClCompile Include="scr\st\sub_80015DFC.c" />
+    <ClCompile Include="scr\st\sub_80015EC8.c" />
+    <ClCompile Include="scr\st\sub_80015F0C.c" />
+    <ClCompile Include="scr\st\sub_80015FF4.c" />
+    <ClCompile Include="scr\st\sub_80016030.c" />
+    <ClCompile Include="scr\st\sub_8001618C.c" />
+    <ClCompile Include="scr\st\sub_8001624C.c" />
+    <ClCompile Include="scr\st\sub_80016294.c" />
+    <ClCompile Include="scr\st\sub_80016374.c" />
+    <ClCompile Include="scr\st\sub_80016454.c" />
+    <ClCompile Include="scr\st\sub_800164B4.c" />
+    <ClCompile Include="scr\st\sub_80016508.c" />
+    <ClCompile Include="scr\st\sub_80016554.c" />
+    <ClCompile Include="scr\st\sub_80016878.c" />
+    <ClCompile Include="scr\st\sub_800168A4.c" />
+    <ClCompile Include="scr\st\sub_80016A14.c" />
+    <ClCompile Include="scr\st\sub_80016FB8.c" />
+    <ClCompile Include="scr\st\sub_80017220.c" />
+    <ClCompile Include="scr\st\sub_800172BC.c" />
+    <ClCompile Include="scr\st\sub_800173A8.c" />
+    <ClCompile Include="scr\st\sub_800174C4.c" />
+    <ClCompile Include="scr\st\sub_800175A4.c" />
+    <ClCompile Include="scr\st\sub_80017634.c" />
+    <ClCompile Include="scr\st\sub_80017680.c" />
+    <ClCompile Include="scr\st\sub_800176A8.c" />
+    <ClCompile Include="scr\st\sub_800177A0.c" />
+    <ClCompile Include="scr\st\sub_80017D28.c" />
+    <ClCompile Include="scr\st\sub_80018440.c" />
+    <ClCompile Include="scr\st\sub_80018480.c" />
+    <ClCompile Include="scr\st\sub_800184C4.c" />
+    <ClCompile Include="scr\st\sub_800187A4.c" />
+    <ClCompile Include="scr\st\sub_800187E4.c" />
+    <ClCompile Include="scr\st\sub_80018828.c" />
+    <ClCompile Include="scr\st\sub_80018B1C.c" />
+    <ClCompile Include="scr\st\sub_80018B5C.c" />
+    <ClCompile Include="scr\st\sub_80018BA0.c" />
+    <ClCompile Include="scr\st\sub_80018EC4.c" />
+    <ClCompile Include="scr\st\sub_80018F04.c" />
+    <ClCompile Include="scr\st\sub_80018F48.c" />
+    <ClCompile Include="scr\st\sub_800192D4.c" />
+    <ClCompile Include="scr\st\sub_800194C4.c" />
+    <ClCompile Include="scr\st\sub_800196C0.c" />
+    <ClCompile Include="scr\st\sub_800198F4.c" />
+    <ClCompile Include="scr\st\sub_80019B34.c" />
+    <ClCompile Include="scr\st\sub_80019DC8.c" />
+    <ClCompile Include="scr\st\sub_80019FB4.c" />
+    <ClCompile Include="scr\st\sub_80019FF4.c" />
+    <ClCompile Include="scr\st\sub_8001A038.c" />
+    <ClCompile Include="scr\st\sub_8001A668.c" />
+    <ClCompile Include="scr\st\sub_8001A6A8.c" />
+    <ClCompile Include="scr\st\sub_8001A6EC.c" />
+    <ClCompile Include="scr\st\sub_8001ADF8.c" />
+    <ClCompile Include="scr\st\sub_8001AE38.c" />
+    <ClCompile Include="scr\st\sub_8001AE7C.c" />
+    <ClCompile Include="scr\st\sub_8001B558.c" />
+    <ClCompile Include="scr\st\sub_8001B598.c" />
+    <ClCompile Include="scr\st\sub_8001B5DC.c" />
+    <ClCompile Include="scr\st\sub_8001BF10.c" />
+    <ClCompile Include="scr\st\sub_8001C100.c" />
+    <ClCompile Include="scr\st\sub_8001C264.c" />
+    <ClCompile Include="scr\st\sub_8001C4C8.c" />
+    <ClCompile Include="scr\st\sub_8001C60C.c" />
+    <ClCompile Include="scr\st\sub_8001C88C.c" />
+    <ClCompile Include="scr\st\sub_8001C8E0.c" />
+    <ClCompile Include="scr\st\sub_8001C9C8.c" />
+    <ClCompile Include="scr\st\sub_8001CAB8.c" />
+    <ClCompile Include="scr\st\sub_8001CB88.c" />
+    <ClCompile Include="scr\st\sub_8001CDF8.c" />
+    <ClCompile Include="scr\st\sub_8001D224.c" />
+    <ClCompile Include="scr\st\sub_8001D264.c" />
+    <ClCompile Include="scr\st\sub_8001D2A8.c" />
+    <ClCompile Include="scr\st\sub_8001DAE0.c" />
+    <ClCompile Include="scr\st\sub_8001DB20.c" />
+    <ClCompile Include="scr\st\sub_8001DB64.c" />
+    <ClCompile Include="scr\st\sub_8001E51C.c" />
+    <ClCompile Include="scr\st\sub_8001E55C.c" />
+    <ClCompile Include="scr\st\sub_8001E5A0.c" />
+    <ClCompile Include="scr\st\sub_8001EE28.c" />
+    <ClCompile Include="scr\st\sub_8001EE68.c" />
+    <ClCompile Include="scr\st\sub_8001EEAC.c" />
+    <ClCompile Include="scr\st\sub_8001F954.c" />
+    <ClCompile Include="scr\st\sub_8001FD00.c" />
+    <ClCompile Include="scr\st\sub_80020164.c" />
+    <ClCompile Include="scr\st\sub_80020588.c" />
+    <ClCompile Include="scr\st\sub_80020A80.c" />
+    <ClCompile Include="scr\st\sub_80020EFC.c" />
+    <ClCompile Include="scr\st\sub_80021058.c" />
+    <ClCompile Include="scr\st\sub_800210F4.c" />
+    <ClCompile Include="scr\st\sub_80021158.c" />
+    <ClCompile Include="scr\st\sub_800214A4.c" />
+    <ClCompile Include="scr\st\sub_800214CC.c" />
+    <ClCompile Include="scr\st\sub_80021518.c" />
+    <ClCompile Include="scr\st\sub_80021654.c" />
+    <ClCompile Include="scr\st\sub_8002181C.c" />
+    <ClCompile Include="scr\st\sub_800218D8.c" />
+    <ClCompile Include="scr\st\sub_80021994.c" />
+    <ClCompile Include="scr\st\sub_80021AC4.c" />
+    <ClCompile Include="scr\st\sub_80022010.c" />
+    <ClCompile Include="scr\st\sub_80022678.c" />
+    <ClCompile Include="scr\st\sub_80023208.c" />
+    <ClCompile Include="scr\st\sub_80023288.c" />
+    <ClCompile Include="scr\st\sub_80023388.c" />
+    <ClCompile Include="scr\st\sub_80023470.c" />
+    <ClCompile Include="scr\st\sub_80023604.c" />
+    <ClCompile Include="scr\st\sub_80023788.c" />
+    <ClCompile Include="scr\st\sub_800237A8.c" />
+    <ClCompile Include="scr\st\sub_800239EC.c" />
+    <ClCompile Include="scr\st\sub_80023ABC.c" />
+    <ClCompile Include="scr\st\sub_80023BC4.c" />
+    <ClCompile Include="scr\st\sub_80023C6C.c" />
+    <ClCompile Include="scr\st\sub_80023ED8.c" />
+    <ClCompile Include="scr\st\sub_80024004.c" />
+    <ClCompile Include="scr\st\sub_800241D0.c" />
+    <ClCompile Include="scr\st\sub_800246E4.c" />
+    <ClCompile Include="scr\st\sub_800251C8.c" />
+    <ClCompile Include="scr\st\sub_800255F0.c" />
+    <ClCompile Include="scr\st\sub_80025C24.c" />
+    <ClCompile Include="scr\st\sub_80025E00.c" />
+    <ClCompile Include="scr\st\sub_80026020.c" />
+    <ClCompile Include="scr\st\sub_80026228.c" />
+    <ClCompile Include="scr\st\sub_80026508.c" />
+    <ClCompile Include="scr\st\sub_80026964.c" />
+    <ClCompile Include="scr\st\sub_80026A88.c" />
+    <ClCompile Include="scr\st\sub_80026AFC.c" />
+    <ClCompile Include="scr\st\sub_80026DD4.c" />
+    <ClCompile Include="scr\st\sub_80026E04.c" />
+    <ClCompile Include="scr\st\sub_80026E90.c" />
+    <ClCompile Include="scr\st\sub_80026ECC.c" />
+    <ClCompile Include="scr\st\sub_8002732C.c" />
+    <ClCompile Include="scr\st\sub_80027440.c" />
+    <ClCompile Include="scr\st\sub_800276BC.c" />
+    <ClCompile Include="scr\st\sub_80027D18.c" />
+    <ClCompile Include="scr\st\sub_80028220.c" />
+    <ClCompile Include="scr\st\sub_80028364.c" />
+    <ClCompile Include="scr\st\sub_800286A8.c" />
+    <ClCompile Include="scr\st\sub_80028784.c" />
+    <ClCompile Include="scr\st\sub_80028C2C.c" />
+    <ClCompile Include="scr\st\sub_80028DB8.c" />
+    <ClCompile Include="scr\st\sub_8002916C.c" />
+    <ClCompile Include="scr\st\sub_8002948C.c" />
+    <ClCompile Include="scr\st\sub_80029548.c" />
+    <ClCompile Include="scr\st\sub_80029618.c" />
+    <ClCompile Include="scr\st\sub_80029B74.c" />
+    <ClCompile Include="scr\st\sub_8002A1D0.c" />
+    <ClCompile Include="scr\st\sub_8002A5A4.c" />
+    <ClCompile Include="scr\st\sub_8002A954.c" />
+    <ClCompile Include="scr\st\sub_8002B2E8.c" />
+    <ClCompile Include="scr\st\sub_8002B84C.c" />
+    <ClCompile Include="scr\st\sub_8002C050.c" />
+    <ClCompile Include="scr\st\sub_8002C090.c" />
+    <ClCompile Include="scr\st\sub_8002C1A4.c" />
+    <ClCompile Include="scr\st\sub_8002C2B8.c" />
+    <ClCompile Include="scr\st\sub_8002C8BC.c" />
+    <ClCompile Include="scr\st\sub_8002C958.c" />
+    <ClCompile Include="scr\st\sub_8002C998.c" />
+    <ClCompile Include="scr\st\sub_8002C9E8.c" />
+    <ClCompile Include="scr\st\sub_8002CA84.c" />
+    <ClCompile Include="scr\st\sub_8002CD98.c" />
+    <ClCompile Include="scr\st\sub_8002CE84.c" />
+    <ClCompile Include="scr\st\sub_8002CEF8.c" />
+    <ClCompile Include="scr\st\sub_8002D0B0.c" />
+    <ClCompile Include="scr\st\sub_8002D1DC.c" />
+    <ClCompile Include="scr\st\sub_8002D574.c" />
+    <ClCompile Include="scr\st\sub_8002D60C.c" />
+    <ClCompile Include="scr\st\sub_8002D8E8.c" />
+    <ClCompile Include="scr\st\sub_8002DAA0.c" />
+    <ClCompile Include="scr\st\sub_8002DD70.c" />
+    <ClCompile Include="scr\st\sub_8002E310.c" />
+    <ClCompile Include="scr\st\sub_8002E490.c" />
+    <ClCompile Include="scr\st\sub_8002E4D0.c" />
+    <ClCompile Include="scr\st\sub_8002E94C.c" />
+    <ClCompile Include="scr\st\sub_8002ED98.c" />
+    <ClCompile Include="scr\st\sub_8002F1F8.c" />
+    <ClCompile Include="scr\st\sub_8002F498.c" />
+    <ClCompile Include="scr\st\sub_8002F97C.c" />
+    <ClCompile Include="scr\st\sub_8002FC4C.c" />
+    <ClCompile Include="scr\st\sub_8002FE4C.c" />
+    <ClCompile Include="scr\st\sub_8003025C.c" />
+    <ClCompile Include="scr\st\sub_80030AB8.c" />
+    <ClCompile Include="scr\st\sub_80030BE4.c" />
+    <ClCompile Include="scr\st\sub_80030FA0.c" />
+    <ClCompile Include="scr\st\sub_80031378.c" />
+    <ClCompile Include="scr\st\sub_80031674.c" />
+    <ClCompile Include="scr\st\sub_800319A8.c" />
+    <ClCompile Include="scr\st\sub_80031AEC.c" />
+    <ClCompile Include="scr\st\sub_80031CFC.c" />
+    <ClCompile Include="scr\st\sub_80031D50.c" />
+    <ClCompile Include="scr\st\sub_80031DE4.c" />
+    <ClCompile Include="scr\st\sub_80031EFC.c" />
+    <ClCompile Include="scr\st\sub_80032058.c" />
+    <ClCompile Include="scr\st\sub_8003216C.c" />
+    <ClCompile Include="scr\st\sub_80032210.c" />
+    <ClCompile Include="scr\st\sub_80032244.c" />
+    <ClCompile Include="scr\st\sub_8003227C.c" />
+    <ClCompile Include="scr\st\sub_800322F8.c" />
+    <ClCompile Include="scr\st\sub_80032358.c" />
+    <ClCompile Include="scr\st\sub_800323B8.c" />
+    <ClCompile Include="scr\st\sub_80032774.c" />
+    <ClCompile Include="scr\st\sub_80032800.c" />
+    <ClCompile Include="scr\st\sub_8003306C.c" />
+    <ClCompile Include="scr\st\sub_800330F0.c" />
+    <ClCompile Include="scr\st\sub_80033110.c" />
+    <ClCompile Include="scr\st\sub_800339C4.c" />
+    <ClCompile Include="scr\st\sub_80033A48.c" />
+    <ClCompile Include="scr\st\sub_80033A84.c" />
+    <ClCompile Include="scr\st\sub_80033B00.c" />
+    <ClCompile Include="scr\st\sub_80033CFC.c" />
+    <ClCompile Include="scr\st\sub_80033DB8.c" />
+    <ClCompile Include="scr\st\sub_80033E30.c" />
+    <ClCompile Include="scr\st\sub_800340C4.c" />
+    <ClCompile Include="scr\st\sub_800340F8.c" />
+    <ClCompile Include="scr\st\sub_8003413C.c" />
+    <ClCompile Include="scr\st\sub_800341A0.c" />
+    <ClCompile Include="scr\st\sub_80034224.c" />
+    <ClCompile Include="scr\st\sub_80034294.c" />
+    <ClCompile Include="scr\st\sub_80034364.c" />
+    <ClCompile Include="scr\st\sub_80034604.c" />
+    <ClCompile Include="scr\st\sub_800346DC.c" />
+    <ClCompile Include="scr\st\sub_80034760.c" />
+    <ClCompile Include="scr\st\sub_800347AC.c" />
+    <ClCompile Include="scr\st\sub_800347F8.c" />
+    <ClCompile Include="scr\st\sub_80034928.c" />
+    <ClCompile Include="scr\st\sub_8003498C.c" />
+    <ClCompile Include="scr\st\sub_800349D0.c" />
+    <ClCompile Include="scr\st\sub_80034E68.c" />
+    <ClCompile Include="scr\st\sub_80034F48.c" />
+    <ClCompile Include="scr\st\sub_80034FC4.c" />
+    <ClCompile Include="scr\st\sub_80035008.c" />
+    <ClCompile Include="scr\st\sub_8003509C.c" />
+    <ClCompile Include="scr\st\sub_80035120.c" />
+    <ClCompile Include="scr\st\sub_80035190.c" />
+    <ClCompile Include="scr\st\sub_80035260.c" />
+    <ClCompile Include="scr\st\sub_80035604.c" />
+    <ClCompile Include="scr\st\sub_8003569C.c" />
+    <ClCompile Include="scr\st\sub_80035AA8.c" />
+    <ClCompile Include="scr\st\sub_80035B80.c" />
+    <ClCompile Include="scr\st\sub_80035CC8.c" />
+    <ClCompile Include="scr\st\sub_80035D04.c" />
+    <ClCompile Include="scr\st\sub_80035E98.c" />
+    <ClCompile Include="scr\st\sub_80036150.c" />
+    <ClCompile Include="scr\st\sub_8003618C.c" />
+    <ClCompile Include="scr\st\sub_80036218.c" />
+    <ClCompile Include="scr\st\sub_80036370.c" />
+    <ClCompile Include="scr\st\sub_800363B4.c" />
+    <ClCompile Include="scr\st\sub_800363EC.c" />
+    <ClCompile Include="scr\st\sub_80036484.c" />
+    <ClCompile Include="scr\st\sub_80037E10.c" />
+    <ClCompile Include="scr\st\sub_800381A8.c" />
+    <ClCompile Include="scr\st\sub_80038300.c" />
+    <ClCompile Include="scr\st\sub_80038438.c" />
+    <ClCompile Include="scr\st\sub_80038464.c" />
+    <ClCompile Include="scr\st\sub_800385B0.c" />
+    <ClCompile Include="scr\st\sub_8003BC10.c" />
+    <ClCompile Include="scr\st\sub_8003BC40.c" />
+    <ClCompile Include="scr\st\sub_8003BD14.c" />
+    <ClCompile Include="scr\st\sub_8003BDB0.c" />
+    <ClCompile Include="scr\st\sub_8003BE10.c" />
+    <ClCompile Include="scr\st\sub_8003BEB4.c" />
+    <ClCompile Include="scr\st\sub_8003C054.c" />
+    <ClCompile Include="scr\st\sub_8003C0E0.c" />
+    <ClCompile Include="scr\st\sub_8003C17C.c" />
+    <ClCompile Include="scr\st\sub_8003C24C.c" />
+    <ClCompile Include="scr\st\sub_8003C95C.c" />
+    <ClCompile Include="scr\st\sub_8003CAE4.c" />
+    <ClCompile Include="scr\st\sub_8003CB88.c" />
+    <ClCompile Include="scr\st\sub_8003CEDC.c" />
+    <ClCompile Include="scr\st\sub_8003CF28.c" />
+    <ClCompile Include="scr\st\sub_8003CF94.c" />
+    <ClCompile Include="scr\st\sub_8003CFDC.c" />
+    <ClCompile Include="scr\st\sub_8003D030.c" />
+    <ClCompile Include="scr\st\sub_8003D104.c" />
+    <ClCompile Include="scr\st\sub_8003D288.c" />
+    <ClCompile Include="scr\st\sub_8003D594.c" />
+    <ClCompile Include="scr\st\sub_8003D788.c" />
+    <ClCompile Include="scr\st\sub_8003DBE0.c" />
+    <ClCompile Include="scr\st\sub_8003E718.c" />
+    <ClCompile Include="scr\st\sub_8003E734.c" />
+    <ClCompile Include="scr\st\sub_8003E794.c" />
+    <ClCompile Include="scr\st\sub_8003E840.c" />
+    <ClCompile Include="scr\st\sub_8003E874.c" />
+    <ClCompile Include="scr\st\sub_8003EA20.c" />
+    <ClCompile Include="scr\st\sub_8003EAD0.c" />
+    <ClCompile Include="scr\st\sub_8003EAF8.c" />
+    <ClCompile Include="scr\st\sub_8003EB34.c" />
+    <ClCompile Include="scr\st\sub_8003EBFC.c" />
+    <ClCompile Include="scr\st\sub_8003EC5C.c" />
+    <ClCompile Include="scr\st\sub_8003EE38.c" />
+    <ClCompile Include="scr\st\sub_8003F12C.c" />
+    <ClCompile Include="scr\st\sub_8003F4EC.c" />
+    <ClCompile Include="scr\st\sub_8003F670.c" />
+    <ClCompile Include="scr\st\sub_8003F704.c" />
+    <ClCompile Include="scr\st\sub_8003F910.c" />
+    <ClCompile Include="scr\st\sub_80040024.c" />
+    <ClCompile Include="scr\st\sub_800402AC.c" />
+    <ClCompile Include="scr\st\sub_80040F04.c" />
+    <ClCompile Include="scr\st\sub_80041150.c" />
+    <ClCompile Include="scr\st\sub_8004162C.c" />
+    <ClCompile Include="scr\st\sub_80041D4C.c" />
+    <ClCompile Include="scr\st\sub_800420A0.c" />
+    <ClCompile Include="scr\st\sub_80042620.c" />
+    <ClCompile Include="scr\st\sub_80042900.c" />
+    <ClCompile Include="scr\st\sub_80042B9C.c" />
+    <ClCompile Include="scr\st\sub_80042C10.c" />
+    <ClCompile Include="scr\st\sub_80042C44.c" />
+    <ClCompile Include="scr\st\sub_80042CFC.c" />
+    <ClCompile Include="scr\st\sub_80042D74.c" />
+    <ClCompile Include="scr\st\sub_800443F4.c" />
+    <ClCompile Include="scr\st\sub_80044404.c" />
+    <ClCompile Include="scr\st\sub_80044674.c" />
+    <ClCompile Include="scr\st\sub_80044EE8.c" />
+    <ClCompile Include="scr\st\sub_80045010.c" />
+    <ClCompile Include="scr\st\sub_80045044.c" />
+    <ClCompile Include="scr\st\sub_8004557C.c" />
+    <ClCompile Include="scr\st\sub_80045594.c" />
+    <ClCompile Include="scr\st\sub_800455AC.c" />
+    <ClCompile Include="scr\st\sub_800455C4.c" />
+    <ClCompile Include="scr\st\sub_800455DC.c" />
+    <ClCompile Include="scr\st\sub_800455F4.c" />
+    <ClCompile Include="scr\st\sub_80045648.c" />
+    <ClCompile Include="scr\st\sub_8004567C.c" />
+    <ClCompile Include="scr\st\sub_800456F8.c" />
+    <ClCompile Include="scr\st\sub_80045F90.c" />
+    <ClCompile Include="scr\st\sub_80045FB8.c" />
+    <ClCompile Include="scr\st\sub_80045FFC.c" />
+    <ClCompile Include="scr\st\sub_80046270.c" />
+    <ClCompile Include="scr\st\sub_8004656C.c" />
+    <ClCompile Include="scr\st\sub_80046604.c" />
+    <ClCompile Include="scr\st\sub_800468C0.c" />
+    <ClCompile Include="scr\st\sub_80047884.c" />
+    <ClCompile Include="scr\st\sub_80048AD0.c" />
+    <ClCompile Include="scr\st\sub_800492F4.c" />
+    <ClCompile Include="scr\st\sub_80049544.c" />
+    <ClCompile Include="scr\st\sub_800496C8.c" />
+    <ClCompile Include="scr\st\sub_800498CC.c" />
+    <ClCompile Include="scr\st\sub_80049AAC.c" />
+    <ClCompile Include="scr\st\sub_80049CD4.c" />
+    <ClCompile Include="scr\st\sub_80049D48.c" />
+    <ClCompile Include="scr\st\sub_80049DBC.c" />
+    <ClCompile Include="scr\st\sub_80049E30.c" />
+    <ClCompile Include="scr\st\sub_80049F08.c" />
+    <ClCompile Include="scr\st\sub_80049FE4.c" />
+    <ClCompile Include="scr\st\sub_8004A078.c" />
+    <ClCompile Include="scr\st\sub_8004A0F8.c" />
+    <ClCompile Include="scr\st\sub_8004A148.c" />
+    <ClCompile Include="scr\st\sub_8004A184.c" />
+    <ClCompile Include="scr\st\sub_8004A194.c" />
+    <ClCompile Include="scr\st\sub_8004A1B4.c" />
+    <ClCompile Include="scr\st\sub_8004A304.c" />
+    <ClCompile Include="scr\st\sub_8004A340.c" />
+    <ClCompile Include="scr\st\sub_8004A390.c" />
+    <ClCompile Include="scr\st\sub_8004A40C.c" />
+    <ClCompile Include="scr\st\sub_8004A484.c" />
+    <ClCompile Include="scr\st\sub_8004A580.c" />
+    <ClCompile Include="scr\st\sub_8004A67C.c" />
+    <ClCompile Include="scr\st\sub_8004A830.c" />
+    <ClCompile Include="scr\st\sub_8004A848.c" />
+    <ClCompile Include="scr\st\sub_8004A888.c" />
+    <ClCompile Include="scr\st\sub_8004A8E8.c" />
+    <ClCompile Include="scr\st\sub_8004AC38.c" />
+    <ClCompile Include="scr\st\sub_8004AC9C.c" />
+    <ClCompile Include="scr\st\sub_8004ACEC.c" />
+    <ClCompile Include="scr\st\sub_8004AD70.c" />
+    <ClCompile Include="scr\st\sub_8004AF24.c" />
+    <ClCompile Include="scr\st\sub_8004AF7C.c" />
+    <ClCompile Include="scr\st\sub_8004AFDC.c" />
+    <ClCompile Include="scr\st\sub_8004B058.c" />
+    <ClCompile Include="scr\st\sub_8004B090.c" />
+    <ClCompile Include="scr\st\sub_8004B098.c" />
+    <ClCompile Include="scr\st\sub_8004B1E8.c" />
+    <ClCompile Include="scr\st\sub_8004B2DC.c" />
+    <ClCompile Include="scr\st\sub_8004B658.c" />
+    <ClCompile Include="scr\st\sub_8004BB88.c" />
+    <ClCompile Include="scr\st\sub_8004BE80.c" />
+    <ClCompile Include="scr\st\sub_8004C03C.c" />
+    <ClCompile Include="scr\st\sub_8004C1B4.c" />
+    <ClCompile Include="scr\st\sub_8004C934.c" />
+    <ClCompile Include="scr\st\sub_8004CA90.c" />
+    <ClCompile Include="scr\st\sub_8004CBA0.c" />
+    <ClCompile Include="scr\st\sub_8004CC70.c" />
+    <ClCompile Include="scr\st\sub_8004D75C.c" />
+    <ClCompile Include="scr\st\sub_8004D804.c" />
+    <ClCompile Include="scr\st\sub_8004DA2C.c" />
+    <ClCompile Include="scr\st\sub_8004DB0C.c" />
+    <ClCompile Include="scr\st\sub_8004DB9C.c" />
+    <ClCompile Include="scr\st\sub_8004DE24.c" />
+    <ClCompile Include="scr\st\sub_8004DEF8.c" />
+    <ClCompile Include="scr\st\sub_8004E2D8.c" />
+    <ClCompile Include="scr\st\sub_8004E324.c" />
+    <ClCompile Include="scr\st\sub_8004E8EC.c" />
+    <ClCompile Include="scr\st\sub_8004E960.c" />
+    <ClCompile Include="scr\st\sub_8004ED54.c" />
+    <ClCompile Include="scr\st\sub_8004EDA8.c" />
+    <ClCompile Include="scr\st\sub_8004EE00.c" />
+    <ClCompile Include="scr\st\sub_8004EE48.c" />
+    <ClCompile Include="scr\st\sub_8004EEBC.c" />
+    <ClCompile Include="scr\st\sub_8004F53C.c" />
+    <ClCompile Include="scr\st\sub_8004F718.c" />
+    <ClCompile Include="scr\st\sub_8004F994.c" />
+    <ClCompile Include="scr\st\sub_8004FB88.c" />
+    <ClCompile Include="scr\st\sub_8004FC54.c" />
+    <ClCompile Include="scr\st\sub_8004FC94.c" />
+    <ClCompile Include="scr\st\sub_8004FD28.c" />
+    <ClCompile Include="scr\st\sub_8004FDE4.c" />
+    <ClCompile Include="scr\st\sub_8004FED4.c" />
+    <ClCompile Include="scr\st\sub_8004FF88.c" />
+    <ClCompile Include="scr\st\sub_800500AC.c" />
+    <ClCompile Include="scr\st\sub_80050288.c" />
+    <ClCompile Include="scr\st\sub_80050468.c" />
+    <ClCompile Include="scr\st\sub_80050564.c" />
+    <ClCompile Include="scr\st\sub_8005066C.c" />
+    <ClCompile Include="scr\st\sub_80050768.c" />
+    <ClCompile Include="scr\st\sub_80052894.c" />
+    <ClCompile Include="scr\st\sub_80052C24.c" />
+    <ClCompile Include="scr\st\sub_80052C5C.c" />
+    <ClCompile Include="scr\st\sub_80052CA4.c" />
+    <ClCompile Include="scr\st\sub_80052D10.c" />
+    <ClCompile Include="scr\st\sub_80052D40.c" />
+    <ClCompile Include="scr\st\sub_80052D98.c" />
+    <ClCompile Include="scr\st\sub_80052E50.c" />
+    <ClCompile Include="scr\st\sub_80052F30.c" />
+    <ClCompile Include="scr\st\sub_80053174.c" />
+    <ClCompile Include="scr\st\sub_8005335C.c" />
+    <ClCompile Include="scr\st\sub_80053AA4.c" />
+    <ClCompile Include="scr\st\sub_80053EE4.c" />
+    <ClCompile Include="scr\st\sub_80053FF0.c" />
+    <ClCompile Include="scr\st\sub_80054000.c" />
+    <ClCompile Include="scr\st\sub_8005408C.c" />
+    <ClCompile Include="scr\st\sub_800541F4.c" />
+    <ClCompile Include="scr\st\sub_80054278.c" />
+    <ClCompile Include="scr\st\sub_800542D0.c" />
+    <ClCompile Include="scr\st\sub_80054368.c" />
+    <ClCompile Include="scr\st\sub_80054858.c" />
+    <ClCompile Include="scr\st\sub_80054A54.c" />
+    <ClCompile Include="scr\st\sub_800552BC.c" />
+    <ClCompile Include="scr\st\sub_80055374.c" />
+    <ClCompile Include="scr\st\sub_80055990.c" />
+    <ClCompile Include="scr\st\sub_800559BC.c" />
+    <ClCompile Include="scr\st\sub_80055CF4.c" />
+    <ClCompile Include="scr\st\sub_80055F9C.c" />
+    <ClCompile Include="scr\st\sub_800562D4.c" />
+    <ClCompile Include="scr\st\sub_80056AA0.c" />
+    <ClCompile Include="scr\st\sub_8005735C.c" />
+    <ClCompile Include="scr\st\sub_8005738C.c" />
+    <ClCompile Include="scr\st\sub_800573BC.c" />
+    <ClCompile Include="scr\st\sub_80057428.c" />
+    <ClCompile Include="scr\st\sub_800574C0.c" />
+    <ClCompile Include="scr\st\sub_8005755C.c" />
+    <ClCompile Include="scr\st\sub_800575A0.c" />
+    <ClCompile Include="scr\st\sub_80057684.c" />
+    <ClCompile Include="scr\st\sub_80057744.c" />
+    <ClCompile Include="scr\st\sub_80057A28.c" />
+    <ClCompile Include="scr\st\sub_80057A3C.c" />
+    <ClCompile Include="scr\st\sub_80057A68.c" />
+    <ClCompile Include="scr\st\sub_80057B10.c" />
+    <ClCompile Include="scr\st\sub_80057B48.c" />
+    <ClCompile Include="scr\st\sub_80057BAC.c" />
+    <ClCompile Include="scr\st\sub_80057C0C.c" />
+    <ClCompile Include="scr\st\sub_80057C54.c" />
+    <ClCompile Include="scr\st\sub_80057C78.c" />
+    <ClCompile Include="scr\st\sub_80057CB8.c" />
+    <ClCompile Include="scr\st\sub_80057CC8.c" />
+    <ClCompile Include="scr\st\sub_80057CEC.c" />
+    <ClCompile Include="scr\st\sub_80057D10.c" />
+    <ClCompile Include="scr\st\sub_80057D34.c" />
+    <ClCompile Include="scr\st\sub_80057D58.c" />
+    <ClCompile Include="scr\st\sub_80057D7C.c" />
+    <ClCompile Include="scr\st\sub_80057DA0.c" />
+    <ClCompile Include="scr\st\sub_80057F3C.c" />
+    <ClCompile Include="scr\st\sub_80057FC4.c" />
+    <ClCompile Include="scr\st\sub_80058220.c" />
+    <ClCompile Include="scr\st\sub_80058254.c" />
+    <ClCompile Include="scr\st\sub_80058288.c" />
+    <ClCompile Include="scr\st\sub_800582F0.c" />
+    <ClCompile Include="scr\st\sub_80058318.c" />
+    <ClCompile Include="scr\st\sub_8005850C.c" />
+    <ClCompile Include="scr\st\sub_80058534.c" />
+    <ClCompile Include="scr\st\sub_80058620.c" />
+    <ClCompile Include="scr\st\sub_80058770.c" />
+    <ClCompile Include="scr\st\sub_800588B4.c" />
+    <ClCompile Include="scr\st\sub_80058A0C.c" />
+    <ClCompile Include="scr\st\sub_80058C4C.c" />
+    <ClCompile Include="scr\st\sub_80058CC8.c" />
+    <ClCompile Include="scr\st\sub_80058D30.c" />
+    <ClCompile Include="scr\st\sub_80058DC4.c" />
+    <ClCompile Include="scr\st\sub_80058ED4.c" />
+    <ClCompile Include="scr\st\sub_80058EF4.c" />
+    <ClCompile Include="scr\st\sub_80059204.c" />
+    <ClCompile Include="scr\st\sub_800595D4.c" />
+    <ClCompile Include="scr\st\sub_8005975C.c" />
+    <ClCompile Include="scr\st\sub_80059CEC.c" />
+    <ClCompile Include="scr\st\sub_80059DC0.c" />
+    <ClCompile Include="scr\st\sub_8005A36C.c" />
+    <ClCompile Include="scr\st\sub_8005A3A8.c" />
+    <ClCompile Include="scr\st\sub_8005AA80.c" />
+    <ClCompile Include="scr\st\sub_8005AD00.c" />
+    <ClCompile Include="scr\st\sub_8005C7FC.c" />
+    <ClCompile Include="scr\st\sub_8005D25C.c" />
+    <ClCompile Include="scr\st\sub_8005E924.c" />
+    <ClCompile Include="scr\st\sub_8005EC10.c" />
+    <ClCompile Include="scr\st\sub_8005F38C.c" />
+    <ClCompile Include="scr\st\sub_8005F4FC.c" />
+    <ClCompile Include="scr\st\sub_8005F6A4.c" />
+    <ClCompile Include="scr\st\sub_8005F884.c" />
+    <ClCompile Include="scr\st\sub_8005F894.c" />
+    <ClCompile Include="scr\st\sub_80060014.c" />
+    <ClCompile Include="scr\st\sub_80060018.c" />
+    <ClCompile Include="scr\st\sub_80060334.c" />
+    <ClCompile Include="scr\st\sub_80060BAC.c" />
+    <ClCompile Include="scr\st\sub_80060C00.c" />
+    <ClCompile Include="scr\st\sub_80060C54.c" />
+    <ClCompile Include="scr\st\sub_80060DE4.c" />
+    <ClCompile Include="scr\st\sub_80060ED4.c" />
+    <ClCompile Include="scr\st\sub_80060F88.c" />
+    <ClCompile Include="scr\st\sub_8006103C.c" />
+    <ClCompile Include="scr\st\sub_800613E8.c" />
+    <ClCompile Include="scr\st\sub_80061578.c" />
+    <ClCompile Include="scr\st\sub_800615D8.c" />
+    <ClCompile Include="scr\st\sub_800616F8.c" />
+    <ClCompile Include="scr\st\sub_8006184C.c" />
+    <ClCompile Include="scr\st\sub_80061A08.c" />
+    <ClCompile Include="scr\st\sub_80061D34.c" />
+    <ClCompile Include="scr\st\sub_80061EE8.c" />
+    <ClCompile Include="scr\st\sub_8006205C.c" />
+    <ClCompile Include="scr\st\sub_80062228.c" />
+    <ClCompile Include="scr\st\sub_80062BC0.c" />
+    <ClCompile Include="scr\st\sub_80062C28.c" />
+    <ClCompile Include="scr\st\sub_80063078.c" />
+    <ClCompile Include="scr\st\sub_800631AC.c" />
+    <ClCompile Include="scr\st\sub_80063260.c" />
+    <ClCompile Include="scr\st\sub_800633D4.c" />
+    <ClCompile Include="scr\st\sub_80063638.c" />
+    <ClCompile Include="scr\st\sub_800636F8.c" />
+    <ClCompile Include="scr\st\sub_800637C0.c" />
+    <ClCompile Include="scr\st\sub_80063954.c" />
+    <ClCompile Include="scr\st\sub_80063BDC.c" />
+    <ClCompile Include="scr\st\sub_80063CB0.c" />
+    <ClCompile Include="scr\st\sub_800642E8.c" />
+    <ClCompile Include="scr\st\sub_80064BA8.c" />
+    <ClCompile Include="scr\st\sub_80064EE4.c" />
+    <ClCompile Include="scr\st\sub_800650DC.c" />
+    <ClCompile Include="scr\st\sub_800651F0.c" />
+    <ClCompile Include="scr\st\sub_80065270.c" />
+    <ClCompile Include="scr\st\sub_80065770.c" />
+    <ClCompile Include="scr\st\sub_80065DE0.c" />
+    <ClCompile Include="scr\st\sub_80065F40.c" />
+    <ClCompile Include="scr\st\sub_80066004.c" />
+    <ClCompile Include="scr\st\sub_8006616C.c" />
+    <ClCompile Include="scr\st\sub_800661C8.c" />
+    <ClCompile Include="scr\st\sub_8006620C.c" />
+    <ClCompile Include="scr\st\sub_80066240.c" />
+    <ClCompile Include="scr\st\sub_800666B0.c" />
+    <ClCompile Include="scr\st\sub_80067580.c" />
+    <ClCompile Include="scr\st\sub_80067624.c" />
+    <ClCompile Include="scr\st\sub_80067BEC.c" />
+    <ClCompile Include="scr\st\sub_80068258.c" />
+    <ClCompile Include="scr\st\sub_800685F4.c" />
+    <ClCompile Include="scr\st\sub_800687E4.c" />
+    <ClCompile Include="scr\st\sub_80068854.c" />
+    <ClCompile Include="scr\st\sub_80068868.c" />
+    <ClCompile Include="scr\st\sub_80068A34.c" />
+    <ClCompile Include="scr\st\sub_80068AB8.c" />
+    <ClCompile Include="scr\st\sub_80068AE0.c" />
+    <ClCompile Include="scr\st\sub_80068B08.c" />
+    <ClCompile Include="scr\st\sub_800692C4.c" />
+    <ClCompile Include="scr\st\sub_8006A94C.c" />
+    <ClCompile Include="scr\st\sub_8006ACFC.c" />
+    <ClCompile Include="scr\st\sub_8006AD1C.c" />
+    <ClCompile Include="scr\st\sub_8006AFE0.c" />
+    <ClCompile Include="scr\st\sub_8006B084.c" />
+    <ClCompile Include="scr\st\sub_8006B320.c" />
+    <ClCompile Include="scr\st\sub_8006B394.c" />
+    <ClCompile Include="scr\st\sub_8006B5F4.c" />
+    <ClCompile Include="scr\st\sub_8006B6C0.c" />
+    <ClCompile Include="scr\st\sub_8006B910.c" />
+    <ClCompile Include="scr\st\sub_8006B944.c" />
+    <ClCompile Include="scr\st\sub_8006BA44.c" />
+    <ClCompile Include="scr\st\sub_8006BB0C.c" />
+    <ClCompile Include="scr\st\sub_8006BB20.c" />
+    <ClCompile Include="scr\st\sub_8006BF24.c" />
+    <ClCompile Include="scr\st\sub_8006C72C.c" />
+    <ClCompile Include="scr\st\sub_8006C754.c" />
+    <ClCompile Include="scr\st\sub_8006CA74.c" />
+    <ClCompile Include="scr\st\sub_8006D094.c" />
+    <ClCompile Include="scr\st\sub_8006D304.c" />
+    <ClCompile Include="scr\st\sub_8006D350.c" />
+    <ClCompile Include="scr\st\sub_8006D614.c" />
+    <ClCompile Include="scr\st\sub_8006D924.c" />
+    <ClCompile Include="scr\st\sub_8006F054.c" />
+    <ClCompile Include="scr\st\sub_8006F504.c" />
+    <ClCompile Include="scr\st\sub_800706A4.c" />
+    <ClCompile Include="scr\st\sub_80071890.c" />
+    <ClCompile Include="scr\st\sub_80071FD8.c" />
+    <ClCompile Include="scr\st\sub_800721C4.c" />
+    <ClCompile Include="scr\st\sub_80072794.c" />
+    <ClCompile Include="scr\st\sub_800728A4.c" />
+    <ClCompile Include="scr\st\sub_800732F8.c" />
+    <ClCompile Include="scr\st\sub_800733EC.c" />
+    <ClCompile Include="scr\st\sub_80073564.c" />
+    <ClCompile Include="scr\st\sub_80073994.c" />
+    <ClCompile Include="scr\st\sub_800739F4.c" />
+    <ClCompile Include="scr\st\sub_80074094.c" />
+    <ClCompile Include="scr\st\sub_8007463C.c" />
+    <ClCompile Include="scr\st\sub_80074854.c" />
+    <ClCompile Include="scr\st\sub_80075E40.c" />
+    <ClCompile Include="scr\st\sub_800762D0.c" />
+    <ClCompile Include="scr\st\sub_800767F4.c" />
+    <ClCompile Include="scr\st\sub_80076DF0.c" />
+    <ClCompile Include="scr\st\sub_8007727C.c" />
+    <ClCompile Include="scr\st\sub_800774A8.c" />
+    <ClCompile Include="scr\st\sub_80077580.c" />
+    <ClCompile Include="scr\st\sub_80077750.c" />
+    <ClCompile Include="scr\st\sub_80077898.c" />
+    <ClCompile Include="scr\st\sub_80077938.c" />
+    <ClCompile Include="scr\st\sub_800779B0.c" />
+    <ClCompile Include="scr\st\sub_800779D4.c" />
+    <ClCompile Include="scr\st\sub_80077A2C.c" />
+    <ClCompile Include="scr\st\sub_80077A98.c" />
+    <ClCompile Include="scr\st\sub_80077AC4.c" />
+    <ClCompile Include="scr\st\sub_80077B40.c" />
+    <ClCompile Include="scr\st\sub_80077CC0.c" />
+    <ClCompile Include="scr\st\sub_80077D6C.c" />
+    <ClCompile Include="scr\st\sub_80077DDC.c" />
+    <ClCompile Include="scr\st\sub_80078250.c" />
+    <ClCompile Include="scr\st\sub_80078508.c" />
+    <ClCompile Include="scr\st\sub_80078580.c" />
+    <ClCompile Include="scr\st\sub_800785B8.c" />
+    <ClCompile Include="scr\st\sub_80078620.c" />
+    <ClCompile Include="scr\st\sub_800788E4.c" />
+    <ClCompile Include="scr\st\sub_80078A3C.c" />
+    <ClCompile Include="scr\st\sub_800795F4.c" />
+    <ClCompile Include="scr\st\sub_800796A8.c" />
+    <ClCompile Include="scr\st\sub_80079AC8.c" />
+    <ClCompile Include="scr\st\sub_8007A934.c" />
+    <ClCompile Include="scr\st\sub_8007AB80.c" />
+    <ClCompile Include="scr\st\sub_8007ADF0.c" />
+    <ClCompile Include="scr\st\sub_8007AE10.c" />
+    <ClCompile Include="scr\st\sub_8007AEA8.c" />
+    <ClCompile Include="scr\st\sub_8007AF40.c" />
+    <ClCompile Include="scr\st\sub_8007AF5C.c" />
+    <ClCompile Include="scr\st\sub_8007AFDC.c" />
+    <ClCompile Include="scr\st\sub_8007AFF4.c" />
+    <ClCompile Include="scr\st\sub_8007B0D4.c" />
+    <ClCompile Include="scr\st\sub_8007B304.c" />
+    <ClCompile Include="scr\st\sub_8007B540.c" />
+    <ClCompile Include="scr\st\sub_8007B7C0.c" />
+    <ClCompile Include="scr\st\sub_8007B7E4.c" />
+    <ClCompile Include="scr\st\sub_8007B7F8.c" />
+    <ClCompile Include="scr\st\sub_8007B838.c" />
+    <ClCompile Include="scr\st\sub_8007B880.c" />
+    <ClCompile Include="scr\st\sub_8007B8B0.c" />
+    <ClCompile Include="scr\st\sub_8007B8D4.c" />
+    <ClCompile Include="scr\st\sub_8007BB84.c" />
+    <ClCompile Include="scr\st\sub_8007BDE4.c" />
+    <ClCompile Include="scr\st\sub_8007BF34.c" />
+    <ClCompile Include="scr\st\sub_8007C070.c" />
+    <ClCompile Include="scr\st\sub_8007C0A4.c" />
+    <ClCompile Include="scr\st\sub_8007C1E8.c" />
+    <ClCompile Include="scr\st\sub_8007C6A0.c" />
+    <ClCompile Include="scr\st\sub_8007C6C8.c" />
+    <ClCompile Include="scr\st\sub_8007CAC8.c" />
+    <ClCompile Include="scr\st\sub_8007CC44.c" />
+    <ClCompile Include="scr\st\sub_8007CCC4.c" />
+    <ClCompile Include="scr\st\sub_8007CE2C.c" />
+    <ClCompile Include="scr\st\sub_8007CE58.c" />
+    <ClCompile Include="scr\st\sub_8007CEC0.c" />
+    <ClCompile Include="scr\st\sub_8007D02C.c" />
+    <ClCompile Include="scr\st\sub_8007D040.c" />
+    <ClCompile Include="scr\st\sub_8007D10C.c" />
+    <ClCompile Include="scr\st\sub_8007D150.c" />
+    <ClCompile Include="scr\st\sub_8007D364.c" />
+    <ClCompile Include="scr\st\sub_8007D42C.c" />
+    <ClCompile Include="scr\st\sub_8007D604.c" />
+    <ClCompile Include="scr\st\sub_8007D838.c" />
+    <ClCompile Include="scr\st\sub_8007D8C8.c" />
+    <ClCompile Include="scr\st\sub_8007D8F4.c" />
+    <ClCompile Include="scr\st\sub_8007D910.c" />
+    <ClCompile Include="scr\st\sub_8007D994.c" />
+    <ClCompile Include="scr\st\sub_8007DAE0.c" />
+    <ClCompile Include="scr\st\sub_8007DB18.c" />
+    <ClCompile Include="scr\st\sub_8007DBEC.c" />
+    <ClCompile Include="scr\st\sub_8007DC94.c" />
+    <ClCompile Include="scr\st\sub_8007DF08.c" />
+    <ClCompile Include="scr\st\sub_8007DF70.c" />
+    <ClCompile Include="scr\st\sub_8007DF8C.c" />
+    <ClCompile Include="scr\st\sub_8007E054.c" />
+    <ClCompile Include="scr\st\sub_8007E0EC.c" />
+    <ClCompile Include="scr\st\sub_8007E140.c" />
+    <ClCompile Include="scr\st\sub_8007E1A0.c" />
+    <ClCompile Include="scr\st\sub_8007E1C0.c" />
+    <ClCompile Include="scr\st\sub_8007E1D4.c" />
+    <ClCompile Include="scr\st\sub_8007E1F4.c" />
+    <ClCompile Include="scr\st\sub_8007E214.c" />
+    <ClCompile Include="scr\st\sub_8007E234.c" />
+    <ClCompile Include="scr\st\sub_8007E254.c" />
+    <ClCompile Include="scr\st\sub_8007E294.c" />
+    <ClCompile Include="scr\st\sub_8007E36C.c" />
+    <ClCompile Include="scr\st\sub_8007E42C.c" />
+    <ClCompile Include="scr\st\sub_8007E4B8.c" />
+    <ClCompile Include="scr\st\sub_8007E994.c" />
+    <ClCompile Include="scr\st\sub_8007E9FC.c" />
+    <ClCompile Include="scr\st\sub_8007EAF0.c" />
+    <ClCompile Include="scr\st\sub_8007EB00.c" />
+    <ClCompile Include="scr\st\sub_8007EBBC.c" />
+    <ClCompile Include="scr\st\sub_8007EE38.c" />
+    <ClCompile Include="scr\st\sub_8007EE70.c" />
+    <ClCompile Include="scr\st\sub_8007EEA4.c" />
+    <ClCompile Include="scr\st\sub_8007EED8.c" />
+    <ClCompile Include="scr\st\sub_8007EFAC.c" />
+    <ClCompile Include="scr\st\sub_8007F210.c" />
+    <ClCompile Include="scr\st\sub_8007F2EC.c" />
+    <ClCompile Include="scr\st\SysDeqIntRP.c" />
+    <ClCompile Include="scr\st\SysEnqIntRP.c" />
+    <ClCompile Include="scr\st\TestEvent.c" />
+    <ClCompile Include="scr\st\TransMatrix.c" />
+    <ClCompile Include="scr\st\VectorNormalS.c" />
+    <ClCompile Include="scr\st\VSync.c" />
+    <ClCompile Include="scr\st\VSyncCallback.c" />
+    <ClCompile Include="scr\st\VSyncCallbacks.c" />
+    <ClCompile Include="scr\st\WaitEvent.c" />
+    <ClCompile Include="scr\st\write.c" />
+    <ClCompile Include="scr\st\_bu_init.c" />
+    <ClCompile Include="scr\st\_card_clear.c" />
+    <ClCompile Include="scr\st\_card_info.c" />
+    <ClCompile Include="scr\st\_card_load.c" />
+    <ClCompile Include="scr\st\_card_write.c" />
+    <ClCompile Include="scr\st\_copy_memcard_patch.c" />
+    <ClCompile Include="scr\st\_ExitCard.c" />
+    <ClCompile Include="scr\st\_ExitCard_0.c" />
+    <ClCompile Include="scr\st\_GPU_ResetCallback.c" />
+    <ClCompile Include="scr\st\_new_card.c" />
+    <ClCompile Include="scr\st\_patch_card.c" />
+    <ClCompile Include="scr\st\_patch_card2.c" />
+    <ClCompile Include="scr\st\_patch_pad.c" />
+    <ClCompile Include="scr\st\_remove_ChgclrPAD.c" />
+    <ClCompile Include="scr\st\_SpuDataCallback.c" />
+    <ClCompile Include="scr\st\_SpuInit.c" />
+    <ClCompile Include="scr\st\_SpuIsInAllocateArea.c" />
+    <ClCompile Include="scr\st\_SpuIsInAllocateArea_.c" />
+    <ClCompile Include="scr\st\_SpuSetAnyVoice.c" />
+    <ClCompile Include="scr\st\_spu_FgetRXXa.c" />
+    <ClCompile Include="scr\st\_spu_FiDMA.c" />
+    <ClCompile Include="scr\st\_spu_Fr.c" />
+    <ClCompile Include="scr\st\_spu_Fr_.c" />
+    <ClCompile Include="scr\st\_spu_FsetPCR.c" />
+    <ClCompile Include="scr\st\_spu_FsetRXX.c" />
+    <ClCompile Include="scr\st\_spu_FsetRXXa.c" />
+    <ClCompile Include="scr\st\_spu_Fw.c" />
+    <ClCompile Include="scr\st\_spu_Fw1ts.c" />
+    <ClCompile Include="scr\st\_spu_gcSPU.c" />
+    <ClCompile Include="scr\st\_spu_getInTransfer.c" />
+    <ClCompile Include="scr\st\_spu_init.c" />
+    <ClCompile Include="scr\st\_spu_setInTransfer.c" />
+    <ClCompile Include="scr\st\_spu_setReverbAttr.c" />
+    <ClCompile Include="scr\st\_spu_t.c" />
+    <ClCompile Include="scr\st\_SsGetSeqData.c" />
+    <ClCompile Include="scr\st\_SsReadDeltaValue.c" />
+    <ClCompile Include="scr\st\_SsSeqGetEof.c" />
+    <ClCompile Include="scr\st\_SsSeqPlay.c" />
+    <ClCompile Include="scr\st\_SsSndNextSep.c" />
+    <ClCompile Include="scr\st\_SsSndPause.c" />
+    <ClCompile Include="scr\st\_SsSndPlay.c" />
+    <ClCompile Include="scr\st\_SsSndReplay.c" />
+    <ClCompile Include="scr\st\_SsSndStop.c" />
+    <ClCompile Include="scr\st\_SsSndTempo.c" />
+    <ClCompile Include="scr\st\_SsVmAlloc.c" />
+    <ClCompile Include="scr\st\_SsVmDamperOff.c" />
+    <ClCompile Include="scr\st\_SsVmFlush.c" />
+    <ClCompile Include="scr\st\_SsVmGetSeqRVol.c" />
+    <ClCompile Include="scr\st\_SsVmInit.c" />
+    <ClCompile Include="scr\st\_SsVmKeyOffNow.c" />
+    <ClCompile Include="scr\st\_SsVmSeqKeyOff.c" />
+    <ClCompile Include="scr\st\_SsVmSetSeqVol.c" />
+    <ClCompile Include="scr\st\_SsVmVSetUp.c" />
+    <ClCompile Include="scr\st\__builtin_delete.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PsyCross\include\psx\abs.h" />
+    <ClInclude Include="PsyCross\include\psx\asm.h" />
+    <ClInclude Include="PsyCross\include\psx\gtemac.h" />
+    <ClInclude Include="PsyCross\include\psx\gtereg.h" />
+    <ClInclude Include="PsyCross\include\psx\inline_c.h" />
+    <ClInclude Include="PsyCross\include\psx\kernel.h" />
+    <ClInclude Include="PsyCross\include\psx\libapi.h" />
+    <ClInclude Include="PsyCross\include\psx\libcd.h" />
+    <ClInclude Include="PsyCross\include\psx\libetc.h" />
+    <ClInclude Include="PsyCross\include\psx\libgpu.h" />
+    <ClInclude Include="PsyCross\include\psx\libgte.h" />
+    <ClInclude Include="PsyCross\include\psx\libmath.h" />
+    <ClInclude Include="PsyCross\include\psx\libmcrd.h" />
+    <ClInclude Include="PsyCross\include\psx\libpad.h" />
+    <ClInclude Include="PsyCross\include\psx\libpress.h" />
+    <ClInclude Include="PsyCross\include\psx\libsn.h" />
+    <ClInclude Include="PsyCross\include\psx\libspu.h" />
+    <ClInclude Include="PsyCross\include\psx\r3000.h" />
+    <ClInclude Include="PsyCross\include\psx\rand.h" />
+    <ClInclude Include="PsyCross\include\psx\strings.h" />
+    <ClInclude Include="PsyCross\include\psx\types.h" />
+    <ClInclude Include="PsyCross\include\PsyX\common\glad.h" />
+    <ClInclude Include="PsyCross\include\PsyX\common\half_float.h" />
+    <ClInclude Include="PsyCross\include\PsyX\common\pgxp_defs.h" />
+    <ClInclude Include="PsyCross\include\PsyX\PsyX_config.h" />
+    <ClInclude Include="PsyCross\include\PsyX\PsyX_globals.h" />
+    <ClInclude Include="PsyCross\include\PsyX\PsyX_public.h" />
+    <ClInclude Include="PsyCross\include\PsyX\PsyX_render.h" />
+    <ClInclude Include="PsyCross\include\PsyX\PsyX_version.h" />
+    <ClInclude Include="PsyCross\include\PsyX\util\timer.h" />
+    <ClInclude Include="PsyCross\src\audio\PsyX_SPUAL.h" />
+    <ClInclude Include="PsyCross\src\gpu\font.h" />
+    <ClInclude Include="PsyCross\src\gpu\PsyX_GPU.h" />
+    <ClInclude Include="PsyCross\src\gte\PsyX_GTE.h" />
+    <ClInclude Include="PsyCross\src\gte\ratan_tbl.h" />
+    <ClInclude Include="PsyCross\src\gte\rcossin_tbl.h" />
+    <ClInclude Include="PsyCross\src\gte\sqrt_tbl.h" />
+    <ClInclude Include="PsyCross\src\iso9660.h" />
+    <ClInclude Include="PsyCross\src\pad\PsyX_pad.h" />
+    <ClInclude Include="PsyCross\src\platform.h" />
+    <ClInclude Include="PsyCross\src\PsyX_main.h" />
+    <ClInclude Include="PsyCross\src\util\crash_handler.h" />
+    <ClInclude Include="scr\CrashHandler.h" />
+    <ClInclude Include="scr\gte.h" />
+    <ClInclude Include="scr\kf_cd.h" />
+    <ClInclude Include="scr\recomp.h" />
+    <ClInclude Include="scr\resource.h" />
+    <ClInclude Include="scr\st\disable_warnings.h" />
+    <ClInclude Include="scr\st\funcs.h" />
+    <ClInclude Include="scr\_context.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="scr\st\recomp_overlays.inl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

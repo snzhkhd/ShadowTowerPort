@@ -1,0 +1,3473 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Исходные файлы\scr">
+      <UniqueIdentifier>{215ee99c-ca0d-43fa-903d-0d66f344f8b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\scr\st">
+      <UniqueIdentifier>{1c974f5b-eb99-4ed3-b82d-d223616b1686}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\scr">
+      <UniqueIdentifier>{9910cbfc-a0de-48cd-b9ad-3723f3ffd297}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\PsyCross">
+      <UniqueIdentifier>{9337025c-4d99-46e1-bbce-71d7be9efff6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\PsyCross">
+      <UniqueIdentifier>{aeba0b94-783a-4b73-8325-515f984fe6ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\PsyCross\audio">
+      <UniqueIdentifier>{4f077305-cec8-4701-8f2a-e25afb7dd228}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\PsyCross\gpu">
+      <UniqueIdentifier>{61e28b38-1b85-4158-b5d9-275d586d56ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\PsyCross\gte">
+      <UniqueIdentifier>{6cfaedd3-81bc-4a8e-8308-7d1e84ef863c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\PsyCross\pad">
+      <UniqueIdentifier>{9aad5559-949f-49d4-9c30-b8e9a2083fc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\PsyCross\psx">
+      <UniqueIdentifier>{1a910f29-f4a5-4de4-bee4-cd038bb03c9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\PsyCross\render">
+      <UniqueIdentifier>{cefcdc29-d195-45be-9bbb-f8d36e97cb85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\PsyCross\util">
+      <UniqueIdentifier>{a40d65cf-6500-4cb8-b0d1-c9313caeca57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\PsyCross\audio">
+      <UniqueIdentifier>{6fc51c5b-6b26-4fd5-ae03-f78ad8876419}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\PsyCross\gpu">
+      <UniqueIdentifier>{65661849-476f-4f78-83ae-76a68164d3bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\PsyCross\include">
+      <UniqueIdentifier>{a890f6c2-d2e4-49f2-9fa3-aedd6475bfbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\PsyCross\include\psx">
+      <UniqueIdentifier>{8e28d7aa-fb01-4bba-bbbd-120f694bb34b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\PsyCross\include\PsyX">
+      <UniqueIdentifier>{099b9e79-6275-4b0a-8f99-bf98d0d675c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\PsyCross\include\PsyX\common">
+      <UniqueIdentifier>{eb5c30dd-73f4-4b75-9215-33f422b94ff7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\PsyCross\include\PsyX\util">
+      <UniqueIdentifier>{c901b3ec-99fd-4f5b-a044-093afe26d4ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\PsyCross\gte">
+      <UniqueIdentifier>{b8d4d9e2-66ad-4cb1-850b-7710487e278e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\PsyCross\pad">
+      <UniqueIdentifier>{8884f84e-b962-46fe-a907-a62820d630cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\PsyCross\util">
+      <UniqueIdentifier>{15d9de5e-dc7e-4808-b0fc-b7758e14ab1d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\__builtin_delete.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_bu_init.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_card_clear.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_card_info.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_card_load.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_card_write.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_copy_memcard_patch.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_ExitCard.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_ExitCard_0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_GPU_ResetCallback.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_new_card.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_patch_card.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_patch_card2.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_patch_pad.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_remove_ChgclrPAD.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_spu_FgetRXXa.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_spu_FiDMA.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_spu_Fr.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_spu_Fr_.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_spu_FsetPCR.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_spu_FsetRXX.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_spu_FsetRXXa.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_spu_Fw.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_spu_Fw1ts.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_spu_gcSPU.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_spu_getInTransfer.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_spu_init.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_spu_setInTransfer.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_spu_setReverbAttr.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_spu_t.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_SpuDataCallback.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_SpuInit.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_SpuIsInAllocateArea.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_SpuIsInAllocateArea_.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_SpuSetAnyVoice.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_SsGetSeqData.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_SsReadDeltaValue.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_SsSeqGetEof.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_SsSeqPlay.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_SsSndNextSep.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_SsSndPause.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_SsSndPlay.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_SsSndReplay.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_SsSndStop.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_SsSndTempo.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_SsVmAlloc.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_SsVmDamperOff.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_SsVmFlush.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_SsVmGetSeqRVol.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_SsVmInit.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_SsVmKeyOffNow.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_SsVmSeqKeyOff.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_SsVmSetSeqVol.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\_SsVmVSetUp.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\AddPrim.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\AddPrims.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\ApplyMatrix.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\ApplyMatrixSV.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\bzero_recomp.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\catan.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CD_cw.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CD_datasync.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CD_flush.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CD_getsector.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CD_getsector2.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CD_init.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CD_initintr.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CD_initvol.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CD_ready.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CD_set_test_parmnum.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CD_sync.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CD_vol.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CdComstr.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CdControl.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CdControlB.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CdControlF.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CdDataCallback.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CdDataSync.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CdFlush.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CdGetSector.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CdGetSector2.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CdIntstr.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CdIntToPos.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CdLastCom.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CdLastPos.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CdMix.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CdMode.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CdPosToInt.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CdReady.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CdReadyCallback.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CdReset.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CdSearchFile.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CdSetDebug.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CdStatus.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CdSync.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CdSyncCallback.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\ChangeClearPAD.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\ChangeClearRCnt.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CheckCallback.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\chkRC2wait.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\ClearImage.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\ClearImage2.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\ClearOTag.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\ClearOTagR.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\close.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\CloseEvent.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\DeliverEvent.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\DisableEvent.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\DisablePAD.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\DMACallback.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\DrawOTag.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\DrawOTag2.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\DrawOTagEnv.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\DrawPrim.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\DrawSync.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\DrawSyncCallback.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\EnableEvent.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\EnablePAD.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\EnterCriticalSection.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\exit.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\ExitCriticalSection.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\firstfile.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\firstfile2.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\FlushCache.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\format.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\GetClut.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\GetDispEnv.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\GetDrawEnv.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\GetGraphDebug.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\GetIntrMask.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\GetODE.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\GetRCnt.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\GetTPage.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\GetVideoMode.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\GPU_cw.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\gteMIMefunc.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\HookEntryInt.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\InitCARD.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\InitCARD2.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\InitHeap3.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\InitPAD.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\InitPAD2.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\InterruptCallback.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\InvSquareRoot.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\itoa.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\LoadClut2.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\LoadImage.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\LoadTPage.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\lseek.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\malloc3.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\MatrixNormal.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\MemCardEnd.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\MemCardInit.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\memchr.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\memcpy_recomp.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\memmove_recomp.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\memset_recomp.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\MoveImage.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\MoveImage2.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\MulMatrix.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\MulMatrix2.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\nextfile.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\nullsub_1.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\nullsub_2.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\open.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\OpenEvent.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\PAD_init.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\PAD_init2.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\PadChkMtap_0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\PadChkVsync.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\PadChkVsync_0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\PadGetState_0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\PadInfoComb_0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\PadInfoMode_0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\PadInitDirect.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\PadSetMainMode_0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\PadStartCom.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\PadStartCom_0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\PadStopCom_0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\printf.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\PutDispEnv.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\PutDrawEnv.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\rand_recomp.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\ratan2.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\rcos.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\RCpolyFT3.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\RCpolyFT3A.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\RCpolyFT4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\RCpolyFT4A.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\RCpolyGT3.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\RCpolyGT3A.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\RCpolyGT4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\RCpolyGT4A.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\read.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\ReadInitPadFlag.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\ResetCallback.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\ResetEntryInt.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\ResetGraph.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\ResetRCnt.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\RestartCallback.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\ReturnFromException.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\RotMatrix.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\RotMatrixX.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\RotMatrixY.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\RotMatrixZ.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\RotMatrixZYX.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\RotMatrixZYX_gte.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\rsin.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\ScaleMatrix.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SetDispMask.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SetDrawArea.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SetDrawEnv.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SetDrawOffset.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SetDrawTPage.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SetGraphDebug.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SetGraphQueue.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SetInitPadFlag.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SetIntrMask.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SetPolyFT4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\setRC2wait.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SetRCnt.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SetSemiTrans.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SetVib.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SetVideoMode.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SeVibOn.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sin_1.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sprintf_recomp.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SpuClearReverbWorkArea.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SpuFree.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SpuGetAllKeysStatus.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SpuGetVoiceEnvelope.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SpuInitMalloc.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SpuIsTransferCompleted.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SpuMalloc.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SpuQuit.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SpuRGetAllKeysStatus.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SpuSetCommonAttr.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SpuSetKey.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SpuSetNoiseClock.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SpuSetNoiseVoice.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SpuSetReverb.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SpuSetReverbModeParam.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SpuSetReverbVoice.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SpuSetTransferMode.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SpuSetTransferStartAddr.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SpuSetVoiceAttr.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SpuStart.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SpuWritePartly.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SquareRoot0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SsEnd.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SsInitHot.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SsInitHot_0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SsQuit.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SsSepStop.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SsSeqCalledTbyT.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SsSeqStop.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SsSetMVol.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SsSetSerialAttr.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SsSetSerialVol.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SsSetTickMode.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SsStart.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SsStart2.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SsUtGetReverbType.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SsUtKeyOn.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SsUtKeyOnV.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SsUtReverbOn.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SsUtSetReverbDepth.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SsUtSetReverbType.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SsUtVibrateOff.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SsUtVibrateOn.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SsVabTransCompleted.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\start.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\StartCARD.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\StartCARD2.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\startIntrDMA.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\StartPAD.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\StartPAD2.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\StartRCnt.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\StopCallback.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\StopCARD.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\StopCARD2.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\StopPAD.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\StopPAD2.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\StopRCnt.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\StoreImage.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\StoreImage2.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\strcat_recomp.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\strcmp_recomp.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\strcpy_recomp.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\strlen_recomp.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\strncmp.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001A6A8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001A6EC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001A038.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001A668.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001ADF8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001AE7C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001AE38.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001B5DC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001B558.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001B598.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001BF10.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001C4C8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001C8E0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001C9C8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001C60C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001C88C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001C100.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001C264.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001CAB8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001CB88.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001CDF8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001D2A8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001D224.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001D264.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001DAE0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001DB20.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001DB64.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001E5A0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001E51C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001E55C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001EE28.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001EE68.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001EEAC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001F954.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001FD00.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002A1D0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002A5A4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002A954.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002B2E8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002B84C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002C1A4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002C2B8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002C8BC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002C9E8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002C050.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002C090.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002C958.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002C998.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002CA84.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002CD98.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002CE84.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002CEF8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002D0B0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002D1DC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002D8E8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002D60C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002D574.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002DAA0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002DD70.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002E4D0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002E94C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002E310.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002E490.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002ED98.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002F1F8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002F97C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002F498.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002FC4C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002FE4C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003BC10.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003BC40.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003BD14.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003BDB0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003BE10.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003BEB4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003C0E0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003C17C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003C24C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003C054.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003C95C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003CAE4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003CB88.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003CEDC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003CF28.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003CF94.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003CFDC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003D030.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003D104.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003D288.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003D594.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003D788.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003DBE0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003E718.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003E734.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003E794.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003E840.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003E874.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003EA20.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003EAD0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003EAF8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003EB34.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003EBFC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003EC5C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003EE38.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003F4EC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003F12C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003F670.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003F704.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003F910.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004A0F8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004A1B4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004A8E8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004A40C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004A67C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004A078.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004A148.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004A184.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004A194.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004A304.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004A340.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004A390.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004A484.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004A580.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004A830.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004A848.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004A888.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004AC9C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004AC38.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004ACEC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004AD70.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004AF7C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004AF24.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004AFDC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004B1E8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004B2DC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004B058.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004B090.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004B098.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004B658.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004BB88.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004BE80.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004C1B4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004C03C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004C934.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004CA90.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004CBA0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004CC70.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004D75C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004D804.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004DA2C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004DB0C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004DB9C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004DE24.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004DEF8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004E2D8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004E8EC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004E324.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004E960.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004ED54.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004EDA8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004EE00.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004EE48.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004EEBC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004F53C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004F718.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004F994.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004FB88.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004FC54.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004FC94.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004FD28.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004FDE4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004FED4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004FF88.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8005A3A8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8005A36C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8005AA80.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8005AD00.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8005C7FC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8005D25C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8005E924.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8005EC10.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8005F4FC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8005F6A4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8005F38C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8005F884.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8005F894.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006A94C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006ACFC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006AD1C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006AFE0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006B5F4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006B6C0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006B084.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006B320.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006B394.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006B910.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006B944.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006BA44.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006BB0C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006BB20.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006BF24.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006C72C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006C754.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006CA74.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006D094.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006D304.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006D350.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006D614.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006D924.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006F054.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006F504.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007A934.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007AB80.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007ADF0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007AE10.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007AEA8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007AF5C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007AF40.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007AFDC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007AFF4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007B0D4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007B7C0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007B7E4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007B7F8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007B8B0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007B8D4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007B304.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007B540.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007B838.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007B880.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007BB84.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007BDE4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007BF34.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007C0A4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007C1E8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007C6A0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007C6C8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007C070.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007CAC8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007CC44.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007CCC4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007CE2C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007CE58.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007CEC0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007D02C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007D8C8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007D8F4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007D10C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007D040.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007D42C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007D150.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007D364.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007D604.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007D838.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007D910.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007D994.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007DAE0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007DB18.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007DBEC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007DC94.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007DF08.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007DF8C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007DF70.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007E0EC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007E1A0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007E1C0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007E1D4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007E1F4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007E4B8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007E9FC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007E36C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007E42C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007E054.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007E140.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007E214.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007E234.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007E254.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007E294.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007E994.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007EAF0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007EB00.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007EBBC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007EE38.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007EE70.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007EEA4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007EED8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007EFAC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007F2EC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007F210.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80014A30.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80014CFC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80014D2C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80014D5C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80014DA4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80014E4C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80014E20.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80014F90.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80015A94.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80015AD4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80015B2C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80015B78.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80015BCC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80015CD0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80015D54.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80015DA8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80015DFC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80015EC8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80015F0C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80015FF4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80016A14.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80016FB8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80017D28.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80018B1C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80018B5C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80018BA0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80018EC4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80018F04.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80018F48.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80019B34.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80019DC8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80019FB4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80019FF4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80020A80.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80020EFC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80021AC4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80023ABC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80023BC4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80023C6C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80023ED8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80025C24.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80025E00.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80026A88.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80026AFC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80026DD4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80026E04.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80026E90.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80026ECC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80027D18.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80028C2C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80028DB8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80029B74.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80030AB8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80030BE4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80030FA0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80031AEC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80031CFC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80031D50.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80031DE4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80031EFC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80033A48.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80033A84.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80033B00.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80033CFC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80033DB8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80033E30.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80034E68.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80034F48.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80034FC4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80035AA8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80035B80.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80035CC8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80035D04.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80035E98.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80037E10.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80040F04.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80041D4C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80042B9C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80042C10.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80042C44.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80042CFC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80042D74.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80044EE8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80045F90.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80045FB8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80045FFC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80048AD0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80049AAC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80049CD4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80049D48.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80049DBC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80049E30.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80049F08.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80049FE4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80052C5C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80052C24.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80052CA4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80052D10.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80052D40.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80052D98.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80052E50.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80052F30.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80053AA4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80053EE4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80053FF0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80054A54.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80055CF4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80055F9C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80056AA0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80057A3C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80057A28.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80057A68.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80057B10.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80057B48.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80057BAC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80057C0C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80057C54.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80057C78.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80057CB8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80057CC8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80057CEC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80057D7C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80057D10.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80057D34.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80057D58.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80057DA0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80057F3C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80057FC4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80058A0C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80058C4C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80058CC8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80058D30.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80058DC4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80058ED4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80058EF4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80059CEC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80059DC0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80060BAC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80060C00.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80060C54.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80060DE4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80060ED4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80060F88.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80061A08.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80061D34.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80061EE8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80062BC0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80062C28.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80063BDC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80063CB0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80064BA8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80064EE4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80065DE0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80065F40.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80067BEC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80068A34.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80068AB8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80068AE0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80068B08.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80071FD8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80075E40.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80076DF0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80077A2C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80077A98.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80077AC4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80077B40.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80077CC0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80077D6C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80077DDC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80078A3C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80079AC8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800152D0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800153B4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800154E8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800158F4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800159D4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800164B4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800168A4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800172BC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800173A8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800174C4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800175A4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800176A8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800177A0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800184C4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800187A4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800187E4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800192D4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800194C4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800196C0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800198F4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800210F4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800214A4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800214CC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800218D8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800237A8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800239EC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800241D0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800246E4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800251C8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800255F0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800276BC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800286A8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800319A8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800322F8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800323B8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800330F0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800339C4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800340C4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800340F8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800341A0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800346DC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800347AC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800347F8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800349D0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800363B4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800363EC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800381A8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800385B0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800402AC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800420A0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800443F4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800455AC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800455C4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800455DC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800455F4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800456F8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800468C0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800492F4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800496C8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800498CC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800500AC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800541F4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800542D0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800552BC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800559BC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800562D4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800573BC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800574C0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800575A0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800582F0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800588B4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800595D4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800613E8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800615D8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800616F8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800631AC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800633D4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800636F8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800637C0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800642E8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800650DC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800651F0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800661C8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800666B0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800685F4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800687E4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800692C4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800706A4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800721C4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800728A4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800732F8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800733EC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800739F4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800762D0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800767F4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800774A8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800779B0.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800779D4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800785B8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800788E4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800795F4.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_800796A8.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001435C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001526C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001528C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001531C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001535C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001561C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001618C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8001624C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002181C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002732C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002916C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8002948C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003025C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003216C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003227C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003306C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003413C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003498C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003509C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003569C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8003618C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004162C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004557C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004567C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004656C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8005066C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8005335C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8005408C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8005735C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8005738C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8005755C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8005850C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8005975C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006103C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006184C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006205C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006616C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8006620C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007463C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8007727C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80014410.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80014450.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80014544.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80015024.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80015144.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80015164.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80015230.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80015250.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80015258.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80015264.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80015278.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80015848.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80015914.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80015950.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80016030.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80016294.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80016374.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80016454.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80016508.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80016554.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80016878.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80017220.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80017634.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80017680.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80018440.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80018480.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80018828.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80020164.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80020588.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80021058.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80021158.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80021518.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80021654.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80021994.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80022010.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80022678.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80023208.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80023288.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80023388.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80023470.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80023604.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80023788.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80024004.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80026020.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80026228.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80026508.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80026964.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80027440.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80028220.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80028364.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80028784.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80029548.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80029618.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80031378.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80031674.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80032058.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80032210.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80032244.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80032358.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80032774.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80032800.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80033110.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80034224.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80034294.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80034364.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80034604.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80034760.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80034928.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80035008.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80035120.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80035190.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80035260.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80035604.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80036150.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80036218.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80036370.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80036484.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80038300.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80038438.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80038464.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80040024.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80041150.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80042620.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80042900.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80044404.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80044674.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80045010.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80045044.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80045594.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80045648.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80046270.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80046604.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80047884.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80049544.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80050288.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80050468.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80050564.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80050768.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80052894.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80053174.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80054000.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80054278.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80054368.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80054858.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80055374.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80055990.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80057428.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80057684.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80057744.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80058220.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80058254.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80058288.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80058318.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80058534.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80058620.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80058770.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80059204.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80060014.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80060018.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80060334.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80061578.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80062228.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80063078.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80063260.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80063638.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80063954.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80065270.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80065770.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80066004.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80066240.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80067580.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80067624.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80068258.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80068854.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80068868.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80071890.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80072794.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80073564.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80073994.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80074094.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80074854.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80077580.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80077750.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80077898.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80077938.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80078250.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80078508.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80078580.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_80078620.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SysDeqIntRP.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SysEnqIntRP.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\TestEvent.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\TransMatrix.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\VectorNormalS.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\VSync.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\VSyncCallback.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\VSyncCallbacks.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\WaitEvent.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\write.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\gte.cpp">
+      <Filter>Исходные файлы\scr</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\kf_cd.cpp">
+      <Filter>Исходные файлы\scr</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\recomp.cpp">
+      <Filter>Исходные файлы\scr</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\PsyX_main.cpp">
+      <Filter>Исходные файлы\PsyCross</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\util\timer.c">
+      <Filter>Файлы заголовков\PsyCross\util</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\audio\PsyX_SPUAL.cpp">
+      <Filter>Исходные файлы\PsyCross\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\gpu\PsyX_GPU.cpp">
+      <Filter>Исходные файлы\PsyCross\gpu</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\gte\half_float.cpp">
+      <Filter>Исходные файлы\PsyCross\gte</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\gte\PsyX_GTE.cpp">
+      <Filter>Исходные файлы\PsyCross\gte</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\util\crash_handler.cpp">
+      <Filter>Исходные файлы\PsyCross\util</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\render\glad.c">
+      <Filter>Исходные файлы\PsyCross\render</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\render\PsyX_render.cpp">
+      <Filter>Исходные файлы\PsyCross\render</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\psx\ABS.C">
+      <Filter>Исходные файлы\PsyCross\psx</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\psx\INLINE_C.C">
+      <Filter>Исходные файлы\PsyCross\psx</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\psx\LIBAPI.C">
+      <Filter>Исходные файлы\PsyCross\psx</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\psx\LIBCD.C">
+      <Filter>Исходные файлы\PsyCross\psx</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\psx\LIBETC.C">
+      <Filter>Исходные файлы\PsyCross\psx</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\psx\LIBGPU.C">
+      <Filter>Исходные файлы\PsyCross\psx</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\psx\LIBGTE.C">
+      <Filter>Исходные файлы\PsyCross\psx</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\psx\LIBMCRD.C">
+      <Filter>Исходные файлы\PsyCross\psx</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\psx\LIBPAD.C">
+      <Filter>Исходные файлы\PsyCross\psx</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\psx\LIBSN.C">
+      <Filter>Исходные файлы\PsyCross\psx</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\psx\LIBSPU.C">
+      <Filter>Исходные файлы\PsyCross\psx</Filter>
+    </ClCompile>
+    <ClCompile Include="PsyCross\src\pad\PsyX_pad.cpp">
+      <Filter>Исходные файлы\PsyCross\pad</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="scr\st\disable_warnings.h">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClInclude>
+    <ClInclude Include="scr\st\funcs.h">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClInclude>
+    <ClInclude Include="scr\_context.h">
+      <Filter>Файлы заголовков\scr</Filter>
+    </ClInclude>
+    <ClInclude Include="scr\recomp.h">
+      <Filter>Файлы заголовков\scr</Filter>
+    </ClInclude>
+    <ClInclude Include="scr\CrashHandler.h">
+      <Filter>Файлы заголовков\scr</Filter>
+    </ClInclude>
+    <ClInclude Include="scr\gte.h">
+      <Filter>Файлы заголовков\scr</Filter>
+    </ClInclude>
+    <ClInclude Include="scr\kf_cd.h">
+      <Filter>Файлы заголовков\scr</Filter>
+    </ClInclude>
+    <ClInclude Include="scr\resource.h">
+      <Filter>Файлы заголовков\scr</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\abs.h">
+      <Filter>Файлы заголовков\PsyCross\include\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\asm.h">
+      <Filter>Файлы заголовков\PsyCross\include\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\gtemac.h">
+      <Filter>Файлы заголовков\PsyCross\include\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\gtereg.h">
+      <Filter>Файлы заголовков\PsyCross\include\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\inline_c.h">
+      <Filter>Файлы заголовков\PsyCross\include\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\kernel.h">
+      <Filter>Файлы заголовков\PsyCross\include\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\libapi.h">
+      <Filter>Файлы заголовков\PsyCross\include\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\libcd.h">
+      <Filter>Файлы заголовков\PsyCross\include\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\libetc.h">
+      <Filter>Файлы заголовков\PsyCross\include\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\libgpu.h">
+      <Filter>Файлы заголовков\PsyCross\include\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\libgte.h">
+      <Filter>Файлы заголовков\PsyCross\include\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\libmath.h">
+      <Filter>Файлы заголовков\PsyCross\include\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\libmcrd.h">
+      <Filter>Файлы заголовков\PsyCross\include\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\libpad.h">
+      <Filter>Файлы заголовков\PsyCross\include\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\libpress.h">
+      <Filter>Файлы заголовков\PsyCross\include\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\libsn.h">
+      <Filter>Файлы заголовков\PsyCross\include\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\libspu.h">
+      <Filter>Файлы заголовков\PsyCross\include\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\r3000.h">
+      <Filter>Файлы заголовков\PsyCross\include\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\rand.h">
+      <Filter>Файлы заголовков\PsyCross\include\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\strings.h">
+      <Filter>Файлы заголовков\PsyCross\include\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\psx\types.h">
+      <Filter>Файлы заголовков\PsyCross\include\psx</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\PsyX\PsyX_config.h">
+      <Filter>Файлы заголовков\PsyCross\include\PsyX</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\PsyX\PsyX_globals.h">
+      <Filter>Файлы заголовков\PsyCross\include\PsyX</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\PsyX\PsyX_public.h">
+      <Filter>Файлы заголовков\PsyCross\include\PsyX</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\PsyX\PsyX_render.h">
+      <Filter>Файлы заголовков\PsyCross\include\PsyX</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\PsyX\PsyX_version.h">
+      <Filter>Файлы заголовков\PsyCross\include\PsyX</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\PsyX\util\timer.h">
+      <Filter>Файлы заголовков\PsyCross\include\PsyX\util</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\PsyX\common\glad.h">
+      <Filter>Файлы заголовков\PsyCross\include\PsyX\common</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\PsyX\common\half_float.h">
+      <Filter>Файлы заголовков\PsyCross\include\PsyX\common</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\include\PsyX\common\pgxp_defs.h">
+      <Filter>Файлы заголовков\PsyCross\include\PsyX\common</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\src\iso9660.h">
+      <Filter>Файлы заголовков\PsyCross</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\src\platform.h">
+      <Filter>Файлы заголовков\PsyCross</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\src\PsyX_main.h">
+      <Filter>Файлы заголовков\PsyCross</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\src\audio\PsyX_SPUAL.h">
+      <Filter>Файлы заголовков\PsyCross\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\src\gpu\font.h">
+      <Filter>Файлы заголовков\PsyCross\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\src\gpu\PsyX_GPU.h">
+      <Filter>Файлы заголовков\PsyCross\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\src\gte\PsyX_GTE.h">
+      <Filter>Файлы заголовков\PsyCross\gte</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\src\gte\ratan_tbl.h">
+      <Filter>Файлы заголовков\PsyCross\gte</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\src\gte\rcossin_tbl.h">
+      <Filter>Файлы заголовков\PsyCross\gte</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\src\gte\sqrt_tbl.h">
+      <Filter>Файлы заголовков\PsyCross\gte</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\src\util\crash_handler.h">
+      <Filter>Файлы заголовков\PsyCross\util</Filter>
+    </ClInclude>
+    <ClInclude Include="PsyCross\src\pad\PsyX_pad.h">
+      <Filter>Файлы заголовков\PsyCross\pad</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="scr\st\recomp_overlays.inl">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </None>
+  </ItemGroup>
+</Project>
