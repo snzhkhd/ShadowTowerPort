@@ -1857,7 +1857,7 @@
     <ClCompile Include="scr\st\sub_80015B2C.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
-    <ClCompile Include="scr\st\sub_80015B78.c">
+    <ClCompile Include="scr\st\VerifyChecksum.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
     <ClCompile Include="scr\st\sub_80015BCC.c">
@@ -1878,7 +1878,7 @@
     <ClCompile Include="scr\st\sub_80015EC8.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
-    <ClCompile Include="scr\st\sub_80015F0C.c">
+    <ClCompile Include="scr\st\KF_CDReadSectorsInternal.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
     <ClCompile Include="scr\st\sub_80015FF4.c">

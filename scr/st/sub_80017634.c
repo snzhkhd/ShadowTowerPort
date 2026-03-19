@@ -27,6 +27,7 @@ void sub_80017634(uint8_t* rdram, recomp_context* ctx) {
     // addiu       $a1, $a2, 0xFC
     ctx->r5 = ADD32(ctx->r6, 0XFC);
     AddPrims(rdram, ctx);
+    
     goto after_0;
     // addiu       $a1, $a2, 0xFC
     ctx->r5 = ADD32(ctx->r6, 0XFC);

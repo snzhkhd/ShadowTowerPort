@@ -97,8 +97,6 @@ int main(int argc, char* argv[])
     ResetGraph(0);
 
 
-
-
     PsyX_BeginScene();
 
     //старт игры!

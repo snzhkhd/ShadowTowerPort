@@ -3,7 +3,7 @@
 
 void ProcessCDAudioLoad(uint8_t* rdram, recomp_context* ctx) 
 {
-    printf("ProcessCDAudioLoad\n");
+ //   printf("ProcessCDAudioLoad\n");
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -103,7 +103,7 @@ L_8005867C:
     // jal         0x80015848
     // sh          $s0, 0x4($s2)
     MEM_H(0X4, ctx->r18) = ctx->r16;
-    sub_80015848(rdram, ctx);
+    NextCdTask(rdram, ctx);
     goto after_2;
     // sh          $s0, 0x4($s2)
     MEM_H(0X4, ctx->r18) = ctx->r16;
@@ -212,7 +212,7 @@ L_8005871C:
     // jal         0x80015848
     // addu        $a0, $s1, $zero
     ctx->r4 = ADD32(ctx->r17, 0);
-    sub_80015848(rdram, ctx);
+    NextCdTask(rdram, ctx);
     goto after_8;
     // addu        $a0, $s1, $zero
     ctx->r4 = ADD32(ctx->r17, 0);

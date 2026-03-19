@@ -5,13 +5,14 @@
 
 void GPU_SafeExecute(uint8_t* rdram, recomp_context* ctx) 
 {
+    printf("GPU_SafeExecute\n");
     uint32_t gpuFuncAddr = ctx->r4;
     uint32_t arg1 = ctx->r5;
     uint32_t arg3 = ctx->r6;
     uint32_t callbackArg = ctx->r7;
 
     // ќпредел€ем Ч это LoadImage или что-то другое
-    bool is_load_image = (gpuFuncAddr == ADDR_LOADIMAGE);
+    //bool is_load_image = (gpuFuncAddr == ADDR_LOADIMAGE);
 
     recomp_func_t func = lookup_recomp_func(gpuFuncAddr);
     if (func) {

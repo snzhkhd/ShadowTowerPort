@@ -63,7 +63,7 @@ L_800588F0:
     // jal         0x80015B78
     // addu        $s1, $v1, $v0
     ctx->r17 = ADD32(ctx->r3, ctx->r2);
-    sub_80015B78(rdram, ctx);
+    VerifyChecksum(rdram, ctx);
     goto after_0;
     // addu        $s1, $v1, $v0
     ctx->r17 = ADD32(ctx->r3, ctx->r2);
@@ -170,7 +170,7 @@ L_80058964:
     // jal         0x80015848
     // addu        $a0, $s0, $zero
     ctx->r4 = ADD32(ctx->r16, 0);
-    sub_80015848(rdram, ctx);
+    NextCdTask(rdram, ctx);
     goto after_4;
     // addu        $a0, $s0, $zero
     ctx->r4 = ADD32(ctx->r16, 0);

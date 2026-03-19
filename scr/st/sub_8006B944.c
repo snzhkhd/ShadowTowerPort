@@ -1,7 +1,31 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void CdReadWithRetry(uint8_t* rdram, recomp_context* ctx) 
+void CdReadWithRetry(uint8_t* rdram, recomp_context* ctx)
+{
+    // CdReadWithRetry(a0=sectorCount, a1=destBuffer, a2=mode)
+    uint32_t sectorCount = ctx->r4;
+    uint32_t destBuffer = ctx->r5;
+    uint32_t mode = ctx->r6;
+
+    printf("[CdReadWithRetry] sectors=%d dest=%08X mode=%08X sector=%d\n",
+        sectorCount, destBuffer, mode, g_cdCurrentSector);
+
+    uint8_t* dest = (uint8_t*)GET_PTR(destBuffer);
+
+    if (g_cdImage && dest && sectorCount > 0 && sectorCount < 10000) {
+        for (uint32_t i = 0; i < sectorCount; i++) {
+            fseek(g_cdImage, (g_cdCurrentSector + i) * 2352 + 24, SEEK_SET);
+            fread(dest + i * 2048, 1, 2048, g_cdImage);
+        }
+        g_cdCurrentSector += sectorCount;
+    }
+
+    // Успех
+    ctx->r2 = 1;
+}
+
+void _CdReadWithRetry(uint8_t* rdram, recomp_context* ctx) 
 {
     printf("[CdReadWithRetry] ENTER\n");
 

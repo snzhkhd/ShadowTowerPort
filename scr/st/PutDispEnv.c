@@ -5,6 +5,7 @@
 
 void PutDispEnv(uint8_t* rdram, recomp_context* ctx) 
 {
+    printf("PutDispEnv\n");
     DISPENV* env = (DISPENV*)GET_PTR(ctx->r4);
     //  Psy-X  
     PutDispEnv(env);

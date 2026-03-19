@@ -441,14 +441,14 @@
     <ClCompile Include="scr\st\sub_80015A94.c" />
     <ClCompile Include="scr\st\sub_80015AD4.c" />
     <ClCompile Include="scr\st\sub_80015B2C.c" />
-    <ClCompile Include="scr\st\sub_80015B78.c" />
+    <ClCompile Include="scr\st\VerifyChecksum.c" />
     <ClCompile Include="scr\st\sub_80015BCC.c" />
     <ClCompile Include="scr\st\sub_80015CD0.c" />
     <ClCompile Include="scr\st\sub_80015D54.c" />
     <ClCompile Include="scr\st\sub_80015DA8.c" />
     <ClCompile Include="scr\st\sub_80015DFC.c" />
     <ClCompile Include="scr\st\sub_80015EC8.c" />
-    <ClCompile Include="scr\st\sub_80015F0C.c" />
+    <ClCompile Include="scr\st\KF_CDReadSectorsInternal.c" />
     <ClCompile Include="scr\st\sub_80015FF4.c" />
     <ClCompile Include="scr\st\sub_80016030.c" />
     <ClCompile Include="scr\st\sub_8001618C.c" />

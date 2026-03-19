@@ -1,5 +1,7 @@
 #include "recomp.h"
 #include "disable_warnings.h"
+#include "PsyX/PsyX_public.h"
+#include "PsyX/PsyX_render.h"
 
 void sub_80017680(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
@@ -32,6 +34,8 @@ void sub_80017680(uint8_t* rdram, recomp_context* ctx) {
     // jr          $ra
     // nop
 
+    printf("PsyX_EndScene\n");
+    PsyX_EndScene();
     return;
     // nop
 

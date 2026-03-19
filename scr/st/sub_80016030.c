@@ -61,7 +61,7 @@ L_8001608C:
     // jal         0x80015F0C
     // addu        $a2, $s0, $zero
     ctx->r6 = ADD32(ctx->r16, 0);
-    sub_80015F0C(rdram, ctx);
+    KF_CDReadSectorsInternal(rdram, ctx);
     goto after_1;
     // addu        $a2, $s0, $zero
     ctx->r6 = ADD32(ctx->r16, 0);
@@ -71,7 +71,7 @@ L_8001608C:
     // jal         0x80015B78
     // addu        $a1, $s0, $zero
     ctx->r5 = ADD32(ctx->r16, 0);
-    sub_80015B78(rdram, ctx);
+    VerifyChecksum(rdram, ctx);
     goto after_2;
     // addu        $a1, $s0, $zero
     ctx->r5 = ADD32(ctx->r16, 0);

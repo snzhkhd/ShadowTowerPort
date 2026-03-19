@@ -9,6 +9,9 @@ void ST_LoadImageCallback(uint8_t* rdram, recomp_context* ctx)
     RECT16* rect = (RECT16*)GET_PTR(ctx->r4);
     u_long* p = (u_long*)GET_PTR(ctx->r5);
 
+    printf("[LoadImage] x=%d y=%d w=%d h=%d\n",
+        rect->x, rect->y, rect->w, rect->h);
+
     if (rect->w > 1024) {
         // PS1 wrap-around: данные льются линейно в VRAM
         uint16_t* src = (uint16_t*)p;

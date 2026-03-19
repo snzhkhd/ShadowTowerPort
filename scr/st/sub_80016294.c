@@ -1,7 +1,10 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_80016294(uint8_t* rdram, recomp_context* ctx) {
+void sub_80016294(uint8_t* rdram, recomp_context* ctx) 
+{
+    const char* name = (const char*)GET_PTR(ctx->r5);
+    printf("sub_80016294    <%s>\n", name);
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -99,6 +102,7 @@ L_800162F4:
     // jal         0x80015FF4
     // sw          $v0, 0x8($s1)
     MEM_W(0X8, ctx->r17) = ctx->r2;
+    printf("sub_80016294   before sub_80015FF4\n");
     sub_80015FF4(rdram, ctx);
     goto after_3;
     // sw          $v0, 0x8($s1)
@@ -113,6 +117,7 @@ L_800162F4:
     // jal         0x800152D0
     // sll         $a0, $a0, 1
     ctx->r4 = S32(ctx->r4) << 1;
+    printf("sub_80016294   before sub_800152D0\n");
     sub_800152D0(rdram, ctx);
     goto after_4;
     // sll         $a0, $a0, 1
@@ -129,6 +134,7 @@ L_800162F4:
     // jal         0x80014D2C
     // addiu       $a2, $a2, 0x1
     ctx->r6 = ADD32(ctx->r6, 0X1);
+    printf("sub_80016294   before sub_80014D2C\n");
     sub_80014D2C(rdram, ctx);
     goto after_5;
     // addiu       $a2, $a2, 0x1
@@ -144,7 +150,7 @@ L_800162F4:
     ctx->r29 = ADD32(ctx->r29, 0X8B8);
     // jr          $ra
     // nop
-
+    printf("sub_80016294    <%s>...DONE\n", name);
     return;
     // nop
 

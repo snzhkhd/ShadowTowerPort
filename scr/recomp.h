@@ -15,6 +15,9 @@ inline uint32_t g_spu_total_size = 0;
 inline uint32_t g_spu_transferred = 0;
 inline uint32_t g_spu_actual_written = 0;
 
+inline uint32_t g_heapBase = 0;
+inline uint32_t g_heapPtr = 0;
+inline uint32_t g_heapEnd = 0;
 
 
 inline int frame = 0;

@@ -117,7 +117,7 @@ L_8001621C:
     // jal         0x80015F0C
     // srl         $a2, $a2, 11
     ctx->r6 = S32(U32(ctx->r6) >> 11);
-    sub_80015F0C(rdram, ctx);
+    KF_CDReadSectorsInternal(rdram, ctx);
     goto after_5;
     // srl         $a2, $a2, 11
     ctx->r6 = S32(U32(ctx->r6) >> 11);

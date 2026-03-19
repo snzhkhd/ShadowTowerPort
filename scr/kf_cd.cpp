@@ -58,22 +58,24 @@ void KFCD_CdControl(uint8_t* rdram, recomp_context* ctx)
     }
     case 0x06: // CdlReadN
     {
-        uint8_t* dest = (uint8_t*)GET_PTR(MEM_W(0, 0x80080D04)); // dest addr
-        uint32_t count = MEM_W(0, 0x80080D08); // sector count
+        uint32_t dest = MEM_W(0, 0x80080D04);
+        uint32_t count = MEM_W(0, 0x80080D10); // sector count (=32)
+        uint32_t startSector = MEM_W(0, 0x80080D24); // saved by CdPosToInt
 
-        printf("[CD] ReadN sector=%d count=%d dest=%08X\n",
-            g_cdCurrentSector, count, MEM_W(0, 0x80080D04));
+        printf("[CD] ReadN dest=%08X count=%d sector=%d\n", dest, count, startSector);
 
-        if (g_cdImage && dest && count > 0 && count < 1000) {
+        uint8_t* dest_ptr = dest ? (uint8_t*)GET_PTR(dest) : nullptr;
+
+        if (g_cdImage && dest_ptr && count > 0 && count < 10000) {
             for (uint32_t i = 0; i < count; i++) {
-                fseek(g_cdImage, (g_cdCurrentSector + i) * 2352 + 24, SEEK_SET);
-                fread(dest + i * 2048, 1, 2048, g_cdImage);
+                fseek(g_cdImage, (startSector + i) * 2352 + 24, SEEK_SET);
+                fread(dest_ptr + i * 2048, 1, 2048, g_cdImage);
             }
-            g_cdCurrentSector += count;
+            g_cdCurrentSector = startSector + count;
         }
 
-        // Ставим флаг завершения
-        MEM_W(0, 0x80080D18) = 1;
+        MEM_W(0, 0x80080D18) = 1;  // status = done
+        MEM_W(0, 0x80080D0C) = 1;  // transfer complete
         ctx->r2 = 1;
         return;
     }
@@ -121,14 +123,54 @@ void KFCD_CdControl(uint8_t* rdram, recomp_context* ctx)
     case 0x15: // SeekL
     case 0x16: // SeekP
     {
-        KFCD_CdlReadN(rdram,ctx);
-        uint32_t* p = (uint32_t*)GET_PTR(ADDR_G_ACTIVECDSTREAM);
-        if (p && *p) {
-            uint8_t* s = (uint8_t*)GET_PTR(*p);
-            if (s && s[0] == 0x10 && s[36] == 1)
-                g_pendingType10 = true;
-        }
+        uint32_t* p_active = (uint32_t*)GET_PTR(ADDR_G_ACTIVECDSTREAM);
+        if (p_active && *p_active) {
+            uint8_t* stream = (uint8_t*)GET_PTR(*p_active);
+            if (stream && stream[0] != 0) {
+                uint8_t type = stream[0];
 
+                if (type == 4) {
+                    // Audio — пропускаем
+                    ctx->r4 = *p_active;
+                    NextCdTask(rdram, ctx);
+                    ctx->r2 = 1;
+                    return;
+                }
+
+                KFCD_CdlReadN(rdram, ctx);
+
+                if (type == 3) {
+                    stream[16] = 1;
+                }
+                else if (type == 2) {
+                    // Type 2: данные прочитаны, вызываем callback
+                    stream[1] = 2;
+                    stream[16] = 1;
+
+                    uint32_t cb = *(uint32_t*)(stream + 44);
+                    if (cb) {
+                        uint32_t saved_r4 = ctx->r4;
+                        uint32_t saved_ra = ctx->r31;
+                        ctx->r4 = *(uint32_t*)(stream + 32); // dest buffer
+                        recomp_func_t handler = lookup_recomp_func(cb);
+                        if (handler) {
+                            printf("[CD] Type2 callback %08X(dest=%08X)\n", cb, ctx->r4);
+                            handler(rdram, ctx);
+                        }
+                        ctx->r4 = saved_r4;
+                        ctx->r31 = saved_ra;
+                    }
+                    // Переходим к следующей задаче
+                    ctx->r4 = *p_active;
+                    NextCdTask(rdram, ctx);
+                }
+                else {
+                    stream[1] = 2;
+                    stream[16] = 1;
+                }
+            }
+        }
+        ctx->r2 = 1;
         return;
     }
 
@@ -144,6 +186,8 @@ void KFCD_CdControl(uint8_t* rdram, recomp_context* ctx)
 
 void KFCD_CdlReadN(uint8_t* rdram, recomp_context* ctx)
 {
+
+
     uint32_t* p_active = (uint32_t*)GET_PTR(ADDR_G_ACTIVECDSTREAM);
     if (!p_active || !*p_active) {
         g_cdReading = 0;
@@ -156,84 +200,108 @@ void KFCD_CdlReadN(uint8_t* rdram, recomp_context* ctx)
         return;
     }
 
-    uint16_t sectors = *(uint16_t*)(stream + 16);
-    if (sectors == 0) { ctx->r2 = 1; return; }
+    // ST offsets:
+    // 0  = type (3=textures, 4=audio)
+    // 16 = data_ready
+    // 17 = status
+    // 24 = CdlLOC current position
+    // 32 = dest buffer
+    // 40 = sectors per chunk
 
-    uint32_t dst = *(uint32_t*)(stream + 12);
-    uint8_t* dst_ptr = (uint8_t*)GET_PTR(dst);
-    CdlLOC* base_loc = (CdlLOC*)(stream + 6);
-    int base_lba = KFCD_CdPosToInt(base_loc);
+    uint32_t dst = *(uint32_t*)(stream + 32);
+    uint8_t* dst_ptr = dst ? (uint8_t*)GET_PTR(dst) : nullptr;
+    CdlLOC* current_loc = (CdlLOC*)(stream + 24);
+    int current_lba = KFCD_CdPosToInt(current_loc);
+    uint32_t sectors = *(uint32_t*)(stream + 40);
     uint8_t type = stream[0];
 
-    if (type == 0x10) {
-        uint16_t remain = *(uint16_t*)(stream + 34);
-        uint16_t total = sectors + remain;
+    if (sectors == 0) sectors = 16;
+    if (sectors > 1000) sectors = 16;
 
-        // Проверяем реальный размер по LBA
-        auto it = g_stream_file_sizes.find(base_lba);
-        if (it != g_stream_file_sizes.end()) {
-            uint16_t expected = (it->second + 2047) / 2048;
-            if (expected > total) {
-                printf("[CdlReadN fix] lba=%d total %d -> %d\n", base_lba, total, expected);
-                total = expected;
-            }
-            g_stream_file_sizes.erase(it);
-        }
+    printf("[CdlReadN] type=%d lba=%d sectors=%d dest=%08X\n",
+        type, current_lba, sectors, dst);
 
-        /*printf("[CdlReadN 0x10] sectors=%d remain=%d total=%d base_lba=%d dst=%08X\n",
-            sectors, remain, total, base_lba, dst);*/
-
-        for (int i = 0; i < total; i++) {
-            fseek(g_cdImage, (uint32_t)(base_lba + i) * 2352 + 24, SEEK_SET);
+    if (g_cdImage && dst_ptr) {
+        for (uint32_t i = 0; i < sectors; i++) {
+            fseek(g_cdImage, (current_lba + i) * 2352 + 24, SEEK_SET);
             fread(dst_ptr + i * 2048, 1, 2048, g_cdImage);
         }
-
-        uint16_t last_batch = (total > 16) ? (total % 16 ? total % 16 : 16) : total;
-        *(uint16_t*)(stream + 16) = last_batch;
-        *(uint16_t*)(stream + 34) = 0;
-
-        g_cdCurrentSector = base_lba;
-        g_cd_last_stream = *p_active;
-        g_cd_base_lba = base_lba;
-        g_cd_pass_count = total;
-
-    }
-    else 
-    {
-        CdlLOC* current_loc = (CdlLOC*)(stream + 2);
-        int current_lba = KFCD_CdPosToInt(current_loc);
-
-        uint16_t to_read = sectors;
-
-        for (int i = 0; i < to_read; i++) {
-            fseek(g_cdImage, (uint32_t)(current_lba + i) * 2352 + 24, SEEK_SET);
-            fread(dst_ptr + i * 2048, 1, 2048, g_cdImage);
-        }
-
-        stream[36] = 1;
-        /*uint16_t to_read = (sectors > 16) ? 16 : sectors;
-
-        if (*p_active != g_cd_last_stream || base_lba != g_cd_base_lba) {
-            g_cd_last_stream = *p_active;
-            g_cd_base_lba = base_lba;
-            g_cd_pass_count = 0;
-            if (sectors > 16 && *(uint16_t*)(stream + 34) == 0) {
-                *(uint16_t*)(stream + 16) = 16;
-                *(uint16_t*)(stream + 34) = sectors - 16;
-                to_read = 16;
-            }
-        }
-
-        int real_lba = base_lba + g_cd_pass_count;
-        for (int i = 0; i < to_read; i++) {
-            fseek(g_cdImage, (uint32_t)(real_lba + i) * 2352 + 24, SEEK_SET);
-            fread(dst_ptr + i * 2048, 1, 2048, g_cdImage);
-        }
-        g_cd_pass_count += to_read;*/
+        g_cdCurrentSector = current_lba + sectors;
     }
 
-    stream[36] = 1;
+    stream[16] = 1; // data_ready
     ctx->r2 = 1;
+    //uint32_t* p_active = (uint32_t*)GET_PTR(ADDR_G_ACTIVECDSTREAM);
+    //if (!p_active || !*p_active) {
+    //    g_cdReading = 0;
+    //    ctx->r2 = 1;
+    //    return;
+    //}
+    //uint8_t* stream = (uint8_t*)GET_PTR(*p_active);
+    //if (!stream || stream[0] == 0) {
+    //    ctx->r2 = 1;
+    //    return;
+    //}
+
+    //uint16_t sectors = *(uint16_t*)(stream + 16);
+    //if (sectors == 0) { ctx->r2 = 1; return; }
+
+    //uint32_t dst = *(uint32_t*)(stream + 12);
+    //uint8_t* dst_ptr = (uint8_t*)GET_PTR(dst);
+    //CdlLOC* base_loc = (CdlLOC*)(stream + 6);
+    //int base_lba = KFCD_CdPosToInt(base_loc);
+    //uint8_t type = stream[0];
+
+    //if (type == 0x10) {
+    //    uint16_t remain = *(uint16_t*)(stream + 34);
+    //    uint16_t total = sectors + remain;
+
+    //    // Проверяем реальный размер по LBA
+    //    auto it = g_stream_file_sizes.find(base_lba);
+    //    if (it != g_stream_file_sizes.end()) {
+    //        uint16_t expected = (it->second + 2047) / 2048;
+    //        if (expected > total) {
+    //            printf("[CdlReadN fix] lba=%d total %d -> %d\n", base_lba, total, expected);
+    //            total = expected;
+    //        }
+    //        g_stream_file_sizes.erase(it);
+    //    }
+
+    //    /*printf("[CdlReadN 0x10] sectors=%d remain=%d total=%d base_lba=%d dst=%08X\n",
+    //        sectors, remain, total, base_lba, dst);*/
+
+    //    for (int i = 0; i < total; i++) {
+    //        fseek(g_cdImage, (uint32_t)(base_lba + i) * 2352 + 24, SEEK_SET);
+    //        fread(dst_ptr + i * 2048, 1, 2048, g_cdImage);
+    //    }
+
+    //    uint16_t last_batch = (total > 16) ? (total % 16 ? total % 16 : 16) : total;
+    //    *(uint16_t*)(stream + 16) = last_batch;
+    //    *(uint16_t*)(stream + 34) = 0;
+
+    //    g_cdCurrentSector = base_lba;
+    //    g_cd_last_stream = *p_active;
+    //    g_cd_base_lba = base_lba;
+    //    g_cd_pass_count = total;
+
+    //}
+    //else 
+    //{
+    //    CdlLOC* current_loc = (CdlLOC*)(stream + 2);
+    //    int current_lba = KFCD_CdPosToInt(current_loc);
+
+    //    uint16_t to_read = sectors;
+
+    //    for (int i = 0; i < to_read; i++) {
+    //        fseek(g_cdImage, (uint32_t)(current_lba + i) * 2352 + 24, SEEK_SET);
+    //        fread(dst_ptr + i * 2048, 1, 2048, g_cdImage);
+    //    }
+
+    //    stream[36] = 1;
+    //}
+
+    //stream[36] = 1;
+    //ctx->r2 = 1;
 }
 
 int KFCD_CdRead(int sectors, uint32_t* buf)

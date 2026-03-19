@@ -9,7 +9,7 @@ extern SDL_Window* g_window;
 void ST_BeginDraw2D(uint8_t* rdram, recomp_context* ctx) 
 {
     PsyX_BeginScene();
-
+    printf("PsyX_BeginScene\n");
     // Переключаем на 4:3 для 2D
     if (g_widescreenEnabled)
     {
@@ -21,7 +21,7 @@ void ST_BeginDraw2D(uint8_t* rdram, recomp_context* ctx)
         int vpX = (windowW - vpW) / 2;
         GR_SetViewPort(vpX, 0, vpW, vpH);
     }
-    printf("BeginDraw2D ?\n");
+  //  printf("BeginDraw2D ?\n");
 
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;

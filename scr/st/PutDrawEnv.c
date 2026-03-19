@@ -9,6 +9,7 @@
 
 void PutDrawEnv(uint8_t* rdram, recomp_context* ctx) 
 {
+    printf("PutDrawEnv\n");
     DRAWENV* env = (DRAWENV*)GET_PTR(ctx->r4);
     memcpy(&activeDrawEnv, env, sizeof(DRAWENV));
     PutDrawEnv(env);

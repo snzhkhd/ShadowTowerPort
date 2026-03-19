@@ -11,7 +11,7 @@ void TriggerGpuDma(uint8_t* rdram, recomp_context* ctx)
 {
 
     //PsyX_BeginScene(); <- גûחûגאועסÿ ג BeginDraw2D ט RenderScene
-
+    printf("TriggerGpuDma\n");
 
     uint32_t madr = ctx->r4;
     calls_per_frame++;
@@ -19,6 +19,19 @@ void TriggerGpuDma(uint8_t* rdram, recomp_context* ctx)
     uint32_t cur_addr = madr;
 
     uint32_t* p_data = (uint32_t*)GET_PTR(madr);
+
+    int primCount = 0;
+    uint32_t cur = madr;
+    while (cur >= 0x80000000 && cur < 0x80200000) {
+        uint32_t* p = (uint32_t*)GET_PTR(cur);
+        uint32_t tag = p[0];
+        uint8_t len = (tag >> 24) & 0xFF;
+        if (len > 0) primCount++;
+        uint32_t next = tag & 0x00FFFFFF;
+        if (next == 0x00FFFFFF || next < 0x00010000) break;
+        cur = next | 0x80000000;
+    }
+    printf("[TriggerGpuDma] addr=%08X prims=%d\n", madr, primCount);
 
 
     uint32_t first_word = p_data[0];
@@ -78,7 +91,7 @@ void TriggerGpuDma(uint8_t* rdram, recomp_context* ctx)
         DrawAllSplits();
 
         //PsyX_EndScene(); <- גûחûגאועסÿ ג RenderEnd ט EndDraw2D
-        PsyX_EndScene(); 
+        
     }
     else if (top_byte == 0x00 && (first_word & 0xFF) <= 0x20)
     {

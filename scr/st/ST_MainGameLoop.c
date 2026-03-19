@@ -1,7 +1,9 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx) {
+void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx) 
+{
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -129,6 +131,7 @@ void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx) {
     ctx->r4 = ADD32(0, 0X7F);
     // jal         0x8006D044
     // addu        $a1, $a0, $zero
+    printf("[MainGameLoop] before SsSetMVol\n");
     ctx->r5 = ADD32(ctx->r4, 0);
     SsSetMVol(rdram, ctx);
     goto after_14;
@@ -186,6 +189,7 @@ void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80058DC4
     // addu        $a1, $a0, $zero
     ctx->r5 = ADD32(ctx->r4, 0);
+    printf("[MainGameLoop] before sub_80058DC4\n");
     sub_80058DC4(rdram, ctx);
     goto after_16;
     // addu        $a1, $a0, $zero
@@ -194,6 +198,7 @@ void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80057A28
     // addiu       $s0, $zero, 0x1
     ctx->r16 = ADD32(0, 0X1);
+
     sub_80057A28(rdram, ctx);
     goto after_17;
     // addiu       $s0, $zero, 0x1
@@ -302,7 +307,7 @@ L_80014B7C:
     after_27:
     // jal         0x80044EE8
     // nop
-
+    printf("[MainGameLoop] before LoadSomeone sub_80044EE8\n");
     sub_80044EE8(rdram, ctx);
     goto after_28;
     // nop
@@ -310,7 +315,7 @@ L_80014B7C:
     after_28:
     // jal         0x8003EAF8
     // nop
-
+    printf("[MainGameLoop] after LoadSomeone sub_80044EE8\n");
     sub_8003EAF8(rdram, ctx);
     goto after_29;
     // nop
@@ -364,6 +369,8 @@ L_80014B7C:
     ctx->r17 = ADD32(ctx->r29, 0X18);
     // addiu       $s0, $sp, 0x28
     ctx->r16 = ADD32(ctx->r29, 0X28);
+
+    printf("[MainGameLoop] before L_80014BD4 LOOP\n");
 L_80014BD4:
     // jal         0x800164B4
     // nop
