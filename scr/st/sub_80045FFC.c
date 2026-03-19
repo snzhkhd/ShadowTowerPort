@@ -1,7 +1,7 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_80045FFC(uint8_t* rdram, recomp_context* ctx) {
+void ProcessAssetLoadQueue(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -324,7 +324,7 @@ L_800461A8:
     // jal         0x80079A60
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
-    DrawSync(rdram, ctx);
+    ST_DrawSync(rdram, ctx);
     goto after_4;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
@@ -413,7 +413,7 @@ L_80046210:
     // jal         0x80079A60
     // nop
 
-    DrawSync(rdram, ctx);
+    ST_DrawSync(rdram, ctx);
     goto after_9;
     // nop
 

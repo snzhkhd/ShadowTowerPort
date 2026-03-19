@@ -382,7 +382,7 @@ L_8003F058:
     // jal         0x80079A60
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
-    DrawSync(rdram, ctx);
+    ST_DrawSync(rdram, ctx);
     goto after_4;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
@@ -435,7 +435,7 @@ L_8003F0B4:
     // jal         0x80015AD4
     // sb          $v0, 0x155($a1)
     MEM_B(0X155, ctx->r5) = ctx->r2;
-    sub_80015AD4(rdram, ctx);
+    AsyncStructForcedLoadSync(rdram, ctx);
     goto after_6;
     // sb          $v0, 0x155($a1)
     MEM_B(0X155, ctx->r5) = ctx->r2;

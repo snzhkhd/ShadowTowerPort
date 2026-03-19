@@ -248,7 +248,26 @@ void ps1_bios_dispatcher_A(uint8_t* rdram, recomp_context* ctx)
             return;
         }
         case 0x3C: // Exit
-            printf("[BIOS] Game called Exit!\n");
+            printf("[BIOS A] Game called Exit!\n");
+            return;
+
+        case 0x72: // CdRemove
+            printf("[BIOS A] CdRemove\n");
+            ctx->r2 = 1;
+            return;
+
+        case 0x44: // FlushCache
+            printf("[BIOS A] FlushCache\n");
+            ctx->r2 = 0;
+            return;
+
+        case 0x70: // _bu_init (memory card)
+            printf("[BIOS A] _bu_init\n");
+            ctx->r2 = 0;
+            return;
+        case 0x28: // SetDefaultExitFromException  
+            printf("[BIOS A] SetDefaultExitFromException\n");
+            ctx->r2 = 0;
             return;
         default:
             // ВАЖНО: Выводим в лог функции, которые мы еще не реализовали!
@@ -267,6 +286,26 @@ void ps1_bios_dispatcher_B(uint8_t* rdram, recomp_context* ctx)
     uint32_t func_id = ctx->r9;
     switch (func_id)
     {
+        case 0x17: // ReturnFromException
+            printf("[BIOS] B-Call : ReturnFromException\n");
+            ctx->r2 = 0;
+            return;
+
+        case 0x19: // SetDefaultExitFromException
+            printf("[BIOS] B-Call : SetDefaultExitFromException\n");
+            ctx->r2 = 0;
+            return;
+
+        case 0x57: // StartPAD2 / PadInitDirect
+            printf("[BIOS] B-Call : StartPAD2\n");
+            ctx->r2 = 1;
+            return;
+
+        case 0x5B: // ChangeClearPad
+            printf("[BIOS] B-Call : ChangeClearPad\n");
+            ctx->r2 = 0;
+            return;
+
         case 0x3F: // Это внутренний диспетчер в некоторых SDK
         case 0x78: // СТАНДАРТНЫЙ CdControl
         {
@@ -290,6 +329,7 @@ void ps1_bios_dispatcher_B(uint8_t* rdram, recomp_context* ctx)
 
         case 0x7B: // CdReadSync
         {
+            printf("[BIOS] B-Call: CdReadSync\n");
             ctx->r2 = KFCD_CdReadSync(ctx->r4);
             return;
         }
@@ -536,14 +576,18 @@ void ps1_bios_dispatcher_C(uint8_t* rdram, recomp_context* ctx)
 
     switch (func_id) {
     case 0x02: // CdInit
-        printf("[BIOS] CdInit called -> Forcing Success!\n");
+        printf("[BIOS C] CdInit called -> Forcing Success!\n");
         ctx->r2 = 1; // Возвращаем 1 (успех)
         return;
 
     case 0x0A: // ChangeClearRCnt
         // Таймеры, просто игнорируем пока
-        printf("[BIOS] 0x0A  -> Forcing r2 = 1!\n");
+        printf("[BIOS C] ChangeClearRCnt Forcing -> 1!\n");
         ctx->r2 = 1;
+        return;
+    case 0x03: // SysDeqIntRP
+        printf("[BIOS C] SysDeqIntRP\n");
+        ctx->r2 = 0;
         return;
     }
 

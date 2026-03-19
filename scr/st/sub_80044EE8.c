@@ -77,7 +77,7 @@ L_80044F70:
     // jal         0x8001531C
     // nop
 
-    sub_8001531C(rdram, ctx);
+    AsyncDataLoad(rdram, ctx);
     goto after_0;
     // nop
 
@@ -140,7 +140,7 @@ L_80044FC4:
     // jal         0x80015AD4
     // nop
 
-    sub_80015AD4(rdram, ctx);
+    AsyncStructForcedLoadSync(rdram, ctx);
     goto after_2;
     // nop
 

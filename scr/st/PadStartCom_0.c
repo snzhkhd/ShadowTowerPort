@@ -1,30 +1,36 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void PadStartCom_0(uint8_t* rdram, recomp_context* ctx) {
-    uint64_t hi = 0, lo = 0, result = 0;
-    unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
-    int c1cs = 0; 
-    // addiu       $sp, $sp, -0x18
-    ctx->r29 = ADD32(ctx->r29, -0X18);
-    // sw          $ra, 0x10($sp)
-    MEM_W(0X10, ctx->r29) = ctx->r31;
-    // jal         0x8007D040
-    // nop
+#include "psx/libpad.h"
 
-    sub_8007D040(rdram, ctx);
-    goto after_0;
-    // nop
+void PadStartCom_0(uint8_t* rdram, recomp_context* ctx) 
+{
+    PadStartCom();
 
-    after_0:
-    // lw          $ra, 0x10($sp)
-    ctx->r31 = MEM_W(0X10, ctx->r29);
-    // addiu       $sp, $sp, 0x18
-    ctx->r29 = ADD32(ctx->r29, 0X18);
-    // jr          $ra
-    // nop
+    ctx->r2 = 1;
+    //uint64_t hi = 0, lo = 0, result = 0;
+    //unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
+    //int c1cs = 0; 
+    //// addiu       $sp, $sp, -0x18
+    //ctx->r29 = ADD32(ctx->r29, -0X18);
+    //// sw          $ra, 0x10($sp)
+    //MEM_W(0X10, ctx->r29) = ctx->r31;
+    //// jal         0x8007D040
+    //// nop
 
-    return;
-    // nop
+    //sub_8007D040(rdram, ctx);
+    //goto after_0;
+    //// nop
+
+    //after_0:
+    //// lw          $ra, 0x10($sp)
+    //ctx->r31 = MEM_W(0X10, ctx->r29);
+    //// addiu       $sp, $sp, 0x18
+    //ctx->r29 = ADD32(ctx->r29, 0X18);
+    //// jr          $ra
+    //// nop
+
+    //return;
+    //// nop
 
 ;}

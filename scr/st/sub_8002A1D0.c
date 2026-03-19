@@ -50,7 +50,7 @@ void sub_8002A1D0(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x800174C4
     // nop
 
-    sub_800174C4(rdram, ctx);
+    ST_BeginDraw2D(rdram, ctx);
     goto after_0;
     // nop
 

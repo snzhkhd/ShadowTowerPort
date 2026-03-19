@@ -395,7 +395,7 @@ L_80042F10:
     // jal         0x80015AD4
     // nop
 
-    sub_80015AD4(rdram, ctx);
+    AsyncStructForcedLoadSync(rdram, ctx);
     goto after_13;
     // nop
 
@@ -486,7 +486,7 @@ L_80042FC8:
     // jal         0x80015AD4
     // nop
 
-    sub_80015AD4(rdram, ctx);
+    AsyncStructForcedLoadSync(rdram, ctx);
     goto after_17;
     // nop
 
@@ -702,7 +702,7 @@ L_800430F0:
     // jal         0x80079A60
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
-    DrawSync(rdram, ctx);
+    ST_DrawSync(rdram, ctx);
     goto after_26;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
@@ -736,7 +736,7 @@ L_800430F0:
     // jal         0x80015AD4
     // nop
 
-    sub_80015AD4(rdram, ctx);
+    AsyncStructForcedLoadSync(rdram, ctx);
     goto after_30;
     // nop
 
@@ -2343,7 +2343,7 @@ L_80043A34:
     // jal         0x80079A60
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
-    DrawSync(rdram, ctx);
+    ST_DrawSync(rdram, ctx);
     goto after_72;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
@@ -2479,7 +2479,7 @@ L_80043AB4:
     // jal         0x80015AD4
     // nop
 
-    sub_80015AD4(rdram, ctx);
+    AsyncStructForcedLoadSync(rdram, ctx);
     goto after_80;
     // nop
 
@@ -2547,7 +2547,7 @@ L_80043AB4:
     // jal         0x80015AD4
     // nop
 
-    sub_80015AD4(rdram, ctx);
+    AsyncStructForcedLoadSync(rdram, ctx);
     goto after_84;
     // nop
 
@@ -2600,7 +2600,7 @@ L_80043B7C:
     // jal         0x80079A60
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
-    DrawSync(rdram, ctx);
+    ST_DrawSync(rdram, ctx);
     goto after_89;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);

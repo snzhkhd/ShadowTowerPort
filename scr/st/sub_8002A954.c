@@ -312,7 +312,7 @@ L_8002AB5C:
     // jal         0x800174C4
     // swr         $v0, 0x0($a3)
     do_swr(rdram, 0X0, ctx->r7, ctx->r2);
-    sub_800174C4(rdram, ctx);
+    ST_BeginDraw2D(rdram, ctx);
     goto after_0;
     // swr         $v0, 0x0($a3)
     do_swr(rdram, 0X0, ctx->r7, ctx->r2);

@@ -1,7 +1,13 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void StoreImage(uint8_t* rdram, recomp_context* ctx) {
+void StoreImage(uint8_t* rdram, recomp_context* ctx) 
+{
+    ST_StoreImageCallback(rdram,ctx);
+    ctx->pc = ctx->r31;
+    return;
+
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 

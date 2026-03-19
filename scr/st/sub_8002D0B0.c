@@ -16,7 +16,7 @@ void sub_8002D0B0(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x800174C4
     // sw          $s0, 0x10($sp)
     MEM_W(0X10, ctx->r29) = ctx->r16;
-    sub_800174C4(rdram, ctx);
+    ST_BeginDraw2D(rdram, ctx);
     goto after_0;
     // sw          $s0, 0x10($sp)
     MEM_W(0X10, ctx->r29) = ctx->r16;

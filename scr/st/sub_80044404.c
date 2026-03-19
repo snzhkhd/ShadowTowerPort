@@ -56,7 +56,7 @@ void sub_80044404(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80015AD4
     // nop
 
-    sub_80015AD4(rdram, ctx);
+    AsyncStructForcedLoadSync(rdram, ctx);
     goto after_2;
     // nop
 

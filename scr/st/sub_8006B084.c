@@ -60,7 +60,7 @@ void sub_8006B084(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x8006B320
     // addu        $a2, $s0, $zero
     ctx->r6 = ADD32(ctx->r16, 0);
-    sub_8006B320(rdram, ctx);
+    CdReadSector(rdram, ctx);
     goto after_0;
     // addu        $a2, $s0, $zero
     ctx->r6 = ADD32(ctx->r16, 0);

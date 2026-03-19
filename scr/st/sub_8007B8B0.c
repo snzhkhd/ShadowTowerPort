@@ -14,7 +14,7 @@ void sub_8007B8B0(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x8007B8D4
     // addu        $a2, $zero, $zero
     ctx->r6 = ADD32(0, 0);
-    sub_8007B8D4(rdram, ctx);
+    GPU_SafeExecute(rdram, ctx);
     goto after_0;
     // addu        $a2, $zero, $zero
     ctx->r6 = ADD32(0, 0);

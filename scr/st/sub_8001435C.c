@@ -134,7 +134,7 @@ L_800143C8:
     // jal         0x80014A30
     // nop
 
-    sub_80014A30(rdram, ctx);
+    ST_MainGameLoop(rdram, ctx);
     goto after_10;
     // nop
 

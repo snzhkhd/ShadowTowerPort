@@ -4531,7 +4531,7 @@ L_80052058:
     // jal         0x80015AD4
     // addu        $s2, $zero, $zero
     ctx->r18 = ADD32(0, 0);
-    sub_80015AD4(rdram, ctx);
+    AsyncStructForcedLoadSync(rdram, ctx);
     goto after_61;
     // addu        $s2, $zero, $zero
     ctx->r18 = ADD32(0, 0);
@@ -5236,7 +5236,7 @@ L_800524C4:
     // jal         0x8001531C
     // nop
 
-    sub_8001531C(rdram, ctx);
+    AsyncDataLoad(rdram, ctx);
     goto after_72;
     // nop
 
@@ -5489,7 +5489,7 @@ L_80052674:
     // jal         0x8001531C
     // nop
 
-    sub_8001531C(rdram, ctx);
+    AsyncDataLoad(rdram, ctx);
     goto after_78;
     // nop
 
@@ -5588,7 +5588,7 @@ L_800526E4:
     // jal         0x80015AD4
     // nop
 
-    sub_80015AD4(rdram, ctx);
+    AsyncStructForcedLoadSync(rdram, ctx);
     goto after_83;
     // nop
 

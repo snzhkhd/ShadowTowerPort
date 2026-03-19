@@ -48,7 +48,7 @@ L_80014FCC:
     // jal         0x80015AD4
     // nop
 
-    sub_80015AD4(rdram, ctx);
+    AsyncStructForcedLoadSync(rdram, ctx);
     goto after_0;
     // nop
 

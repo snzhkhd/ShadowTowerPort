@@ -222,7 +222,7 @@ void sub_8002B2E8(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x800174C4
     // addiu       $s1, $zero, 0x50
     ctx->r17 = ADD32(0, 0X50);
-    sub_800174C4(rdram, ctx);
+    ST_BeginDraw2D(rdram, ctx);
     goto after_1;
     // addiu       $s1, $zero, 0x50
     ctx->r17 = ADD32(0, 0X50);

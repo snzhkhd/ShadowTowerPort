@@ -176,7 +176,7 @@ void sub_80029B74(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x800174C4
     // addu        $s4, $zero, $zero
     ctx->r20 = ADD32(0, 0);
-    sub_800174C4(rdram, ctx);
+    ST_BeginDraw2D(rdram, ctx);
     goto after_0;
     // addu        $s4, $zero, $zero
     ctx->r20 = ADD32(0, 0);

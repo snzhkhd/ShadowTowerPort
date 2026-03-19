@@ -28,7 +28,7 @@ void sub_8003C95C(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80015AD4
     // sw          $s0, 0x30($sp)
     MEM_W(0X30, ctx->r29) = ctx->r16;
-    sub_80015AD4(rdram, ctx);
+    AsyncStructForcedLoadSync(rdram, ctx);
     goto after_0;
     // sw          $s0, 0x30($sp)
     MEM_W(0X30, ctx->r29) = ctx->r16;
@@ -39,7 +39,7 @@ L_8003C990:
     // jal         0x8001531C
     // nop
 
-    sub_8001531C(rdram, ctx);
+    AsyncDataLoad(rdram, ctx);
     goto after_1;
     // nop
 
@@ -114,7 +114,7 @@ L_8003CA04:
     // jal         0x8001531C
     // nop
 
-    sub_8001531C(rdram, ctx);
+    AsyncDataLoad(rdram, ctx);
     goto after_4;
     // nop
 
@@ -142,7 +142,7 @@ L_8003CA04:
     // jal         0x80015AD4
     // nop
 
-    sub_80015AD4(rdram, ctx);
+    AsyncStructForcedLoadSync(rdram, ctx);
     goto after_6;
     // nop
 
@@ -204,7 +204,7 @@ L_8003CA04:
     // jal         0x80015AD4
     // nop
 
-    sub_80015AD4(rdram, ctx);
+    AsyncStructForcedLoadSync(rdram, ctx);
     goto after_13;
     // nop
 

@@ -1,7 +1,16 @@
+#include "kf_cd.h"
+
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void CdControlB(uint8_t* rdram, recomp_context* ctx) {
+void CdControlB(uint8_t* rdram, recomp_context* ctx) 
+{
+    printf("CdControlB\n");
+    KFCD_CdControl(rdram, ctx);
+    return;
+
+
+    
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 

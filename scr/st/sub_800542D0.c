@@ -18,7 +18,7 @@ void sub_800542D0(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80015AD4
     // addu        $s0, $a1, $zero
     ctx->r16 = ADD32(ctx->r5, 0);
-    sub_80015AD4(rdram, ctx);
+    AsyncStructForcedLoadSync(rdram, ctx);
     goto after_0;
     // addu        $s0, $a1, $zero
     ctx->r16 = ADD32(ctx->r5, 0);

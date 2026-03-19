@@ -56,7 +56,34 @@ void KFCD_CdControl(uint8_t* rdram, recomp_context* ctx)
      //   printf("CdlReadS    ctx->r2 = 1;\n");
         return;
     }
+    case 0x06: // CdlReadN
+    {
+        uint8_t* dest = (uint8_t*)GET_PTR(MEM_W(0, 0x80080D04)); // dest addr
+        uint32_t count = MEM_W(0, 0x80080D08); // sector count
 
+        printf("[CD] ReadN sector=%d count=%d dest=%08X\n",
+            g_cdCurrentSector, count, MEM_W(0, 0x80080D04));
+
+        if (g_cdImage && dest && count > 0 && count < 1000) {
+            for (uint32_t i = 0; i < count; i++) {
+                fseek(g_cdImage, (g_cdCurrentSector + i) * 2352 + 24, SEEK_SET);
+                fread(dest + i * 2048, 1, 2048, g_cdImage);
+            }
+            g_cdCurrentSector += count;
+        }
+
+        // Ставим флаг завершения
+        MEM_W(0, 0x80080D18) = 1;
+        ctx->r2 = 1;
+        return;
+    }
+
+    case 0x08: // CdlStop
+    {
+        g_cdReading = 0;
+        ctx->r2 = 1;
+        return;
+    }
     case 0x09: // CdlPause
     {
         g_cdReading = 0;
@@ -353,60 +380,100 @@ bool KFCD_FindFile(const char* filename, CdFile* out)
 {
     if (!g_cdImage) return false;
 
-    // Primary Volume Descriptor на секторе 16
+    // Убираем ведущий backslash
+    const char* cleanName = filename;
+    while (*cleanName == '\\' || *cleanName == '/')
+        cleanName++;
+
+    // Убираем ";1"
+    char searchName[256] = {};
+    strncpy(searchName, cleanName, 255);
+    char* semi = strchr(searchName, ';');
+    if (semi) *semi = 0;
+
+    // Разбиваем путь на компоненты: ST/CHR0/M00.T
+    char pathCopy[256] = {};
+    strncpy(pathCopy, searchName, 255);
+
+    // Primary Volume Descriptor
     uint8_t sector[2048];
     fseek(g_cdImage, 16 * 2352 + 24, SEEK_SET);
     fread(sector, 1, 2048, g_cdImage);
 
-    // Проверка "CD001"
     if (memcmp(sector + 1, "CD001", 5) != 0) {
         printf("[CD] Not a valid ISO9660 image\n");
         return false;
     }
 
-    // Root directory record at offset 156
-    uint32_t rootLBA = *(uint32_t*)(sector + 156 + 2);
-    uint32_t rootSize = *(uint32_t*)(sector + 156 + 10);
+    uint32_t dirLBA = *(uint32_t*)(sector + 156 + 2);
+    uint32_t dirSize = *(uint32_t*)(sector + 156 + 10);
 
-    // Читаем root directory
-    uint8_t* dirBuf = new uint8_t[rootSize];
-    uint32_t sectorsToRead = (rootSize + 2047) / 2048;
-    for (uint32_t i = 0; i < sectorsToRead; i++) {
-        fseek(g_cdImage, (rootLBA + i) * 2352 + 24, SEEK_SET);
-        fread(dirBuf + i * 2048, 1, 2048, g_cdImage);
-    }
+    // Разбираем путь по разделителям
+    char* context = nullptr;
+    char* token = strtok_s(pathCopy, "\\/", &context);
 
-    // Ищем файл в директории
-    uint32_t pos = 0;
-    while (pos < rootSize) {
-        uint8_t recLen = dirBuf[pos];
-        if (recLen == 0) {
-            // Переход на следующий сектор
-            pos = ((pos / 2048) + 1) * 2048;
-            continue;
+    while (token) {
+        char* nextToken = strtok_s(nullptr, "\\/", &context);
+        bool isLastComponent = (nextToken == nullptr);
+
+        // Читаем директорию
+        uint8_t* dirBuf = new uint8_t[dirSize + 2048];
+        uint32_t sectorsToRead = (dirSize + 2047) / 2048;
+        for (uint32_t i = 0; i < sectorsToRead; i++) {
+            fseek(g_cdImage, (dirLBA + i) * 2352 + 24, SEEK_SET);
+            fread(dirBuf + i * 2048, 1, 2048, g_cdImage);
         }
 
-        uint8_t nameLen = dirBuf[pos + 32];
-        char name[256] = {};
-        memcpy(name, &dirBuf[pos + 33], nameLen);
+        bool found = false;
+        uint32_t pos = 0;
+        while (pos < dirSize) {
+            uint8_t recLen = dirBuf[pos];
+            if (recLen == 0) {
+                pos = ((pos / 2048) + 1) * 2048;
+                continue;
+            }
 
-        // ISO9660 добавляет ";1" к именам
-        char* semi = strchr(name, ';');
-        if (semi) *semi = 0;
+            uint8_t nameLen = dirBuf[pos + 32];
+            char name[256] = {};
+            memcpy(name, &dirBuf[pos + 33], nameLen);
 
-        if (_stricmp(name, filename) == 0) {
-            out->lba = *(uint32_t*)(dirBuf + pos + 2);
-            out->size = *(uint32_t*)(dirBuf + pos + 10);
-            printf("[CD] Found '%s' at LBA=%d size=%d\n",
-                filename, out->lba, out->size);
-            delete[] dirBuf;
-            return true;
+            char* s = strchr(name, ';');
+            if (s) *s = 0;
+
+            if (_stricmp(name, token) == 0) {
+                uint32_t entryLBA = *(uint32_t*)(dirBuf + pos + 2);
+                uint32_t entrySize = *(uint32_t*)(dirBuf + pos + 10);
+                uint8_t flags = dirBuf[pos + 25];
+
+                if (isLastComponent) {
+                    // Это файл
+                    out->lba = entryLBA;
+                    out->size = entrySize;
+                    delete[] dirBuf;
+                    printf("[CD] Found '%s' at LBA=%d size=%d\n",
+                        filename, out->lba, out->size);
+                    return true;
+                }
+                else {
+                    // Это директория — спускаемся
+                    dirLBA = entryLBA;
+                    dirSize = entrySize;
+                    found = true;
+                    break;
+                }
+            }
+            pos += recLen;
         }
 
-        pos += recLen;
+        delete[] dirBuf;
+        if (!found && !isLastComponent) {
+            printf("[CD] Directory '%s' not found\n", token);
+            return false;
+        }
+
+        token = nextToken;
     }
 
-    delete[] dirBuf;
     printf("[CD] File '%s' not found\n", filename);
     return false;
 }

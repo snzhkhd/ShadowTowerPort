@@ -329,7 +329,7 @@ L_80021388:
     // jal         0x8006B944
     // srl         $a0, $a0, 11
     ctx->r4 = S32(U32(ctx->r4) >> 11);
-    sub_8006B944(rdram, ctx);
+    CdReadWithRetry(rdram, ctx);
     goto after_6;
     // srl         $a0, $a0, 11
     ctx->r4 = S32(U32(ctx->r4) >> 11);
@@ -340,7 +340,7 @@ L_800213B4:
     // jal         0x8006BA44
     // addiu       $a1, $sp, 0x18
     ctx->r5 = ADD32(ctx->r29, 0X18);
-    sub_8006BA44(rdram, ctx);
+    CdCheckStatus(rdram, ctx);
     goto after_7;
     // addiu       $a1, $sp, 0x18
     ctx->r5 = ADD32(ctx->r29, 0X18);
@@ -412,7 +412,7 @@ L_800213F4:
     // jal         0x80079A60
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
-    DrawSync(rdram, ctx);
+    ST_DrawSync(rdram, ctx);
     goto after_11;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
@@ -484,7 +484,7 @@ L_800213F4:
     // jal         0x80079A60
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
-    DrawSync(rdram, ctx);
+    ST_DrawSync(rdram, ctx);
     goto after_16;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);

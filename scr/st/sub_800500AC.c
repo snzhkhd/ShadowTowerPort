@@ -66,7 +66,7 @@ L_800500F8:
     // jal         0x80015AD4
     // nop
 
-    sub_80015AD4(rdram, ctx);
+    AsyncStructForcedLoadSync(rdram, ctx);
     goto after_1;
     // nop
 
@@ -74,7 +74,7 @@ L_800500F8:
     // jal         0x80058620
     // nop
 
-    sub_80058620(rdram, ctx);
+    ProcessCDAudioLoad(rdram, ctx);
     goto after_2;
     // nop
 
@@ -82,7 +82,7 @@ L_800500F8:
     // jal         0x80045FFC
     // nop
 
-    sub_80045FFC(rdram, ctx);
+    ProcessAssetLoadQueue(rdram, ctx);
     goto after_3;
     // nop
 

@@ -50,7 +50,7 @@ void sub_80015F0C(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80015AD4
     // nop
 
-    sub_80015AD4(rdram, ctx);
+    AsyncStructForcedLoadSync(rdram, ctx);
     goto after_2;
     // nop
 
@@ -83,7 +83,7 @@ L_80015F5C:
     // jal         0x8006B944
     // addiu       $a2, $zero, 0x80
     ctx->r6 = ADD32(0, 0X80);
-    sub_8006B944(rdram, ctx);
+    CdReadWithRetry(rdram, ctx);
     goto after_4;
     // addiu       $a2, $zero, 0x80
     ctx->r6 = ADD32(0, 0X80);
@@ -116,7 +116,7 @@ L_80015F9C:
     // jal         0x8006BA44
     // addiu       $a1, $sp, 0x10
     ctx->r5 = ADD32(ctx->r29, 0X10);
-    sub_8006BA44(rdram, ctx);
+    CdCheckStatus(rdram, ctx);
     goto after_6;
     // addiu       $a1, $sp, 0x10
     ctx->r5 = ADD32(ctx->r29, 0X10);

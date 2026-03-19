@@ -29,7 +29,7 @@ L_80015B4C:
     // jal         0x8001531C
     // nop
 
-    sub_8001531C(rdram, ctx);
+    AsyncDataLoad(rdram, ctx);
     goto after_0;
     // nop
 

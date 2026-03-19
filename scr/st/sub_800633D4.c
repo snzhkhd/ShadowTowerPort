@@ -58,7 +58,7 @@ void sub_800633D4(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80015AD4
     // sh          $v0, 0x2EC($s2)
     MEM_H(0X2EC, ctx->r18) = ctx->r2;
-    sub_80015AD4(rdram, ctx);
+    AsyncStructForcedLoadSync(rdram, ctx);
     goto after_0;
     // sh          $v0, 0x2EC($s2)
     MEM_H(0X2EC, ctx->r18) = ctx->r2;
@@ -213,7 +213,7 @@ L_800634E0:
     // jal         0x80015AD4
     // nop
 
-    sub_80015AD4(rdram, ctx);
+    AsyncStructForcedLoadSync(rdram, ctx);
     goto after_8;
     // nop
 

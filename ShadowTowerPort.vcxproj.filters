@@ -1617,7 +1617,7 @@
     <ClCompile Include="scr\st\sub_8007AFF4.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
-    <ClCompile Include="scr\st\sub_8007B0D4.c">
+    <ClCompile Include="scr\st\ST_ClearImageCallback.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
     <ClCompile Include="scr\st\sub_8007B7C0.c">
@@ -1632,16 +1632,16 @@
     <ClCompile Include="scr\st\sub_8007B8B0.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
-    <ClCompile Include="scr\st\sub_8007B8D4.c">
+    <ClCompile Include="scr\st\GPU_SafeExecute.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
-    <ClCompile Include="scr\st\sub_8007B304.c">
+    <ClCompile Include="scr\st\ST_LoadImageCallback.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
-    <ClCompile Include="scr\st\sub_8007B540.c">
+    <ClCompile Include="scr\st\ST_StoreImageCallback.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
-    <ClCompile Include="scr\st\sub_8007B838.c">
+    <ClCompile Include="scr\st\TriggerGpuDma.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
     <ClCompile Include="scr\st\sub_8007B880.c">
@@ -1824,7 +1824,7 @@
     <ClCompile Include="scr\st\sub_8007F210.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
-    <ClCompile Include="scr\st\sub_80014A30.c">
+    <ClCompile Include="scr\st\ST_MainGameLoop.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
     <ClCompile Include="scr\st\sub_80014CFC.c">
@@ -2364,7 +2364,7 @@
     <ClCompile Include="scr\st\sub_800173A8.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
-    <ClCompile Include="scr\st\sub_800174C4.c">
+    <ClCompile Include="scr\st\ST_BeginDraw2D.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
     <ClCompile Include="scr\st\sub_800175A4.c">
@@ -2637,10 +2637,10 @@
     <ClCompile Include="scr\st\sub_800788E4.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
-    <ClCompile Include="scr\st\sub_800795F4.c">
+    <ClCompile Include="scr\st\ST_SetDefDrawEnv.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
-    <ClCompile Include="scr\st\sub_800796A8.c">
+    <ClCompile Include="scr\st\ST_SetDefDispEnv.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
     <ClCompile Include="scr\st\sub_8001435C.c">
@@ -2652,7 +2652,7 @@
     <ClCompile Include="scr\st\sub_8001528C.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
-    <ClCompile Include="scr\st\sub_8001531C.c">
+    <ClCompile Include="scr\st\AsyncDataLoad.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
     <ClCompile Include="scr\st\sub_8001535C.c">
@@ -2757,7 +2757,7 @@
     <ClCompile Include="scr\st\sub_8006620C.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
-    <ClCompile Include="scr\st\sub_8007463C.c">
+    <ClCompile Include="scr\st\ST_InitGeom.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
     <ClCompile Include="scr\st\sub_8007727C.c">

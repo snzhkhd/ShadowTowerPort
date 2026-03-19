@@ -1,7 +1,9 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_8001531C(uint8_t* rdram, recomp_context* ctx) {
+void AsyncDataLoad(uint8_t* rdram, recomp_context* ctx) 
+{
+    printf("AsyncDataLoad\n");
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -12,7 +14,7 @@ void sub_8001531C(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80058620
     // nop
 
-    sub_80058620(rdram, ctx);
+    ProcessCDAudioLoad(rdram, ctx);
     goto after_0;
     // nop
 
@@ -20,7 +22,7 @@ void sub_8001531C(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80045FFC
     // nop
 
-    sub_80045FFC(rdram, ctx);
+    ProcessAssetLoadQueue(rdram, ctx);
     goto after_1;
     // nop
 
@@ -36,7 +38,7 @@ void sub_8001531C(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80079A60
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
-    DrawSync(rdram, ctx);
+    ST_DrawSync(rdram, ctx);
     goto after_3;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);

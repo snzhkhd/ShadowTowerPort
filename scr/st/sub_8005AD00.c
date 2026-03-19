@@ -280,7 +280,7 @@ void sub_8005AD00(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80079A60
     // addu        $a0, $s6, $zero
     ctx->r4 = ADD32(ctx->r22, 0);
-    DrawSync(rdram, ctx);
+    ST_DrawSync(rdram, ctx);
     goto after_15;
     // addu        $a0, $s6, $zero
     ctx->r4 = ADD32(ctx->r22, 0);
@@ -314,7 +314,7 @@ void sub_8005AD00(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80079A60
     // addu        $a0, $s6, $zero
     ctx->r4 = ADD32(ctx->r22, 0);
-    DrawSync(rdram, ctx);
+    ST_DrawSync(rdram, ctx);
     goto after_18;
     // addu        $a0, $s6, $zero
     ctx->r4 = ADD32(ctx->r22, 0);
@@ -707,7 +707,7 @@ L_8005B0E4:
     // jal         0x80079A60
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
-    DrawSync(rdram, ctx);
+    ST_DrawSync(rdram, ctx);
     goto after_31;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
@@ -882,7 +882,7 @@ L_8005B1D4:
     // jal         0x80079A60
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
-    DrawSync(rdram, ctx);
+    ST_DrawSync(rdram, ctx);
     goto after_36;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
@@ -3043,7 +3043,7 @@ L_8005BDD4:
     // jal         0x80079A60
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
-    DrawSync(rdram, ctx);
+    ST_DrawSync(rdram, ctx);
     goto after_68;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);

@@ -1,7 +1,7 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_8006AD1C(uint8_t* rdram, recomp_context* ctx) {
+void CdCheckISO9660(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -34,7 +34,7 @@ void sub_8006AD1C(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x8006B320
     // sw          $s1, 0x24($sp)
     MEM_W(0X24, ctx->r29) = ctx->r17;
-    sub_8006B320(rdram, ctx);
+    CdReadSector(rdram, ctx);
     goto after_0;
     // sw          $s1, 0x24($sp)
     MEM_W(0X24, ctx->r29) = ctx->r17;
@@ -150,7 +150,7 @@ L_8006ADD0:
     // jal         0x8006B320
     // addu        $a2, $s0, $zero
     ctx->r6 = ADD32(ctx->r16, 0);
-    sub_8006B320(rdram, ctx);
+    CdReadSector(rdram, ctx);
     goto after_4;
     // addu        $a2, $s0, $zero
     ctx->r6 = ADD32(ctx->r16, 0);

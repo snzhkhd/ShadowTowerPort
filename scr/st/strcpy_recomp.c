@@ -1,17 +1,27 @@
 #include "recomp.h"
 #include "disable_warnings.h"
+#include <string>
 
-void strcpy_recomp(uint8_t* rdram, recomp_context* ctx) {
-    uint64_t hi = 0, lo = 0, result = 0;
-    unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
-    int c1cs = 0; 
-    // addiu       $t2, $zero, 0xA0
-    ctx->r10 = ADD32(0, 0XA0);
-    // jr          $t2
-    // addiu       $t1, $zero, 0x19
-    ctx->r9 = ADD32(0, 0X19);
-    LOOKUP_FUNC(ctx->r10)(rdram, ctx);
-    return;
-    // addiu       $t1, $zero, 0x19
-    ctx->r9 = ADD32(0, 0X19);
+void strcpy_recomp(uint8_t* rdram, recomp_context* ctx) 
+{
+    char* dst = (char*)&rdram[ctx->r4 & 0x1FFFFF];
+    const char* src = (const char*)&rdram[ctx->r5 & 0x1FFFFF];
+
+    //printf("[HLE STR] strcpy(dst, \"%s\")\n", src); // Покажем, что копируем
+
+    strcpy(dst, src);
+    ctx->r2 = ctx->r4;
+
+    //uint64_t hi = 0, lo = 0, result = 0;
+    //unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
+    //int c1cs = 0; 
+    //// addiu       $t2, $zero, 0xA0
+    //ctx->r10 = ADD32(0, 0XA0);
+    //// jr          $t2
+    //// addiu       $t1, $zero, 0x19
+    //ctx->r9 = ADD32(0, 0X19);
+    //LOOKUP_FUNC(ctx->r10)(rdram, ctx);
+    //return;
+    //// addiu       $t1, $zero, 0x19
+    //ctx->r9 = ADD32(0, 0X19);
 ;}

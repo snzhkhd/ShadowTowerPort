@@ -1,7 +1,26 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_8006BA44(uint8_t* rdram, recomp_context* ctx) {
+void CdCheckStatus(uint8_t* rdram, recomp_context* ctx) 
+{
+    printf("CdCheckStatus\n");
+    //int a1 = ctx->r4;
+    //uint8_t* a2 = (uint8_t*)ctx->r5;
+    //// 1. Имитируем, что диск готов
+    // // По смещению 0 в статусе обычно лежит "Ready" (например 0x01 или 0x02)
+    //uint32_t* regs = (uint32_t*)GET_PTR(0x801E6178);    //g_CdStatusRegisters
+    //regs[0] = 0x01; // Успех / Ready
+
+    //// 2. Если игра просит скопировать статус в массив a2
+    //if (a2) {
+    //    // Копируем наш "фейковый" статус в память игры
+    //    for (int i = 0; i < 8; i++) a2[i] = ((uint8_t*)regs)[i];
+    //}
+    ctx->r2 = 0;
+    return; // Возвращаем 0 (статус ОК)
+
+
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 

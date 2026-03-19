@@ -24,7 +24,7 @@ void sub_8002CEF8(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x800174C4
     // sh          $v0, 0x12($sp)
     MEM_H(0X12, ctx->r29) = ctx->r2;
-    sub_800174C4(rdram, ctx);
+    ST_BeginDraw2D(rdram, ctx);
     goto after_0;
     // sh          $v0, 0x12($sp)
     MEM_H(0X12, ctx->r29) = ctx->r2;

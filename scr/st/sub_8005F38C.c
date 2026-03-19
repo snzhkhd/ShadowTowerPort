@@ -92,7 +92,7 @@ void sub_8005F38C(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80015AD4
     // lui         $s1, 0x8009
     ctx->r17 = S32(0X8009 << 16);
-    sub_80015AD4(rdram, ctx);
+    AsyncStructForcedLoadSync(rdram, ctx);
     goto after_2;
     // lui         $s1, 0x8009
     ctx->r17 = S32(0X8009 << 16);

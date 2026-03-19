@@ -951,7 +951,7 @@ L_80059CA4:
     // jal         0x80079A60
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
-    DrawSync(rdram, ctx);
+    ST_DrawSync(rdram, ctx);
     goto after_11;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);

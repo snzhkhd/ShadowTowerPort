@@ -4,8 +4,8 @@
 #include <stdint.h>
 
 //game global var
-#define ADDR_G_ACTIVECDSTREAM 0x801BA848
-#define ADDR_G_CDTASKQUEUE    0x801BA844
+#define ADDR_G_ACTIVECDSTREAM 0x80088BD8
+#define ADDR_G_CDTASKQUEUE    0x80088BD4
 
 
 // main.cpp

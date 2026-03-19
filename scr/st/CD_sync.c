@@ -1,7 +1,23 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void CD_sync(uint8_t* rdram, recomp_context* ctx) {
+void CD_sync(uint8_t* rdram, recomp_context* ctx) 
+{
+    printf("-->CD_sync\n");
+    //// a1 = mode (0=wait, 1=poll)
+    //// a2 = result buffer
+    //uint8_t* result_buf = ctx->r5 ? (uint8_t*)GET_PTR(ctx->r5) : nullptr;
+
+    //// Заполняем статус если буфер передан
+    //if (result_buf) {
+    //    result_buf[0] = 0x02; // status: complete
+    //}
+
+    ctx->r2 = 0; // 0 = команда завершена
+    return;
+
+
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 

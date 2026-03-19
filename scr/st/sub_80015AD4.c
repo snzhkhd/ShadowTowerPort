@@ -1,7 +1,7 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_80015AD4(uint8_t* rdram, recomp_context* ctx) {
+void AsyncStructForcedLoadSync(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -21,7 +21,7 @@ L_80015AE8:
     // jal         0x8001531C
     // nop
 
-    sub_8001531C(rdram, ctx);
+    AsyncDataLoad(rdram, ctx);
     goto after_0;
     // nop
 

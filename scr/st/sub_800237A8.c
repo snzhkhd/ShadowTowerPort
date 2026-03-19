@@ -284,7 +284,7 @@ L_80023938:
     // jal         0x8001531C
     // nop
 
-    sub_8001531C(rdram, ctx);
+    AsyncDataLoad(rdram, ctx);
     goto after_9;
     // nop
 

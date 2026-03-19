@@ -916,7 +916,7 @@ L_80055874:
     // jal         0x80015AD4
     // sb          $s4, 0xA($fp)
     MEM_B(0XA, ctx->r30) = ctx->r20;
-    sub_80015AD4(rdram, ctx);
+    AsyncStructForcedLoadSync(rdram, ctx);
     goto after_14;
     // sb          $s4, 0xA($fp)
     MEM_B(0XA, ctx->r30) = ctx->r20;

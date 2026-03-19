@@ -86,7 +86,7 @@ void sub_800636F8(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80079A60
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
-    DrawSync(rdram, ctx);
+    ST_DrawSync(rdram, ctx);
     goto after_2;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);

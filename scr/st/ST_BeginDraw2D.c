@@ -1,7 +1,28 @@
 #include "recomp.h"
 #include "disable_warnings.h"
+#include "PsyX/PsyX_public.h"
+#include "PsyX/PsyX_render.h"
 
-void sub_800174C4(uint8_t* rdram, recomp_context* ctx) {
+#include "SDL2/SDL_video.h"
+extern SDL_Window* g_window;
+
+void ST_BeginDraw2D(uint8_t* rdram, recomp_context* ctx) 
+{
+    PsyX_BeginScene();
+
+    // Переключаем на 4:3 для 2D
+    if (g_widescreenEnabled)
+    {
+        int windowW, windowH;
+        SDL_GetWindowSize(g_window, &windowW, &windowH);
+        float targetAspect = 4.0f / 3.0f;
+        int vpH = windowH;
+        int vpW = (int)(windowH * targetAspect);
+        int vpX = (windowW - vpW) / 2;
+        GR_SetViewPort(vpX, 0, vpW, vpH);
+    }
+    printf("BeginDraw2D ?\n");
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 

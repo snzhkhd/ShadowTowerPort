@@ -98,7 +98,7 @@ L_80026B6C:
     // jal         0x800174C4
     // nop
 
-    sub_800174C4(rdram, ctx);
+    ST_BeginDraw2D(rdram, ctx);
     goto after_4;
     // nop
 

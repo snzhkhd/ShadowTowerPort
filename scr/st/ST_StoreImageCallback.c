@@ -1,7 +1,21 @@
 #include "recomp.h"
 #include "disable_warnings.h"
+#include "psx/libgte.h"
+#include "psx/libgpu.h"
 
-void sub_8007B540(uint8_t* rdram, recomp_context* ctx) {
+void ST_StoreImageCallback(uint8_t* rdram, recomp_context* ctx) 
+{
+
+    RECT16* rect = (RECT16*)GET_PTR(ctx->r4);      // a0: Область VRAM (X, Y, W, H)
+    u_long* p = (u_long*)GET_PTR(ctx->r5);          // a1: Куда сохранить в RAM
+
+    // Вызываем нативный StoreImage из Psy-X
+    StoreImage(rect, p);
+    ctx->pc = ctx->r31;
+    return;
+
+
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 

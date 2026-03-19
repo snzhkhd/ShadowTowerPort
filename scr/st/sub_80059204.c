@@ -567,7 +567,7 @@ L_800594AC:
     // jal         0x80079A60
     // sh          $a1, 0x6A($sp)
     MEM_H(0X6A, ctx->r29) = ctx->r5;
-    DrawSync(rdram, ctx);
+    ST_DrawSync(rdram, ctx);
     goto after_2;
     // sh          $a1, 0x6A($sp)
     MEM_H(0X6A, ctx->r29) = ctx->r5;
@@ -608,7 +608,7 @@ L_80059544:
     // jal         0x80079A60
     // sh          $a1, 0x6A($sp)
     MEM_H(0X6A, ctx->r29) = ctx->r5;
-    DrawSync(rdram, ctx);
+    ST_DrawSync(rdram, ctx);
     goto after_3;
     // sh          $a1, 0x6A($sp)
     MEM_H(0X6A, ctx->r29) = ctx->r5;

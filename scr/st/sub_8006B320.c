@@ -1,7 +1,9 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_8006B320(uint8_t* rdram, recomp_context* ctx) {
+void CdReadSector(uint8_t* rdram, recomp_context* ctx) 
+{
+    printf("CdReadSector\n");
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -46,7 +48,7 @@ void sub_8006B320(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x8006B944
     // addiu       $a2, $zero, 0x80
     ctx->r6 = ADD32(0, 0X80);
-    sub_8006B944(rdram, ctx);
+    CdReadWithRetry(rdram, ctx);
     goto after_2;
     // addiu       $a2, $zero, 0x80
     ctx->r6 = ADD32(0, 0X80);
@@ -56,7 +58,7 @@ void sub_8006B320(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x8006BA44
     // addu        $a1, $zero, $zero
     ctx->r5 = ADD32(0, 0);
-    sub_8006BA44(rdram, ctx);
+    CdCheckStatus(rdram, ctx);
     goto after_3;
     // addu        $a1, $zero, $zero
     ctx->r5 = ADD32(0, 0);

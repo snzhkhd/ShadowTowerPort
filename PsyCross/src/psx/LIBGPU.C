@@ -734,9 +734,9 @@ u_long* FntFlush()
 	termPrim(opri);
 
 	// Draw the primitives
-	//DrawSync(0);
+	//ST_DrawSync(0);
 	DrawOTag((u_long*)str->pribuff);
-	//DrawSync(0);
+	//ST_DrawSync(0);
 
 	str->txtnext = str->txtbuff;
 	str->txtbuff[0] = 0;

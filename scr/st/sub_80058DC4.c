@@ -58,7 +58,7 @@ void sub_80058DC4(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80015AD4
     // sh          $s4, 0x2F8($s3)
     MEM_H(0X2F8, ctx->r19) = ctx->r20;
-    sub_80015AD4(rdram, ctx);
+    AsyncStructForcedLoadSync(rdram, ctx);
     goto after_0;
     // sh          $s4, 0x2F8($s3)
     MEM_H(0X2F8, ctx->r19) = ctx->r20;
@@ -150,7 +150,7 @@ L_80058EA8:
     // jal         0x80079A60
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
-    DrawSync(rdram, ctx);
+    ST_DrawSync(rdram, ctx);
     goto after_5;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);

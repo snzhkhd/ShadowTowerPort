@@ -26,7 +26,7 @@ void sub_8005408C(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80015AD4
     // sw          $s0, 0x20($sp)
     MEM_W(0X20, ctx->r29) = ctx->r16;
-    sub_80015AD4(rdram, ctx);
+    AsyncStructForcedLoadSync(rdram, ctx);
     goto after_0;
     // sw          $s0, 0x20($sp)
     MEM_W(0X20, ctx->r29) = ctx->r16;

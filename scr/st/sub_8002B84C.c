@@ -206,7 +206,7 @@ void sub_8002B84C(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x800174C4
     // lui         $fp, 0x1F80
     ctx->r30 = S32(0X1F80 << 16);
-    sub_800174C4(rdram, ctx);
+    ST_BeginDraw2D(rdram, ctx);
     goto after_0;
     // lui         $fp, 0x1F80
     ctx->r30 = S32(0X1F80 << 16);

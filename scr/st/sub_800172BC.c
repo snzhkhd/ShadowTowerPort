@@ -48,7 +48,7 @@ void sub_800172BC(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x800795F4
     // sw          $s2, 0x10($sp)
     MEM_W(0X10, ctx->r29) = ctx->r18;
-    sub_800795F4(rdram, ctx);
+    ST_SetDefDrawEnv(rdram, ctx);
     goto after_0;
     // sw          $s2, 0x10($sp)
     MEM_W(0X10, ctx->r29) = ctx->r18;
@@ -64,7 +64,7 @@ void sub_800172BC(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x800796A8
     // sw          $s2, 0x10($sp)
     MEM_W(0X10, ctx->r29) = ctx->r18;
-    sub_800796A8(rdram, ctx);
+    ST_SetDefDispEnv(rdram, ctx);
     goto after_1;
     // sw          $s2, 0x10($sp)
     MEM_W(0X10, ctx->r29) = ctx->r18;
@@ -82,7 +82,7 @@ void sub_800172BC(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x800795F4
     // sw          $s2, 0x10($sp)
     MEM_W(0X10, ctx->r29) = ctx->r18;
-    sub_800795F4(rdram, ctx);
+    ST_SetDefDrawEnv(rdram, ctx);
     goto after_2;
     // sw          $s2, 0x10($sp)
     MEM_W(0X10, ctx->r29) = ctx->r18;
@@ -98,7 +98,7 @@ void sub_800172BC(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x800796A8
     // sw          $s2, 0x10($sp)
     MEM_W(0X10, ctx->r29) = ctx->r18;
-    sub_800796A8(rdram, ctx);
+    ST_SetDefDispEnv(rdram, ctx);
     goto after_3;
     // sw          $s2, 0x10($sp)
     MEM_W(0X10, ctx->r29) = ctx->r18;
