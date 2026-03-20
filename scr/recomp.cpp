@@ -335,13 +335,16 @@ void ps1_bios_dispatcher_B(uint8_t* rdram, recomp_context* ctx)
         }
         case 0x4A: // InitPAD
         {
-            // Настоящий InitPAD из Psy-X
+            printf("[BIOS] B-Call: InitPAD");
+            printf("a0=0x%08X ,a1=0x%08X, a2=0x%08X\n", func_id, ctx->r4, ctx->r5, ctx->r6);
+
             InitPAD((char*)GET_PTR(ctx->r4), ctx->r5, (char*)GET_PTR(ctx->r6), ctx->r7);
             ctx->r2 = 1;
             return;
         }
         case 0x4B: // StartPAD
         {
+            printf("[BIOS] B-Call: StartPAD\n");
             // Запуск опроса геймпада, видимо не вызывается
             StartPAD();
             ctx->r2 = 1;
@@ -356,6 +359,7 @@ void ps1_bios_dispatcher_B(uint8_t* rdram, recomp_context* ctx)
         }
         case 0x56: // PadRead
         {
+            printf("[BIOS] PadRead\n");
             int mode = (int)ctx->r4;
             PadRead(mode);
             // Возвращаем, что джойстик подключен, но кнопки не нажаты.

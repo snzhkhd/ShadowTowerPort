@@ -71,7 +71,10 @@ void VSync(uint8_t* rdram, recomp_context* ctx)
     ctx->r2 = VSync(mode == 0 ? 1 : mode);
     WRITE_W(0x1F801814, 0x1C000000);
 
-
+    /*uint8_t* pad = (uint8_t*)GET_PTR(0x801CD130);
+    uint16_t buttons = *(uint16_t*)(pad + 2);
+    printf("[PAD] buf[0]=%02X buf[1]=%02X buttons=%04X\n",
+        pad[0], pad[1], buttons);*/
 
 //    uint64_t hi = 0, lo = 0, result = 0;
 //    unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;

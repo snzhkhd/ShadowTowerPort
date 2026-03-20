@@ -1,7 +1,21 @@
 #include "recomp.h"
 #include "disable_warnings.h"
+#include "psx/libgte.h" 
+#include "psx/libgpu.h"
+#include <cstring>
 
-void sub_8007BDE4(uint8_t* rdram, recomp_context* ctx) {
+void ResetGraph_Internal(uint8_t* rdram, recomp_context* ctx) 
+{
+    int mode = (int)ctx->r4;
+    printf("[HLE GPU] ResetGraph(%d) called\n", mode);
+
+    // 1. —брасываем Psy-X
+    ctx->r2 = ResetGraph(mode);
+
+    return;
+
+
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -122,7 +136,7 @@ L_8007BE54:
     // jal         0x8007C6C8
     // sw          $zero, 0x0($v0)
     MEM_W(0X0, ctx->r2) = 0;
-    sub_8007C6C8(rdram, ctx);
+    memset_1(rdram, ctx);
     goto after_1;
     // sw          $zero, 0x0($v0)
     MEM_W(0X0, ctx->r2) = 0;
@@ -136,7 +150,7 @@ L_8007BE54:
     // jal         0x8007C6C8
     // addiu       $a2, $zero, 0x1800
     ctx->r6 = ADD32(0, 0X1800);
-    sub_8007C6C8(rdram, ctx);
+    memset_1(rdram, ctx);
     goto after_2;
     // addiu       $a2, $zero, 0x1800
     ctx->r6 = ADD32(0, 0X1800);

@@ -518,8 +518,8 @@ bool KFCD_FindFile(const char* filename, CdFile* out)
                     out->lba = entryLBA;
                     out->size = entrySize;
                     delete[] dirBuf;
-                    printf("[CD] Found '%s' at LBA=%d size=%d\n",
-                        filename, out->lba, out->size);
+                    //printf("[CD] Found '%s' at LBA=%d size=%d\n",
+                    //    filename, out->lba, out->size);
                     return true;
                 }
                 else {

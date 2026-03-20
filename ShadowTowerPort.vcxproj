@@ -1098,7 +1098,7 @@
     <ClCompile Include="scr\st\sub_8007B8B0.c" />
     <ClCompile Include="scr\st\GPU_SafeExecute.c" />
     <ClCompile Include="scr\st\sub_8007BB84.c" />
-    <ClCompile Include="scr\st\sub_8007BDE4.c" />
+    <ClCompile Include="scr\st\ResetGraph_Internal.c" />
     <ClCompile Include="scr\st\sub_8007BF34.c" />
     <ClCompile Include="scr\st\sub_8007C070.c" />
     <ClCompile Include="scr\st\sub_8007C0A4.c" />

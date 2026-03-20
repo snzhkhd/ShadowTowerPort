@@ -5,7 +5,7 @@
 
 void CdControlB(uint8_t* rdram, recomp_context* ctx) 
 {
-    printf("CdControlB\n");
+
     KFCD_CdControl(rdram, ctx);
     return;
 

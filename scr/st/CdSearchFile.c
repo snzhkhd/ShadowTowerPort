@@ -9,7 +9,7 @@ void CdSearchFile(uint8_t* rdram, recomp_context* ctx)
     uint8_t* fp = (uint8_t*)GET_PTR(ctx->r4);
     const char* name = (const char*)GET_PTR(ctx->r5);
 
-    printf("[CD] CdSearchFile '%s'\n", name);
+   // printf("[CD] CdSearchFile '%s'\n", name);
 
     CdFile found;
     if (KFCD_FindFile(name, &found)) {
@@ -32,8 +32,7 @@ void CdSearchFile(uint8_t* rdram, recomp_context* ctx)
         *(uint32_t*)(fp + 4) = found.size;
         strncpy((char*)(fp + 8), name, 16);
 
-        printf("[CD] Found: LBA=%d size=%d MSF=%02X:%02X:%02X\n",
-            found.lba, found.size, fp[0], fp[1], fp[2]);
+ //       printf("[CD] Found: LBA=%d size=%d MSF=%02X:%02X:%02X\n", found.lba, found.size, fp[0], fp[1], fp[2]);
         ctx->r2 = ctx->r4; // возвращаем указатель на fp (успех)
     }
     else {

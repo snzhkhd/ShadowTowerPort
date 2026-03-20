@@ -3,7 +3,7 @@
 
 void sub_80044674(uint8_t* rdram, recomp_context* ctx) 
 {
-    printf("sub_80044674\n");
+ //   printf("sub_80044674\n");
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -1347,7 +1347,7 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     ctx->r29 = ADD32(ctx->r29, 0X40);
     // jr          $ra
     // nop
-    printf("\nsub_80044674  end\n");
+//    printf("\nsub_80044674  end\n");
     return;
     // nop
 

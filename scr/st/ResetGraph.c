@@ -95,7 +95,7 @@ L_8007974C:
     // jal         0x8007C6C8
     // addiu       $a2, $zero, 0x80
     ctx->r6 = ADD32(0, 0X80);
-    sub_8007C6C8(rdram, ctx);
+    memset_1(rdram, ctx);
     goto after_1;
     // addiu       $a2, $zero, 0x80
     ctx->r6 = ADD32(0, 0X80);
@@ -127,7 +127,7 @@ L_8007974C:
     // jal         0x8007BDE4
     // addu        $a0, $s1, $zero
     ctx->r4 = ADD32(ctx->r17, 0);
-    sub_8007BDE4(rdram, ctx);
+    ResetGraph_Internal(rdram, ctx);
     goto after_4;
     // addu        $a0, $s1, $zero
     ctx->r4 = ADD32(ctx->r17, 0);
@@ -169,7 +169,7 @@ L_8007974C:
     // jal         0x8007C6C8
     // sh          $v0, 0x6($s0)
     MEM_H(0X6, ctx->r16) = ctx->r2;
-    sub_8007C6C8(rdram, ctx);
+    memset_1(rdram, ctx);
     goto after_5;
     // sh          $v0, 0x6($s0)
     MEM_H(0X6, ctx->r16) = ctx->r2;
@@ -181,7 +181,7 @@ L_8007974C:
     // jal         0x8007C6C8
     // addiu       $a2, $zero, 0x14
     ctx->r6 = ADD32(0, 0X14);
-    sub_8007C6C8(rdram, ctx);
+    memset_1(rdram, ctx);
     goto after_6;
     // addiu       $a2, $zero, 0x14
     ctx->r6 = ADD32(0, 0X14);

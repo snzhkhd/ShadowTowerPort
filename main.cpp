@@ -86,13 +86,16 @@ int main(int argc, char* argv[])
 
     PsyX_UpdateInput();
 
-    memset(g_pad1_buf, 0xFF, sizeof(g_pad1_buf));
-    memset(g_pad2_buf, 0xFF, sizeof(g_pad2_buf));
-    g_pad1_buf[0] = 0x00;
-    g_pad1_buf[1] = 0x41; // тип контроллера
+    uint8_t* pad1_ptr = (uint8_t*)GET_PTR(0x801CD130);
+    uint8_t* pad2_ptr = (uint8_t*)GET_PTR(0x801CD152);
 
-    PsyX_Pad_InitPad(1, g_pad1_buf);
-    PsyX_Pad_InitPad(0, g_pad2_buf);
+    memset(pad1_ptr, 0xFF, 34);
+    memset(pad2_ptr, 0xFF, 34);
+    pad1_ptr[0] = 0x00;
+    pad1_ptr[1] = 0x41;
+
+    PsyX_Pad_InitPad(1, pad1_ptr);
+    PsyX_Pad_InitPad(0, pad2_ptr);
 
     ResetGraph(0);
 

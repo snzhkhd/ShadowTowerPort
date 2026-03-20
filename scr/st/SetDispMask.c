@@ -68,7 +68,7 @@ void SetDispMask(uint8_t* rdram, recomp_context* ctx)
 //    // jal         0x8007C6C8
 //    // addiu       $a2, $zero, 0x14
 //    ctx->r6 = ADD32(0, 0X14);
-//    sub_8007C6C8(rdram, ctx);
+//    memset_1(rdram, ctx);
 //    goto after_1;
 //    // addiu       $a2, $zero, 0x14
 //    ctx->r6 = ADD32(0, 0X14);

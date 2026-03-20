@@ -1650,7 +1650,7 @@
     <ClCompile Include="scr\st\sub_8007BB84.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
-    <ClCompile Include="scr\st\sub_8007BDE4.c">
+    <ClCompile Include="scr\st\ResetGraph_Internal.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
     <ClCompile Include="scr\st\sub_8007BF34.c">
