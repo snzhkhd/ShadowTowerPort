@@ -1,7 +1,9 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_8002181C(uint8_t* rdram, recomp_context* ctx) {
+void sub_8002181C(uint8_t* rdram, recomp_context* ctx) 
+{
+   
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -31,6 +33,7 @@ void sub_8002181C(uint8_t* rdram, recomp_context* ctx) {
         ctx->r2 = ADD32(0, 0XE0);
         goto L_800218C4;
     }
+
     // addiu       $v0, $zero, 0xE0
     ctx->r2 = ADD32(0, 0XE0);
     // sw          $v0, 0x14($sp)

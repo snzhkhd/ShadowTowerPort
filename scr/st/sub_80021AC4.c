@@ -1,7 +1,11 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_80021AC4(uint8_t* rdram, recomp_context* ctx) {
+void sub_80021AC4(uint8_t* rdram, recomp_context* ctx) 
+{
+    printf("[RENDER3D] sub_80021AC4 arg=%d\n", ctx->r4);
+
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -782,6 +786,10 @@ L_80021FF0:
     // jr          $ra
     // nop
 
+
+    // ѕровер€ем сколько примитивов добавилось
+    uint32_t otHead = MEM_W(0, 0x80165174); // dword_80165174
+    printf("[RENDER3D] otHead=%08X\n", otHead);
     return;
     // nop
 

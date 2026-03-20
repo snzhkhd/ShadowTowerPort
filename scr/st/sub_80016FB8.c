@@ -1,7 +1,27 @@
 #include "recomp.h"
 #include "disable_warnings.h"
+#include "psx/libgte.h"
 
-void ST_InitGraphicsSystem(uint8_t* rdram, recomp_context* ctx) 
+
+void orig_ST_InitGraphicsSystem(uint8_t* rdram, recomp_context* ctx);
+
+void ST_InitGraphicsSystem(uint8_t* rdram, recomp_context* ctx)
+{
+    orig_ST_InitGraphicsSystem(rdram, ctx);
+
+
+    // Синхронизируем GTE из контекста
+    ctx_to_gte(ctx);
+
+    // Принудительно ставим правильные значения
+    SetGeomOffset(160, 120);  // OFX, OFY  (ctc2 $t4,$24 / ctc2 $t5,$25)
+    SetGeomScreen(300);       // H          (ctc2 $t3,$26)
+
+    SetBackColor(1280, 1280, 1280);
+    gte_to_ctx(ctx);
+}
+
+void orig_ST_InitGraphicsSystem(uint8_t* rdram, recomp_context* ctx) 
 {
 
     printf("ST_InitGraphicsSystem \n");

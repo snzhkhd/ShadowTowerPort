@@ -283,7 +283,9 @@ void ps1_bios_dispatcher_A(uint8_t* rdram, recomp_context* ctx)
 
 void ps1_bios_dispatcher_B(uint8_t* rdram, recomp_context* ctx)
 {
+
     uint32_t func_id = ctx->r9;
+
     switch (func_id)
     {
         case 0x17: // ReturnFromException

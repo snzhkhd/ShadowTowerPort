@@ -86,7 +86,11 @@ int main(int argc, char* argv[])
 
     PsyX_UpdateInput();
 
-    uint8_t* pad1_ptr = (uint8_t*)GET_PTR(0x801CD130);
+
+    memset(GET_PTR(0x801CD130), 0xFF, 34);
+    memset(GET_PTR(0x801CD152), 0xFF, 34);
+
+    /*uint8_t* pad1_ptr = (uint8_t*)GET_PTR(0x801CD130);
     uint8_t* pad2_ptr = (uint8_t*)GET_PTR(0x801CD152);
 
     memset(pad1_ptr, 0xFF, 34);
@@ -95,7 +99,7 @@ int main(int argc, char* argv[])
     pad1_ptr[1] = 0x41;
 
     PsyX_Pad_InitPad(1, pad1_ptr);
-    PsyX_Pad_InitPad(0, pad2_ptr);
+    PsyX_Pad_InitPad(0, pad2_ptr);*/
 
     ResetGraph(0);
 

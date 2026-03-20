@@ -506,7 +506,7 @@ L_80014BD4:
         goto L_80014BD4;
     }
     // nop
-
+    printf("[MainGameLoop] exit L_80014BD4 LOOP\n");
     // jal         0x80077104
     // addiu       $a0, $zero, 0xA
     ctx->r4 = ADD32(0, 0XA);

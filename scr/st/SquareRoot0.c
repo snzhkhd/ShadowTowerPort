@@ -1,7 +1,10 @@
-#include "recomp.h"
+﻿#include "recomp.h"
 #include "disable_warnings.h"
+#include "psx/libgte.h"
 
-void SquareRoot0(uint8_t* rdram, recomp_context* ctx) {
+void ST_SquareRoot0(uint8_t* rdram, recomp_context* ctx) 
+{
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -89,3 +92,31 @@ L_80074740:
     // addiu       $v0, $zero, 0x0
     ctx->r2 = ADD32(0, 0X0);
 ;}
+
+
+void SquareRoot0(uint8_t* rdram, recomp_context* ctx)
+{
+    ctx_to_gte(ctx);
+    // Вычисляем LZCR для reg 30 → 31 перед выполнением
+    //uint32_t val = ctx->r4; // a0 будет записан в cp2d[30]
+    //uint32_t lzcr;
+    //if (val == 0) {
+    //    lzcr = 32;
+    //}
+    //else {
+    //    lzcr = 0;
+    //    if ((int32_t)val > 0) {
+    //        while ((val & 0x80000000) == 0) { val <<= 1; lzcr++; }
+    //    }
+    //    else {
+    //        while ((val & 0x80000000) != 0) { val <<= 1; lzcr++; }
+    //    }
+    //}
+    //ctx->cp2d[30] = ctx->r4;
+    //ctx->cp2d[31] = lzcr;
+    
+    // Теперь вызываем оригинальный рекомпилированный код
+    ST_SquareRoot0(rdram,ctx);
+    gte_to_ctx(ctx);
+
+}

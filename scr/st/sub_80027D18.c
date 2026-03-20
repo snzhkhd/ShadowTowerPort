@@ -1,7 +1,9 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_80027D18(uint8_t* rdram, recomp_context* ctx) {
+void sub_80027D18(uint8_t* rdram, recomp_context* ctx) 
+{
+   // printf("80027D18\n");
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 

@@ -3,7 +3,22 @@
 
 void DrawOTag(uint8_t* rdram, recomp_context* ctx) 
 {
-   // printf("[DrawOTag] addr=%08X\n", ctx->r4);
+    uint32_t addr = ctx->r4;
+    int count = 0;
+    uint32_t cur = addr;
+    while (cur >= 0x80010000 && cur < 0x80200000) {
+        uint32_t* p = (uint32_t*)GET_PTR(cur);
+        uint32_t tag = p[0];
+        uint8_t len = (tag >> 24) & 0xFF;
+        if (len > 0) count++;
+        uint32_t next = tag & 0x00FFFFFF;
+        if (next == 0x00FFFFFF || next < 0x00010000) break;
+        cur = next | 0x80000000;
+        if (count > 10000) break;
+    }
+    printf("[DrawOTag] addr=%08X prims=%d\n", addr, count);
+
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 

@@ -5,6 +5,7 @@
 
 void PadStartCom_0(uint8_t* rdram, recomp_context* ctx) 
 {
+    printf("PadStartCom\n");
     PadStartCom();
 
     ctx->r2 = 1;

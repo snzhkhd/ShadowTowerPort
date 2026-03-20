@@ -1,4 +1,4 @@
-#include "recomp.h"
+﻿#include "recomp.h"
 #include "disable_warnings.h"
 
 #include "PsyX/PsyX_public.h"
@@ -71,11 +71,33 @@ void VSync(uint8_t* rdram, recomp_context* ctx)
     ctx->r2 = VSync(mode == 0 ? 1 : mode);
     WRITE_W(0x1F801814, 0x1C000000);
 
-    /*uint8_t* pad = (uint8_t*)GET_PTR(0x801CD130);
-    uint16_t buttons = *(uint16_t*)(pad + 2);
-    printf("[PAD] buf[0]=%02X buf[1]=%02X buttons=%04X\n",
-        pad[0], pad[1], buttons);*/
+    // Обновляем pad input для ST
+    uint8_t* pad = (uint8_t*)GET_PTR(0x801CD130);
+    if (pad[0] == 0x00 && pad[1] == 0x41) {
+        uint16_t raw = *(uint16_t*)(pad + 2);
+        uint16_t buttons = ~raw;
 
+        uint32_t prev184 = MEM_W(0, 0x801CD184);
+        MEM_W(0, 0x801CD184) = buttons;
+        MEM_W(0, 0x801CD180) = buttons & ~prev184;
+
+        // Также пишем в game pad
+        uint32_t prev_pad = MEM_W(0, 0x80198F54);
+        MEM_W(0, 0x80198F54) = buttons;
+        // Edge detect для game pad тоже
+        MEM_W(0, 0x80198F58) = buttons & ~prev_pad; // если есть такой адрес
+    }
+
+    uint32_t gamePad = MEM_W(0, 0x80198F54);
+    if (gamePad)
+        printf("[GAMEPAD] pad=%08X\n", gamePad);
+
+    static uint8_t prevState = 0xFF;
+    uint8_t state = MEM_BU(0, 0x80199140);
+    if (state != prevState) {
+        printf("[STATE] changed %d → %d\n", prevState, state);
+        prevState = state;
+    }
 //    uint64_t hi = 0, lo = 0, result = 0;
 //    unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
 //    int c1cs = 0; 
