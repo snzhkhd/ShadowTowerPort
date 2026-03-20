@@ -1,7 +1,9 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_800500AC(uint8_t* rdram, recomp_context* ctx) {
+void sub_800500AC(uint8_t* rdram, recomp_context* ctx) 
+{
+    printf("Call sub_800500AC, another's loop \n\n");
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 

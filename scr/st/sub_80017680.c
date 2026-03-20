@@ -34,8 +34,7 @@ void sub_80017680(uint8_t* rdram, recomp_context* ctx) {
     // jr          $ra
     // nop
 
-    printf("PsyX_EndScene\n");
-    PsyX_EndScene();
+    
     return;
     // nop
 

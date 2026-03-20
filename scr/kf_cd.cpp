@@ -154,7 +154,7 @@ void KFCD_CdControl(uint8_t* rdram, recomp_context* ctx)
                         ctx->r4 = *(uint32_t*)(stream + 32); // dest buffer
                         recomp_func_t handler = lookup_recomp_func(cb);
                         if (handler) {
-                            printf("[CD] Type2 callback %08X(dest=%08X)\n", cb, ctx->r4);
+                           // printf("[CD] Type2 callback %08X(dest=%08X)\n", cb, ctx->r4);
                             handler(rdram, ctx);
                         }
                         ctx->r4 = saved_r4;
@@ -218,8 +218,8 @@ void KFCD_CdlReadN(uint8_t* rdram, recomp_context* ctx)
     if (sectors == 0) sectors = 16;
     if (sectors > 1000) sectors = 16;
 
-    printf("[CdlReadN] type=%d lba=%d sectors=%d dest=%08X\n",
-        type, current_lba, sectors, dst);
+    //printf("[CdlReadN] type=%d lba=%d sectors=%d dest=%08X\n",
+    //    type, current_lba, sectors, dst);
 
     if (g_cdImage && dst_ptr) {
         for (uint32_t i = 0; i < sectors; i++) {
@@ -356,14 +356,14 @@ int KFCD_CdSync(int mode)
 void KFCD_CdReadyCallback(uint8_t* rdram, recomp_context* ctx)
 {
     g_cdReadyCb = ctx->r4;
-    printf("KFCD_CdReadyCallback r4 : <0x%08X>\n", g_cdReadyCb);
+   // printf("KFCD_CdReadyCallback r4 : <0x%08X>\n", g_cdReadyCb);
     ctx->r2 = 0;
 }
 
 void KFCD_CdSyncCallback(uint8_t* rdram, recomp_context* ctx)
 {
     g_cdSyncCb = ctx->r4;
-    printf("KFCD_CdSyncCallback r4 : <0x%08X>\n", g_cdSyncCb);
+  //  printf("KFCD_CdSyncCallback r4 : <0x%08X>\n", g_cdSyncCb);
     ctx->r2 = 0;
 }
 

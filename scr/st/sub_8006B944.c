@@ -8,8 +8,8 @@ void CdReadWithRetry(uint8_t* rdram, recomp_context* ctx)
     uint32_t destBuffer = ctx->r5;
     uint32_t mode = ctx->r6;
 
-    printf("[CdReadWithRetry] sectors=%d dest=%08X mode=%08X sector=%d\n",
-        sectorCount, destBuffer, mode, g_cdCurrentSector);
+ /*   printf("[CdReadWithRetry] sectors=%d dest=%08X mode=%08X sector=%d\n",
+        sectorCount, destBuffer, mode, g_cdCurrentSector);*/
 
     uint8_t* dest = (uint8_t*)GET_PTR(destBuffer);
 

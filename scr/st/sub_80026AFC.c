@@ -1,7 +1,9 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_80026AFC(uint8_t* rdram, recomp_context* ctx) {
+void sub_80026AFC(uint8_t* rdram, recomp_context* ctx) 
+{
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -509,7 +511,7 @@ L_80026CFC:
 L_80026D90:
     // jal         0x80017680
     // nop
-
+  
     sub_80017680(rdram, ctx);
     goto after_28;
     // nop

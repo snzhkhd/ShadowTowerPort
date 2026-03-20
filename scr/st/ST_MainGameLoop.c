@@ -431,6 +431,7 @@ L_80014BD4:
     // jal         0x8005735C
     // sb          $zero, 0x21C($s2)
     MEM_B(0X21C, ctx->r18) = 0;
+
     sub_8005735C(rdram, ctx);
     goto after_41;
     // sb          $zero, 0x21C($s2)
@@ -449,6 +450,7 @@ L_80014BD4:
     // jal         0x8003E734
     // addu        $a1, $s0, $zero
     ctx->r5 = ADD32(ctx->r16, 0);
+
     sub_8003E734(rdram, ctx);
     goto after_43;
     // addu        $a1, $s0, $zero
@@ -459,6 +461,7 @@ L_80014BD4:
     // jal         0x80058288
     // addu        $a1, $s0, $zero
     ctx->r5 = ADD32(ctx->r16, 0);
+
     sub_80058288(rdram, ctx);
     goto after_44;
     // addu        $a1, $s0, $zero
@@ -485,7 +488,9 @@ L_80014BD4:
     // jal         0x80026AFC
     // addu        $a1, $s0, $zero
     ctx->r5 = ADD32(ctx->r16, 0);
+
     sub_80026AFC(rdram, ctx);
+
     goto after_47;
     // addu        $a1, $s0, $zero
     ctx->r5 = ADD32(ctx->r16, 0);

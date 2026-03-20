@@ -5,7 +5,7 @@
 
 void GPU_SafeExecute(uint8_t* rdram, recomp_context* ctx) 
 {
-    printf("GPU_SafeExecute\n");
+ /*   printf("GPU_SafeExecute\n");*/
     uint32_t gpuFuncAddr = ctx->r4;
     uint32_t arg1 = ctx->r5;
     uint32_t arg3 = ctx->r6;

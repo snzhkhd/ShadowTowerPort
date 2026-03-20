@@ -24,7 +24,6 @@ void ST_ClearImageCallback(uint8_t* rdram, recomp_context* ctx)
             //      Psy-X (OpenGL)
         ClearImage(rect, r, g, b);
     }
-    printf("[DEBUG] clear image\n");
     ctx->r2 = 0;
 
 //    uint64_t hi = 0, lo = 0, result = 0;

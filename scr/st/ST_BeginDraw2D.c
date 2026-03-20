@@ -9,7 +9,7 @@ extern SDL_Window* g_window;
 void ST_BeginDraw2D(uint8_t* rdram, recomp_context* ctx) 
 {
     PsyX_BeginScene();
-    printf("PsyX_BeginScene\n");
+    /*printf("PsyX_BeginScene\n");*/
     // Переключаем на 4:3 для 2D
     if (g_widescreenEnabled)
     {

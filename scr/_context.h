@@ -13,10 +13,20 @@ extern uint8_t rdram[2 * 1024 * 1024];
 
 typedef uint32_t gpr;
 
+static uint8_t scratchpad[1024]; // 1KB Scratchpad
+
 // Режимы округления для FPU
 #define DEFAULT_ROUNDING_MODE 0
 
-#define GET_PTR(addr) (&rdram[(addr) & 0x1FFFFF])
+//#define GET_PTR(addr) (&rdram[(addr) & 0x1FFFFF])
+inline uint8_t* GET_PTR_FUNC(uint32_t addr) {
+    uint32_t phys = addr & 0x1FFFFFFF;
+    if (phys >= 0x1F800000 && phys < 0x1F800400)
+        return &scratchpad[phys - 0x1F800000];
+    return &rdram[addr & 0x1FFFFF];
+}
+#define GET_PTR(addr) GET_PTR_FUNC(addr)
+
 
 #define MEM_W(offset, base) (*(uint32_t*)GET_PTR((base) + (offset)))
 #define MEM_H(offset, base) (*(uint16_t*)GET_PTR((base) + (offset)))
