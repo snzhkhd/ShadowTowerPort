@@ -23,18 +23,19 @@ All overlay at same address. Only ST.EXE recompiled. Function table base = `0x80
 - Scratchpad RAM mapped
 - malloc3/free3 via bump allocator (original heap gets corrupted)
 - OTag pipeline working (primitives render)
-- 3D world not rendering
+- 3D world rendering
 
 ### What Doesn't Work Yet
 - **Input partially broken** — buttons register in `dword_801CD184` and `pad_80198F54` but menu navigation incomplete. Game converts pad→game buttons via player script at 0x801ED498 which may not be initialized.
 - **Audio not implemented** — type=4 CD streams (VAB) skipped with NextCdTask
+- **Load next world**
 
 ### Key Addresses (Shadow Tower)
 - g_CDTaskQueue: 0x80088BD4
 - g_ActiveCdStream: 0x80088BD8
 - State machine: byte_80199140 (0=init, 4=gameplay, 1=death/menu)
 - Game pad: pad_80198F54 (game buttons), dword_801CD184 (raw converted)
-- Pad buffer: 0x801CD130 (pad1), 0x801CD152 (pad2)
+- Pad buffer: 0x801CD130 (pad1), 0x801CD152 (pad2).RCnt callback, manual call - sub_800153B4.
 - Heap pointer: dword_80087C50
 - Menu selection: byte_80199086
 - Level data pointers: dword_80165398, dword_8016539C
@@ -103,10 +104,10 @@ sub_8001535C()        — wait CD (stubbed)
 ```
 
 ### Known Issues to Investigate
-1. **sub_80021AC4** — main 3D render, uses scratchpad and cop2 extensively. Needs investigation why it produces 0 primitives. Possibly level geometry data not loaded or pointer not set.
-2. **sub_8003E734 / sub_80058288** — likely copy player position/rotation, similar to KFPlayerCopyPositionRotation in KF2. Need to identify player coordinate addresses.
-3. **SquareRoot0** — uses GTE LZCS/LZCR (reg 30→31). PsyX version works differently from recompiled. Currently using recompiled version (PsyX version prevents state=4). LZCS auto-calculation in gte_mtc2 breaks rendering.
-4. **Player script at 0x801ED498** — dynamic code in RAM, handles input conversion and game logic. Not recompiled.
+1. **Next world not loading**
+2. **Other EXE not loading**
+3. **sub_8003E734 / sub_80058288** — likely copy player position/rotation, similar to KFPlayerCopyPositionRotation in KF2. Need to identify player coordinate addresses.
+
 
 ### Stubbed/HLE Functions (ST)
 - CdReset, CdStatus (return ready)
