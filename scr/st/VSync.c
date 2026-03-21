@@ -88,7 +88,9 @@ void VSync(uint8_t* rdram, recomp_context* ctx)
         MEM_W(0, 0x80198F58) = buttons & ~prev_pad; // если есть такой адрес
     }
 
-
+    uint16_t raw = MEM_HU(0, 0x801CD184);
+    if (raw != 0)
+        printf("[PAD] raw=%04X\n", raw);
 
     static uint8_t prevState = 0xFF;
     uint8_t state = MEM_BU(0, 0x80199140);

@@ -23,12 +23,11 @@ All overlay at same address. Only ST.EXE recompiled. Function table base = `0x80
 - Scratchpad RAM mapped
 - malloc3/free3 via bump allocator (original heap gets corrupted)
 - OTag pipeline working (primitives render)
+- 3D world not rendering
 
 ### What Doesn't Work Yet
-- **3D world not rendering** — `sub_80021AC4` (main GTE render function with cop2/scratchpad) doesn't add geometry to OTag. Only HUD primitives visible (~20 prims). Need to debug why level geometry not generated.
 - **Input partially broken** — buttons register in `dword_801CD184` and `pad_80198F54` but menu navigation incomplete. Game converts pad→game buttons via player script at 0x801ED498 which may not be initialized.
 - **Audio not implemented** — type=4 CD streams (VAB) skipped with NextCdTask
-- **Player dies immediately** — falls through floor, likely physics/collision not working (SquareRoot0 issue or level data not loaded)
 
 ### Key Addresses (Shadow Tower)
 - g_CDTaskQueue: 0x80088BD4
