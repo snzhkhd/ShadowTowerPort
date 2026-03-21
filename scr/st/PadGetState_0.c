@@ -6,7 +6,7 @@ void PadGetState_0(uint8_t* rdram, recomp_context* ctx)
 {
 
    ctx->r2 = PadGetState((int)ctx->r4);
-    printf("PadGetState\n");
+    //printf("PadGetState\n");
    // ctx->r2 = 6; // PadStateStable
 
 //    uint64_t hi = 0, lo = 0, result = 0;

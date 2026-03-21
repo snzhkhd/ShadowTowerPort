@@ -3312,6 +3312,9 @@
     <ClCompile Include="PsyCross\src\pad\PsyX_pad.cpp">
       <Filter>Исходные файлы\PsyCross\pad</Filter>
     </ClCompile>
+    <ClCompile Include="scr\st\CD_Callback_8001542C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="scr\st\disable_warnings.h">

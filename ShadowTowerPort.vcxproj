@@ -198,6 +198,7 @@
     <ClCompile Include="scr\st\CdStatus.c" />
     <ClCompile Include="scr\st\CdSync.c" />
     <ClCompile Include="scr\st\CdSyncCallback.c" />
+    <ClCompile Include="scr\st\CD_Callback_8001542C.c" />
     <ClCompile Include="scr\st\CD_cw.c" />
     <ClCompile Include="scr\st\CD_datasync.c" />
     <ClCompile Include="scr\st\CD_flush.c" />

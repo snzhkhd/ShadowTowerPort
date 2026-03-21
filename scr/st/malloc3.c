@@ -3,6 +3,7 @@
 
 void malloc3(uint8_t* rdram, recomp_context* ctx)
 {
+
     uint32_t size = ctx->r4;
     if (size == 0) {
         ctx->r2 = 0;
@@ -23,7 +24,7 @@ void malloc3(uint8_t* rdram, recomp_context* ctx)
     ctx->r2 = addr;
 }
 
-void KF_malloc3(uint8_t* rdram, recomp_context* ctx)
+void _malloc3(uint8_t* rdram, recomp_context* ctx)
 {
     uint32_t size = ctx->r4;
     uint32_t head = MEM_W(0, 0x80087C50);

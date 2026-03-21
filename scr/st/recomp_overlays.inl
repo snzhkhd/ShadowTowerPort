@@ -38,6 +38,7 @@ static FuncEntry section_1_text_funcs[] = {
     { .func = AsyncDataLoad, .offset = 0x0000531c },
     { .func = sub_8001535C, .offset = 0x0000535c },
     { .func = sub_800153B4, .offset = 0x000053b4 },
+    { .func = CD_Callback_8001542C, .offset = 0x0000542C },
     { .func = sub_800154E8, .offset = 0x000054e8 },
     { .func = sub_8001561C, .offset = 0x0000561c },
     { .func = NextCdTask, .offset = 0x00005848 },

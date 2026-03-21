@@ -374,6 +374,8 @@ L_80014B7C:
 L_80014BD4:
     // jal         0x800164B4
     // nop
+  
+
 
     sub_800164B4(rdram, ctx);
     goto after_34;
@@ -489,6 +491,8 @@ L_80014BD4:
     // addu        $a1, $s0, $zero
     ctx->r5 = ADD32(ctx->r16, 0);
 
+
+    
     DrawScene_80026AFC(rdram, ctx);
 
     goto after_47;

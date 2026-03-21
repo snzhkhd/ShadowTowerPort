@@ -20,7 +20,7 @@ void sub_80057428(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80077104
     // sw          $s0, 0x10($sp)
     MEM_W(0X10, ctx->r29) = ctx->r16;
-    VSync(rdram, ctx);
+   // VSync(rdram, ctx);
     goto after_0;
     // sw          $s0, 0x10($sp)
     MEM_W(0X10, ctx->r29) = ctx->r16;

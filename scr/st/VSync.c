@@ -68,29 +68,27 @@ void VSync(uint8_t* rdram, recomp_context* ctx)
     g_vsync_pending = true;
 
     int mode = (int32_t)ctx->r4;
-    ctx->r2 = VSync(mode == 0 ? 1 : mode);
+  //  ctx->r2 = VSync(mode == 0 ? 1 : mode);
     WRITE_W(0x1F801814, 0x1C000000);
 
     // Обновляем pad input для ST
     uint8_t* pad = (uint8_t*)GET_PTR(0x801CD130);
-    if (pad[0] == 0x00 && pad[1] == 0x41) {
-        uint16_t raw = *(uint16_t*)(pad + 2);
-        uint16_t buttons = ~raw;
+    //if (pad[0] == 0x00 && pad[1] == 0x41) {
+    //    uint16_t raw = *(uint16_t*)(pad + 2);
+    //    uint16_t buttons = ~raw;
+    //    uint32_t prev184 = MEM_W(0, 0x801CD184);
+    //    MEM_W(0, 0x801CD184) = buttons;
+    //    MEM_W(0, 0x801CD180) = buttons & ~prev184;
+    //    // УБРАТЬ запись в 0x80198F54/58
+    //}
 
-        uint32_t prev184 = MEM_W(0, 0x801CD184);
-        MEM_W(0, 0x801CD184) = buttons;
-        MEM_W(0, 0x801CD180) = buttons & ~prev184;
+    //update input
+    recomp_context save = *ctx;
 
-        // Также пишем в game pad
-        uint32_t prev_pad = MEM_W(0, 0x80198F54);
-        MEM_W(0, 0x80198F54) = buttons;
-        // Edge detect для game pad тоже
-        MEM_W(0, 0x80198F58) = buttons & ~prev_pad; // если есть такой адрес
-    }
+    sub_800153B4(rdram, ctx);
 
-    uint16_t raw = MEM_HU(0, 0x801CD184);
-    if (raw != 0)
-        printf("[PAD] raw=%04X\n", raw);
+    ctx = &save;
+
 
     static uint8_t prevState = 0xFF;
     uint8_t state = MEM_BU(0, 0x80199140);
