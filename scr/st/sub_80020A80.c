@@ -1,7 +1,38 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_80020A80(uint8_t* rdram, recomp_context* ctx) {
+
+int countOTag(uint8_t* rdram, uint32_t otBase, int n) {
+    int count = 0;
+    for (int i = 0; i < n; i++) {
+        uint32_t entry = MEM_W(0, otBase + i * 4);
+        uint32_t nextLink = otBase + (i - 1) * 4;
+        // если запись != просто ссылка на предыдущий — значит тут примитив
+        if (i == 0) { if (entry != 0x00FFFFFF) count++; }
+        else if (entry != (nextLink & 0x00FFFFFF)) count++;
+    }
+    return count;
+}
+
+
+void sub_80020A80(uint8_t* rdram, recomp_context* ctx) 
+{
+    //printf("[FEEDBACK-IN] AC=%08X B0=%08X B4=%08X B8=%08X BC=%08X C0=%08X C4=%08X C8=%08X CC=%08X D0=%08X D4=%08X D8=%08X\n",
+    //    MEM_W(0, 0x801653AC), MEM_W(0, 0x801653B0), MEM_W(0, 0x801653B4),
+    //    MEM_W(0, 0x801653B8), MEM_W(0, 0x801653BC), MEM_W(0, 0x801653C0),
+    //    MEM_W(0, 0x801653C4), MEM_W(0, 0x801653C8), MEM_W(0, 0x801653CC),
+    //    MEM_W(0, 0x801653D0), MEM_W(0, 0x801653D4), MEM_W(0, 0x801653D8));
+   // printf("[STACK] ctx->r29=%08X v30_addr=%08X\n", ctx->r29, ctx->r29 + 0x10);
+
+
+    //uint32_t structPtr = MEM_W(0, 0x80165394);
+    //printf("[PRIM-ALLOC] dword_80165394=%08X [+0]=%08X [+4]=%08X [+8]=%08X [+C]=%08X\n",
+    //    structPtr,
+    //    MEM_W(0, structPtr),
+    //    MEM_W(4, structPtr),
+    //    MEM_W(8, structPtr),
+    //    MEM_W(0xC, structPtr));
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -322,6 +353,7 @@ L_80020CA0:
     // jal         0x8001C100
     // addiu       $a0, $a0, -0x6E90
     ctx->r4 = ADD32(ctx->r4, -0X6E90);
+
     sub_8001C100(rdram, ctx);
     goto after_1;
     // addiu       $a0, $a0, -0x6E90
@@ -330,6 +362,7 @@ L_80020CA0:
     // jal         0x8001C264
     // lui         $s3, 0x8018
     ctx->r19 = S32(0X8018 << 16);
+
     sub_8001C264(rdram, ctx);
     goto after_2;
     // lui         $s3, 0x8018
@@ -338,7 +371,9 @@ L_80020CA0:
     // jal         0x8001C60C
     // addiu       $s3, $s3, -0x4288
     ctx->r19 = ADD32(ctx->r19, -0X4288);
+
     sub_8001C60C(rdram, ctx);
+
     goto after_3;
     // addiu       $s3, $s3, -0x4288
     ctx->r19 = ADD32(ctx->r19, -0X4288);
@@ -382,7 +417,10 @@ L_80020CA0:
     // jal         0x8001CB88
     // addiu       $a0, $sp, 0x10
     ctx->r4 = ADD32(ctx->r29, 0X10);
+   
     sub_8001CB88(rdram, ctx);
+
+
     goto after_4;
     // addiu       $a0, $sp, 0x10
     ctx->r4 = ADD32(ctx->r29, 0X10);
@@ -463,6 +501,7 @@ L_80020CA0:
     // sw          $v0, 0x68($s2)
     MEM_W(0X68, ctx->r18) = ctx->r2;
     sub_8001CDF8(rdram, ctx);
+
     goto after_5;
     // sw          $v0, 0x68($s2)
     MEM_W(0X68, ctx->r18) = ctx->r2;
@@ -473,6 +512,8 @@ L_80020CA0:
     // sw          $s1, 0x34($s2)
     MEM_W(0X34, ctx->r18) = ctx->r17;
     sub_8001F954(rdram, ctx);
+
+
     goto after_6;
     // sw          $s1, 0x34($s2)
     MEM_W(0X34, ctx->r18) = ctx->r17;
@@ -483,6 +524,8 @@ L_80020CA0:
     // sw          $s1, 0x34($s2)
     MEM_W(0X34, ctx->r18) = ctx->r17;
     sub_8001FD00(rdram, ctx);
+
+
     goto after_7;
     // sw          $s1, 0x34($s2)
     MEM_W(0X34, ctx->r18) = ctx->r17;
@@ -493,6 +536,7 @@ L_80020CA0:
     // sw          $s1, 0x34($s2)
     MEM_W(0X34, ctx->r18) = ctx->r17;
     sub_80020164(rdram, ctx);
+
     goto after_8;
     // sw          $s1, 0x34($s2)
     MEM_W(0X34, ctx->r18) = ctx->r17;
@@ -503,6 +547,8 @@ L_80020CA0:
     // sw          $s1, 0x34($s2)
     MEM_W(0X34, ctx->r18) = ctx->r17;
     sub_80020588(rdram, ctx);
+
+
     goto after_9;
     // sw          $s1, 0x34($s2)
     MEM_W(0X34, ctx->r18) = ctx->r17;
@@ -513,6 +559,8 @@ L_80020CA0:
     // sw          $s1, 0x34($s2)
     MEM_W(0X34, ctx->r18) = ctx->r17;
     sub_8001D2A8(rdram, ctx);
+
+
     goto after_10;
     // sw          $s1, 0x34($s2)
     MEM_W(0X34, ctx->r18) = ctx->r17;
@@ -522,7 +570,21 @@ L_80020CA0:
     // jal         0x8001DB64
     // sw          $s1, 0x34($s2)
     MEM_W(0X34, ctx->r18) = ctx->r17;
+
+    // printf("[SP-BEFORE] ");
+    // for (int i = 0; i < 16; i++)
+        // printf("%02X:%08X ", i * 4, MEM_W(0, 0x1F800000 + i * 4));
+    // printf("\n");
+
     sub_8001DB64(rdram, ctx);
+
+    // printf("[SP-AFTER] ");
+    // for (int i = 0; i < 16; i++)
+        // printf("%02X:%08X ", i * 4, MEM_W(0, 0x1F800000 + i * 4));
+    // printf("\n");
+
+    //otBase = MEM_W(0, 0x80165174); // текущий OTag
+    //printf("after sub_8001DB64: %d prims\n", countOTag(rdram, otBase, 0x1000));
     goto after_11;
     // sw          $s1, 0x34($s2)
     MEM_W(0X34, ctx->r18) = ctx->r17;
@@ -533,6 +595,9 @@ L_80020CA0:
     // sw          $s1, 0x34($s2)
     MEM_W(0X34, ctx->r18) = ctx->r17;
     sub_8001E5A0(rdram, ctx);
+
+    //otBase = MEM_W(0, 0x80165174); // текущий OTag
+    //printf("after sub_8001E5A0: %d prims\n", countOTag(rdram, otBase, 0x1000));
     goto after_12;
     // sw          $s1, 0x34($s2)
     MEM_W(0X34, ctx->r18) = ctx->r17;
@@ -543,6 +608,9 @@ L_80020CA0:
     // sw          $s1, 0x34($s2)
     MEM_W(0X34, ctx->r18) = ctx->r17;
     sub_8001EEAC(rdram, ctx);
+
+    //otBase = MEM_W(0, 0x80165174); // текущий OTag
+    //printf("after sub_8001EEAC: %d prims\n", countOTag(rdram, otBase, 0x1000));
     goto after_13;
     // sw          $s1, 0x34($s2)
     MEM_W(0X34, ctx->r18) = ctx->r17;
@@ -630,6 +698,13 @@ L_80020CA0:
     // jr          $ra
     // nop
 
+
+
+    //printf("[FEEDBACK-OUT] AC=%08X B0=%08X B4=%08X B8=%08X BC=%08X C0=%08X C4=%08X C8=%08X CC=%08X D0=%08X D4=%08X D8=%08X\n",
+    //    MEM_W(0, 0x801653AC), MEM_W(0, 0x801653B0), MEM_W(0, 0x801653B4),
+    //    MEM_W(0, 0x801653B8), MEM_W(0, 0x801653BC), MEM_W(0, 0x801653C0),
+    //    MEM_W(0, 0x801653C4), MEM_W(0, 0x801653C8), MEM_W(0, 0x801653CC),
+    //    MEM_W(0, 0x801653D0), MEM_W(0, 0x801653D4), MEM_W(0, 0x801653D8));
     return;
     // nop
 

@@ -6,6 +6,8 @@
 #include "psx/libetc.h"
 #include <string>
 
+static int SaveCount = 0;
+static int SaveTimer = 0;
 
 void TriggerGpuDma(uint8_t* rdram, recomp_context* ctx) 
 {
@@ -108,6 +110,21 @@ void TriggerGpuDma(uint8_t* rdram, recomp_context* ctx)
     WRITE_W(0x1F8010A8, MEM_W(0, 0x1F8010A8) & ~0x01000000);
     WRITE_W(0x1F801814, 0x1C000000);
     ctx->r2 = 0;
+
+    //SaveTimer++;
+    ////     printf("VSync call\n");
+    ////VSync(0);
+    ////g_vsync_pending = false;
+
+    //if (SaveTimer > 20 && SaveCount < 5)
+    //{
+    //    SaveTimer = 0;
+    //    std::string str = "vram_debug_" + std::to_string(SaveCount) + ".png";
+    //    GR_SaveVRAM(str.c_str(), 0, 0, 1024, 512, 0);
+    //    SaveCount++;
+    //    printf("[DEBUG] VRAM saved to vram_debug.png\n");
+    //}
+
 
  //   printf("PsyX_EndScene\n");
     PsyX_EndScene();

@@ -1,12 +1,28 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_80026AFC(uint8_t* rdram, recomp_context* ctx) 
-{
+#define LOG_PRIMBUF() /* printf("[PRIMBUF] 0x384=%08X 0x390=%08X\n", \
+    MEM_W(0, 0x80165384), MEM_W(0, 0x80165390))*/
 
+//int countOTag(uint8_t* rdram, uint32_t otBase, int n) {
+//    int count = 0;
+//    for (int i = 0; i < n; i++) {
+//        uint32_t entry = MEM_W(0, otBase + i * 4);
+//        uint32_t nextLink = otBase + (i - 1) * 4;
+//        // если запись != просто ссылка на предыдущий — значит тут примитив
+//        if (i == 0) { if (entry != 0x00FFFFFF) count++; }
+//        else if (entry != (nextLink & 0x00FFFFFF)) count++;
+//    }
+//    return count;
+//}
+
+
+void DrawScene_80026AFC(uint8_t* rdram, recomp_context* ctx)
+{
+    //printf("[DrawScene_80026AFC]------------\n");
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
-    int c1cs = 0; 
+    int c1cs = 0;
     // addiu       $sp, $sp, -0x38
     ctx->r29 = ADD32(ctx->r29, -0X38);
     // sw          $s0, 0x20($sp)
@@ -30,7 +46,7 @@ void sub_80026AFC(uint8_t* rdram, recomp_context* ctx)
     goto after_0;
     // sw          $s2, 0x28($sp)
     MEM_W(0X28, ctx->r29) = ctx->r18;
-    after_0:
+after_0:
     // addu        $a0, $s0, $zero
     ctx->r4 = ADD32(ctx->r16, 0);
     // jal         0x800176A8
@@ -40,7 +56,7 @@ void sub_80026AFC(uint8_t* rdram, recomp_context* ctx)
     goto after_1;
     // addu        $a1, $s1, $zero
     ctx->r5 = ADD32(ctx->r17, 0);
-    after_1:
+after_1:
     // jal         0x80016A14
     // nop
 
@@ -48,7 +64,7 @@ void sub_80026AFC(uint8_t* rdram, recomp_context* ctx)
     goto after_2;
     // nop
 
-    after_2:
+after_2:
     // lui         $v0, 0x801A
     ctx->r2 = S32(0X801A << 16);
     // lbu         $v1, -0x6EC0($v0)
@@ -82,7 +98,7 @@ void sub_80026AFC(uint8_t* rdram, recomp_context* ctx)
     // bne         $v1, $v0, L_80026B6C
     if (ctx->r3 != ctx->r2) {
         // nop
-    
+
         goto L_80026B6C;
     }
     // nop
@@ -95,32 +111,38 @@ L_80026B64:
     goto after_3;
     // nop
 
-    after_3:
+after_3:
 L_80026B6C:
     // jal         0x800174C4
     // nop
 
     ST_BeginDraw2D(rdram, ctx);
+
+    LOG_PRIMBUF();
+   
     goto after_4;
     // nop
 
-    after_4:
+after_4:
     // jal         0x800340F8
     // nop
 
     sub_800340F8(rdram, ctx);
+    LOG_PRIMBUF();
     goto after_5;
     // nop
 
-    after_5:
+after_5:
     // jal         0x80034FC4
     // nop
 
     sub_80034FC4(rdram, ctx);
+
+    LOG_PRIMBUF();
     goto after_6;
     // nop
 
-    after_6:
+after_6:
     // lui         $v0, 0x8016
     ctx->r2 = S32(0X8016 << 16);
     // addiu       $v0, $v0, -0x2F70
@@ -230,18 +252,22 @@ L_80026C14:
     // sb          $v0, 0x1A($sp)
     MEM_B(0X1A, ctx->r29) = ctx->r2;
     sub_80027D18(rdram, ctx);
+
+    LOG_PRIMBUF();
     goto after_7;
     // sb          $v0, 0x1A($sp)
     MEM_B(0X1A, ctx->r29) = ctx->r2;
-    after_7:
+after_7:
     // jal         0x80026964
     // addiu       $a0, $zero, 0x1A
     ctx->r4 = ADD32(0, 0X1A);
     sub_80026964(rdram, ctx);
+
+    LOG_PRIMBUF();
     goto after_8;
     // addiu       $a0, $zero, 0x1A
     ctx->r4 = ADD32(0, 0X1A);
-    after_8:
+after_8:
     // lui         $v0, 0x801D
     ctx->r2 = S32(0X801D << 16);
 L_80026C48:
@@ -266,7 +292,7 @@ L_80026C48:
     // beq         $v0, $zero, L_80026CFC
     if (ctx->r2 == 0) {
         // nop
-    
+
         goto L_80026CFC;
     }
     // nop
@@ -275,18 +301,22 @@ L_80026C48:
     // addiu       $s4, $zero, 0x4
     ctx->r20 = ADD32(0, 0X4);
     sub_80026508(rdram, ctx);
+
+    LOG_PRIMBUF();
     goto after_9;
     // addiu       $s4, $zero, 0x4
     ctx->r20 = ADD32(0, 0X4);
-    after_9:
+after_9:
     // jal         0x80026964
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
     sub_80026964(rdram, ctx);
+
+    LOG_PRIMBUF();
     goto after_10;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
-    after_10:
+after_10:
     // lui         $v0, 0x8008
     ctx->r2 = S32(0X8008 << 16);
     // addiu       $s3, $v0, -0xC0C
@@ -328,18 +358,22 @@ L_80026C98:
     // addiu       $a2, $zero, 0x8
     ctx->r6 = ADD32(0, 0X8);
     sub_80026228(rdram, ctx);
+
+    LOG_PRIMBUF();
     goto after_11;
     // addiu       $a2, $zero, 0x8
     ctx->r6 = ADD32(0, 0X8);
-    after_11:
+after_11:
     // jal         0x80026964
     // addiu       $a0, $zero, 0x20
     ctx->r4 = ADD32(0, 0X20);
     sub_80026964(rdram, ctx);
+
+    LOG_PRIMBUF();
     goto after_12;
     // addiu       $a0, $zero, 0x20
     ctx->r4 = ADD32(0, 0X20);
-    after_12:
+after_12:
     // lw          $v0, 0x1EC($s1)
     ctx->r2 = MEM_W(0X1EC, ctx->r17);
     // nop
@@ -369,115 +403,159 @@ L_80026CDC:
     // addiu       $a0, $zero, 0x25
     ctx->r4 = ADD32(0, 0X25);
     sub_80026964(rdram, ctx);
+
+    LOG_PRIMBUF();
     goto after_13;
     // addiu       $a0, $zero, 0x25
     ctx->r4 = ADD32(0, 0X25);
-    after_13:
+after_13:
 L_80026CFC:
     // jal         0x8002181C
     // nop
 
     sub_8002181C(rdram, ctx);
+
+    LOG_PRIMBUF();
     goto after_14;
     // nop
 
-    after_14:
+after_14:
     // jal         0x800218D8
     // nop
 
     sub_800218D8(rdram, ctx);
+
+    LOG_PRIMBUF();
     goto after_15;
     // nop
 
-    after_15:
+after_15:
     // jal         0x80021654
     // nop
 
     sub_80021654(rdram, ctx);
+
+    LOG_PRIMBUF();
     goto after_16;
     // nop
 
-    after_16:
+after_16:
     // jal         0x80021AC4
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
     sub_80021AC4(rdram, ctx);
+
+    LOG_PRIMBUF();
     goto after_17;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
-    after_17:
+after_17:
     // jal         0x80021AC4
     // addiu       $a0, $zero, 0x1
     ctx->r4 = ADD32(0, 0X1);
     sub_80021AC4(rdram, ctx);
+
+    LOG_PRIMBUF();
     goto after_18;
     // addiu       $a0, $zero, 0x1
     ctx->r4 = ADD32(0, 0X1);
-    after_18:
+after_18:
     // jal         0x80020A80
     // nop
 
     sub_80020A80(rdram, ctx);
+
+    LOG_PRIMBUF();
     goto after_19;
     // nop
 
-    after_19:
+after_19:
     // jal         0x8001C8E0
     // nop
 
     sub_8001C8E0(rdram, ctx);
+
+    // otBase = MEM_W(0, 0x80165174); // текущий OTag
+    // printf("after sub_8001C8E0: %d prims\n", countOTag(rdram, otBase, 0x1000));
+    // printf("[frame] state=%d\n", MEM_B(0, 0x80199140));
     goto after_20;
     // nop
 
-    after_20:
+after_20:
     // jal         0x8001C9C8
     // nop
 
     sub_8001C9C8(rdram, ctx);
+
+    // otBase = MEM_W(0, 0x80165174); // текущий OTag
+    // printf("after sub_8001C9C8: %d prims\n", countOTag(rdram, otBase, 0x1000));
+    // printf("[frame] state=%d\n", MEM_B(0, 0x80199140));
     goto after_21;
     // nop
 
-    after_21:
+after_21:
     // jal         0x8001CAB8
     // nop
 
     sub_8001CAB8(rdram, ctx);
+
+    // otBase = MEM_W(0, 0x80165174); // текущий OTag
+    // printf("after sub_8001CAB8: %d prims\n", countOTag(rdram, otBase, 0x1000));
+    // printf("[frame] state=%d\n", MEM_B(0, 0x80199140));
     goto after_22;
     // nop
 
-    after_22:
+after_22:
     // jal         0x800241D0
     // nop
 
     sub_800241D0(rdram, ctx);
+
+    // otBase = MEM_W(0, 0x80165174); // текущий OTag
+    // printf("after sub_800241D0: %d prims\n", countOTag(rdram, otBase, 0x1000));
+    // printf("[frame] state=%d\n", MEM_B(0, 0x80199140));
     goto after_23;
     // nop
 
-    after_23:
+after_23:
     // jal         0x800246E4
     // nop
 
     sub_800246E4(rdram, ctx);
+
+    // otBase = MEM_W(0, 0x80165174); // текущий OTag
+    // printf("after sub_800246E4: %d prims\n", countOTag(rdram, otBase, 0x1000));
+    // printf("[frame] state=%d\n", MEM_B(0, 0x80199140));
     goto after_24;
     // nop
 
-    after_24:
+after_24:
     // jal         0x800251C8
     // nop
 
     sub_800251C8(rdram, ctx);
+    // otBase = MEM_W(0, 0x80165174); // текущий OTag
+    // printf("after sub_800251C8: %d prims\n", countOTag(rdram, otBase, 0x1000));
+    // printf("[frame] state=%d\n", MEM_B(0, 0x80199140));
     goto after_25;
     // nop
 
-    after_25:
+
+after_25:
     // jal         0x800255F0
     // nop
 
     sub_800255F0(rdram, ctx);
+
+    // otBase = MEM_W(0, 0x80165174); // текущий OTag
+    // printf("after sub_800255F0: %d prims\n", countOTag(rdram, otBase, 0x1000));
+    // printf("[frame] state=%d\n", MEM_B(0, 0x80199140));
     goto after_26;
     // nop
 
-    after_26:
+after_26:
+
+
     // lui         $v0, 0x1
     ctx->r2 = S32(0X1 << 16);
     // ori         $v0, $v0, 0x8000
@@ -495,7 +573,7 @@ L_80026CFC:
     // beq         $v0, $zero, L_80026D90
     if (ctx->r2 == 0) {
         // nop
-    
+
         goto L_80026D90;
     }
     // nop
@@ -504,27 +582,39 @@ L_80026CFC:
     // nop
 
     sub_80028784(rdram, ctx);
+
+    // otBase = MEM_W(0, 0x80165174); // текущий OTag
+    // printf("after sub_80028784: %d prims\n", countOTag(rdram, otBase, 0x1000));
+    // printf("[frame] state=%d\n", MEM_B(0, 0x80199140));
     goto after_27;
     // nop
 
-    after_27:
+after_27:
 L_80026D90:
     // jal         0x80017680
     // nop
-  
+
     sub_80017680(rdram, ctx);
+
+    // otBase = MEM_W(0, 0x80165174); // текущий OTag
+    // printf("after sub_80017680: %d prims\n", countOTag(rdram, otBase, 0x1000));
+    // printf("[frame] state=%d\n", MEM_B(0, 0x80199140));
     goto after_28;
     // nop
 
-    after_28:
+after_28:
     // jal         0x8001535C
     // nop
 
     sub_8001535C(rdram, ctx);
+
+    // otBase = MEM_W(0, 0x80165174); // текущий OTag
+    // printf("after sub_8001535C: %d prims\n", countOTag(rdram, otBase, 0x1000));
+    // printf("[frame] state=%d\n", MEM_B(0, 0x80199140));
     goto after_29;
     // nop
 
-    after_29:
+after_29:
     // lbu         $v0, 0x6CC0($s0)
     ctx->r2 = MEM_BU(0X6CC0, ctx->r16);
     // nop
@@ -549,8 +639,9 @@ L_80026D90:
     ctx->r29 = ADD32(ctx->r29, 0X38);
     // jr          $ra
     // nop
-
+    //printf("[DrawScene_80026AFC]------------end\n");
     return;
     // nop
 
-;}
+    ;
+}

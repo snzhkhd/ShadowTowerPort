@@ -88,9 +88,7 @@ void VSync(uint8_t* rdram, recomp_context* ctx)
         MEM_W(0, 0x80198F58) = buttons & ~prev_pad; // если есть такой адрес
     }
 
-    uint32_t gamePad = MEM_W(0, 0x80198F54);
-    if (gamePad)
-        printf("[GAMEPAD] pad=%08X\n", gamePad);
+
 
     static uint8_t prevState = 0xFF;
     uint8_t state = MEM_BU(0, 0x80199140);
@@ -98,6 +96,10 @@ void VSync(uint8_t* rdram, recomp_context* ctx)
         printf("[STATE] changed %d → %d\n", prevState, state);
         prevState = state;
     }
+
+    //MEM_W(0, 0x80199170) = 0x00040000;
+    //MEM_W(0, 0x80199174) = 0x000419C0;
+    //MEM_W(0, 0x80199178) = 0x0003F000;
 //    uint64_t hi = 0, lo = 0, result = 0;
 //    unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
 //    int c1cs = 0; 

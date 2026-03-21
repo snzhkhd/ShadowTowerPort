@@ -645,6 +645,11 @@ L_8001D60C:
     // nop
 
     LOOKUP_FUNC(ctx->r30)(rdram, ctx);
+    printf("[JALR-FP] fp=%08X\n", ctx->r30);
+    recomp_func_t fn;
+    fn = lookup_recomp_func(ctx->r30);
+    if (!fn) printf("[JALR-FP] MISSING FUNC %08X!\n", ctx->r30);
+
     goto after_0;
     // nop
 

@@ -96,27 +96,15 @@ L_80074740:
 
 void SquareRoot0(uint8_t* rdram, recomp_context* ctx)
 {
-    ctx_to_gte(ctx);
-    // Вычисляем LZCR для reg 30 → 31 перед выполнением
-    //uint32_t val = ctx->r4; // a0 будет записан в cp2d[30]
-    //uint32_t lzcr;
-    //if (val == 0) {
-    //    lzcr = 32;
-    //}
-    //else {
-    //    lzcr = 0;
-    //    if ((int32_t)val > 0) {
-    //        while ((val & 0x80000000) == 0) { val <<= 1; lzcr++; }
-    //    }
-    //    else {
-    //        while ((val & 0x80000000) != 0) { val <<= 1; lzcr++; }
-    //    }
-    //}
-    //ctx->cp2d[30] = ctx->r4;
-    //ctx->cp2d[31] = lzcr;
-    
-    // Теперь вызываем оригинальный рекомпилированный код
-    ST_SquareRoot0(rdram,ctx);
-    gte_to_ctx(ctx);
+    //ctx_to_gte(ctx);
 
+    //// Теперь вызываем оригинальный рекомпилированный код
+    //ST_SquareRoot0(rdram,ctx);
+    //gte_to_ctx(ctx);
+
+    int a = (int)ctx->r4;
+    ctx_to_gte(ctx);
+    int result = SquareRoot0(a);
+    gte_to_ctx(ctx);
+    ctx->r2 = (uint32_t)result;
 }

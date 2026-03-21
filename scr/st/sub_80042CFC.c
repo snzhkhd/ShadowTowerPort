@@ -30,7 +30,7 @@ void sub_80042CFC(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80026AFC
     // sb          $zero, 0x3($s0)
     MEM_B(0X3, ctx->r16) = 0;
-    sub_80026AFC(rdram, ctx);
+    DrawScene_80026AFC(rdram, ctx);
     goto after_0;
     // sb          $zero, 0x3($s0)
     MEM_B(0X3, ctx->r16) = 0;

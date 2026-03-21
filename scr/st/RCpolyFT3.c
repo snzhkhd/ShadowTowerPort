@@ -9,4 +9,6 @@ void RCpolyFT3(uint8_t* rdram, recomp_context* ctx) {
     ctx->r7 = ADD32(ctx->r5, 0X60);
     // addiu       $a2, $zero, 0x0
     ctx->r6 = ADD32(0, 0X0);
+
+    RCpolyFT3A(rdram, ctx);
 ;}

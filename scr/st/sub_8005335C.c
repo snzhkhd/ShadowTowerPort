@@ -768,7 +768,7 @@ L_80053888:
     // jal         0x80026AFC
     // addu        $a1, $a0, $zero
     ctx->r5 = ADD32(ctx->r4, 0);
-    sub_80026AFC(rdram, ctx);
+    DrawScene_80026AFC(rdram, ctx);
     goto after_0;
     // addu        $a1, $a0, $zero
     ctx->r5 = ADD32(ctx->r4, 0);
@@ -978,7 +978,7 @@ L_800539F0:
     // jal         0x80026AFC
     // addu        $a1, $a0, $zero
     ctx->r5 = ADD32(ctx->r4, 0);
-    sub_80026AFC(rdram, ctx);
+    DrawScene_80026AFC(rdram, ctx);
     goto after_2;
     // addu        $a1, $a0, $zero
     ctx->r5 = ADD32(ctx->r4, 0);

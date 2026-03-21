@@ -252,6 +252,8 @@ L_8001FE84:
     ctx->r2 = MEM_BU(-0X1, ctx->r6);
     // nop
 
+   
+
     // ori         $v0, $v0, 0x2C
     ctx->r2 = ctx->r2 | 0X2C;
     // sb          $v0, 0x47($a1)
@@ -588,6 +590,8 @@ L_80020038:
     // or          $v0, $v0, $v1
     ctx->r2 = ctx->r2 | ctx->r3;
     // sw          $v0, 0x0($a0)
+
+
     MEM_W(0X0, ctx->r4) = ctx->r2;
     // lw          $v0, 0x88($a1)
     ctx->r2 = MEM_W(0X88, ctx->r5);

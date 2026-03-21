@@ -489,7 +489,7 @@ L_80014BD4:
     // addu        $a1, $s0, $zero
     ctx->r5 = ADD32(ctx->r16, 0);
 
-    sub_80026AFC(rdram, ctx);
+    DrawScene_80026AFC(rdram, ctx);
 
     goto after_47;
     // addu        $a1, $s0, $zero

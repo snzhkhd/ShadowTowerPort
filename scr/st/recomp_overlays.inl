@@ -176,7 +176,7 @@ static FuncEntry section_1_text_funcs[] = {
     { .func = sub_80026508, .offset = 0x00016508 },
     { .func = sub_80026964, .offset = 0x00016964 },
     { .func = sub_80026A88, .offset = 0x00016a88 },
-    { .func = sub_80026AFC, .offset = 0x00016afc },
+    { .func = DrawScene_80026AFC, .offset = 0x00016afc },
     { .func = sub_80026DD4, .offset = 0x00016dd4 },
     { .func = sub_80026E04, .offset = 0x00016e04 },
     { .func = sub_80026E90, .offset = 0x00016e90 },

@@ -1,9 +1,9 @@
-#include "recomp.h"
+﻿#include "recomp.h"
 #include "disable_warnings.h"
 
 void DrawOTag(uint8_t* rdram, recomp_context* ctx) 
 {
-    uint32_t addr = ctx->r4;
+   /* uint32_t addr = ctx->r4;
     int count = 0;
     uint32_t cur = addr;
     while (cur >= 0x80010000 && cur < 0x80200000) {
@@ -16,7 +16,22 @@ void DrawOTag(uint8_t* rdram, recomp_context* ctx)
         cur = next | 0x80000000;
         if (count > 10000) break;
     }
-    printf("[DrawOTag] addr=%08X prims=%d\n", addr, count);
+    printf("[DrawOTag] addr=%08X prims=%d\n", addr, count);*/
+
+    //uint32_t otBase = MEM_W(0, 0x80165174);
+    //int found = 0;
+    //for (int z = 0; z < 4096 && found < 15; z++) {
+    //    uint32_t entry = MEM_W(0, otBase + z * 4);
+    //    uint32_t expected = (z == 0) ? 0x00FFFFFF : ((otBase + (z - 1) * 4) & 0x00FFFFFF);
+    //    if (entry != expected) {
+    //        uint32_t primAddr = (entry & 0x00FFFFFF) | 0x80000000;
+    //        printf("  OT[%d] = %08X prim@%08X cmd=%08X %08X %08X %08X\n",
+    //            z, entry, primAddr,
+    //            MEM_W(0, primAddr), MEM_W(4, primAddr),
+    //            MEM_W(8, primAddr), MEM_W(12, primAddr));
+    //        found++;
+    //    }
+    //}
 
 
     uint64_t hi = 0, lo = 0, result = 0;

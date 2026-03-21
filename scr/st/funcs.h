@@ -167,7 +167,7 @@ void sub_80026228(uint8_t* rdram, recomp_context* ctx);
 void sub_80026508(uint8_t* rdram, recomp_context* ctx);
 void sub_80026964(uint8_t* rdram, recomp_context* ctx);
 void sub_80026A88(uint8_t* rdram, recomp_context* ctx);
-void sub_80026AFC(uint8_t* rdram, recomp_context* ctx);
+void DrawScene_80026AFC(uint8_t* rdram, recomp_context* ctx);
 void sub_80026DD4(uint8_t* rdram, recomp_context* ctx);
 void sub_80026E04(uint8_t* rdram, recomp_context* ctx);
 void sub_80026E90(uint8_t* rdram, recomp_context* ctx);

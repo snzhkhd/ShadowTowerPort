@@ -6,6 +6,9 @@
 #include "SDL2/SDL_video.h"
 extern SDL_Window* g_window;
 
+
+
+
 void ST_BeginDraw2D(uint8_t* rdram, recomp_context* ctx) 
 {
     PsyX_BeginScene();

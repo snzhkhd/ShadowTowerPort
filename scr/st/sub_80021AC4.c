@@ -3,7 +3,7 @@
 
 void sub_80021AC4(uint8_t* rdram, recomp_context* ctx) 
 {
-    printf("[RENDER3D] sub_80021AC4 arg=%d\n", ctx->r4);
+    //printf("[RENDER3D] sub_80021AC4 arg=%d\n", ctx->r4);
 
 
     uint64_t hi = 0, lo = 0, result = 0;
@@ -41,6 +41,8 @@ void sub_80021AC4(uint8_t* rdram, recomp_context* ctx)
     if (ctx->r3 == ctx->r2) {
         // addu        $a0, $zero, $zero
         ctx->r4 = ADD32(0, 0);
+
+        //printf("[RENDER3D] sub_80021AC4 gte_command skip\n");
         goto L_80021FF0;
     }
     // addu        $a0, $zero, $zero
@@ -788,8 +790,8 @@ L_80021FF0:
 
 
     // ѕровер€ем сколько примитивов добавилось
-    uint32_t otHead = MEM_W(0, 0x80165174); // dword_80165174
-    printf("[RENDER3D] otHead=%08X\n", otHead);
+    //uint32_t otHead = MEM_W(0, 0x80165174); // dword_80165174
+    //printf("[RENDER3D] otHead=%08X\n", otHead);
     return;
     // nop
 

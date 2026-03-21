@@ -1,7 +1,16 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_8001C100(uint8_t* rdram, recomp_context* ctx) {
+void sub_8001C100(uint8_t* rdram, recomp_context* ctx) 
+{
+    // printf("[VISIBILITY] word_801B9E12=%d word_801B9E14=%d pos=%08X/%08X/%08X\n",
+        // (int16_t)MEM_H(0, 0x801B9E12),
+        // (int16_t)MEM_H(0, 0x801B9E14),
+        // MEM_W(0, 0x80199170),   // viewDistance / player pos X
+        // MEM_W(0, 0x80199174),   // Y
+        // MEM_W(0, 0x80199178));  // Z
+
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 

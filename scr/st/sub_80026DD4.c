@@ -14,7 +14,7 @@ void sub_80026DD4(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80026AFC
     // addu        $s0, $a2, $zero
     ctx->r16 = ADD32(ctx->r6, 0);
-    sub_80026AFC(rdram, ctx);
+    DrawScene_80026AFC(rdram, ctx);
     goto after_0;
     // addu        $s0, $a2, $zero
     ctx->r16 = ADD32(ctx->r6, 0);

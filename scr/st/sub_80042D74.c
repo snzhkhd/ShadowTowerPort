@@ -720,7 +720,7 @@ L_800430F0:
     // jal         0x80026AFC
     // addu        $a1, $a0, $zero
     ctx->r5 = ADD32(ctx->r4, 0);
-    sub_80026AFC(rdram, ctx);
+    DrawScene_80026AFC(rdram, ctx);
     goto after_28;
     // addu        $a1, $a0, $zero
     ctx->r5 = ADD32(ctx->r4, 0);
