@@ -3174,7 +3174,7 @@
     <ClCompile Include="scr\st\sub_80072794.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
-    <ClCompile Include="scr\st\sub_80073564.c">
+    <ClCompile Include="scr\st\ST_SsVabClose.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
     <ClCompile Include="scr\st\sub_80073994.c">
@@ -3313,6 +3313,9 @@
       <Filter>Исходные файлы\PsyCross\pad</Filter>
     </ClCompile>
     <ClCompile Include="scr\st\CD_Callback_8001542C.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004CEE8.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
   </ItemGroup>

@@ -3,7 +3,9 @@
 
 void ProcessCDAudioLoad(uint8_t* rdram, recomp_context* ctx) 
 {
-   /* printf("ProcessCDAudioLoad\n");*/
+    //printf("[CDAudio] stream_type=%d status=%d\n",
+    //    MEM_B(0, 0x80088BD8), MEM_B(1, 0x80088BD8));
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -93,7 +95,7 @@ L_8005867C:
     // jal         0x80073564
     // nop
 
-    sub_80073564(rdram, ctx);
+    ST_SsVabClose(rdram, ctx);
     goto after_1;
     // nop
 

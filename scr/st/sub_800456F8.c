@@ -1,7 +1,18 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_800456F8(uint8_t* rdram, recomp_context* ctx) {
+void sub_800456F8(uint8_t* rdram, recomp_context* ctx) 
+{
+    for (int i = 0; i < 16; i++) {
+        uint32_t entryAddr = 0x801DD228 + i * 8;
+        uint32_t ptr = MEM_W(0, entryAddr);
+        if (ptr && MEM_H(4, ptr) == 3) {
+            MEM_H(4, ptr) = 0;
+            printf("[FIX] Forced VAB slot %d status 3->0 at %08X\n", i, ptr);
+        }
+    }
+
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -325,7 +336,10 @@ L_8004586C:
     // jal         0x80015D54
     // ori         $a1, $a1, 0x1
     ctx->r5 = ctx->r5 | 0X1;
+
+
     sub_80015D54(rdram, ctx);
+
     goto after_3;
     // ori         $a1, $a1, 0x1
     ctx->r5 = ctx->r5 | 0X1;
@@ -368,6 +382,7 @@ L_800458B4:
     // jal         0x80015D54
     // addiu       $a1, $a1, 0x2
     ctx->r5 = ADD32(ctx->r5, 0X2);
+
     sub_80015D54(rdram, ctx);
     goto after_4;
     // addiu       $a1, $a1, 0x2
@@ -392,6 +407,7 @@ L_800458B4:
     // jal         0x80014CFC
     // sh          $v1, 0x178($v0)
     MEM_H(0X178, ctx->r2) = ctx->r3;
+    printf("[6F8] -> before sub_80014CFC \n");
     sub_80014CFC(rdram, ctx);
     goto after_5;
     // sh          $v1, 0x178($v0)
@@ -608,7 +624,9 @@ L_800459B0:
     // jal         0x80016294
     // sb          $a2, 0x17($sp)
     MEM_B(0X17, ctx->r29) = ctx->r6;
+
     sub_80016294(rdram, ctx);
+
     goto after_9;
     // sb          $a2, 0x17($sp)
     MEM_B(0X17, ctx->r29) = ctx->r6;
@@ -638,6 +656,8 @@ L_800459B0:
     // jal         0x80015D54
     // addiu       $a1, $a1, 0x4
     ctx->r5 = ADD32(ctx->r5, 0X4);
+
+    printf("[6F8] before sub_80015D54\n");
     sub_80015D54(rdram, ctx);
     goto after_10;
     // addiu       $a1, $a1, 0x4
@@ -987,6 +1007,7 @@ L_80045C50:
     // jal         0x8004E960
     // addiu       $a0, $s3, 0x4
     ctx->r4 = ADD32(ctx->r19, 0X4);
+
     sub_8004E960(rdram, ctx);
     goto after_22;
     // addiu       $a0, $s3, 0x4
@@ -1007,6 +1028,7 @@ L_80045C50:
     // jal         0x80014CFC
     // addiu       $a1, $s3, 0x4
     ctx->r5 = ADD32(ctx->r19, 0X4);
+
     sub_80014CFC(rdram, ctx);
     goto after_23;
     // addiu       $a1, $s3, 0x4
@@ -1023,7 +1045,9 @@ L_80045C50:
     // jal         0x8004EEBC
     // addiu       $a0, $s3, 0x4
     ctx->r4 = ADD32(ctx->r19, 0X4);
+
     sub_8004EEBC(rdram, ctx);
+
     goto after_24;
     // addiu       $a0, $s3, 0x4
     ctx->r4 = ADD32(ctx->r19, 0X4);
@@ -1039,6 +1063,7 @@ L_80045C50:
     // jal         0x80052F30
     // addiu       $a0, $s3, 0x4
     ctx->r4 = ADD32(ctx->r19, 0X4);
+
     sub_80052F30(rdram, ctx);
     goto after_25;
     // addiu       $a0, $s3, 0x4
@@ -1055,6 +1080,7 @@ L_80045C50:
     // jal         0x80031DE4
     // addiu       $a0, $s3, 0x4
     ctx->r4 = ADD32(ctx->r19, 0X4);
+
     sub_80031DE4(rdram, ctx);
     goto after_26;
     // addiu       $a0, $s3, 0x4
@@ -1067,6 +1093,7 @@ L_80045C50:
     // jal         0x80055F9C
     // addiu       $s3, $zero, 0xF
     ctx->r19 = ADD32(0, 0XF);
+    printf("[6F8] before sub_80055F9C\n");
     sub_80055F9C(rdram, ctx);
     goto after_27;
     // addiu       $s3, $zero, 0xF
@@ -1093,6 +1120,7 @@ L_80045C50:
     // jal         0x80016878
     // sw          $v0, 0xC($s0)
     MEM_W(0XC, ctx->r16) = ctx->r2;
+    printf("[6F8] before sub_80016878\n");
     sub_80016878(rdram, ctx);
     goto after_28;
     // sw          $v0, 0xC($s0)
@@ -1194,7 +1222,7 @@ L_80045DC0:
     // jal         0x80073564
     // nop
 
-    sub_80073564(rdram, ctx);
+    ST_SsVabClose(rdram, ctx);
     goto after_31;
     // nop
 
@@ -1407,7 +1435,7 @@ L_80045EE4:
     // jal         0x80073564
     // nop
 
-    sub_80073564(rdram, ctx);
+    ST_SsVabClose(rdram, ctx);
     goto after_35;
     // nop
 

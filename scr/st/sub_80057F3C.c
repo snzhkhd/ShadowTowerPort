@@ -51,7 +51,7 @@ L_80057F70:
     // jal         0x80073564
     // nop
 
-    sub_80073564(rdram, ctx);
+    ST_SsVabClose(rdram, ctx);
     goto after_1;
     // nop
 

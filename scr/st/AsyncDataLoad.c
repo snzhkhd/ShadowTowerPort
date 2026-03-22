@@ -5,6 +5,17 @@
 void AsyncDataLoad(uint8_t* rdram, recomp_context* ctx) 
 {
   //  printf("AsyncDataLoad\n");
+    uint32_t p = 0x801E0C74;
+    printf("[VAB-STRUCT] status=%d word0=%08X word4=%04X word8=%08X wordC=%08X word10=%08X\n",
+        MEM_H(4, p),
+        MEM_W(0, p),
+        MEM_HU(4, p),
+        MEM_W(8, p),
+        MEM_W(0xC, p),
+        MEM_W(0x10, p));
+
+    //uint32_t vabPtr = MEM_W(0, 0x801DD228);
+    
 
 
     uint64_t hi = 0, lo = 0, result = 0;
@@ -16,7 +27,7 @@ void AsyncDataLoad(uint8_t* rdram, recomp_context* ctx)
     MEM_W(0X10, ctx->r29) = ctx->r31;
     // jal         0x80058620
     // nop
-
+    //    printf("[6F8] before AsyncDataLoad\n");
     ProcessCDAudioLoad(rdram, ctx);
     goto after_0;
     // nop

@@ -442,6 +442,7 @@
     <ClCompile Include="scr\st\sub_80015A94.c" />
     <ClCompile Include="scr\st\sub_80015AD4.c" />
     <ClCompile Include="scr\st\sub_80015B2C.c" />
+    <ClCompile Include="scr\st\sub_8004CEE8.c" />
     <ClCompile Include="scr\st\VerifyChecksum.c" />
     <ClCompile Include="scr\st\sub_80015BCC.c" />
     <ClCompile Include="scr\st\sub_80015CD0.c" />
@@ -1044,7 +1045,7 @@
     <ClCompile Include="scr\st\sub_800728A4.c" />
     <ClCompile Include="scr\st\sub_800732F8.c" />
     <ClCompile Include="scr\st\sub_800733EC.c" />
-    <ClCompile Include="scr\st\sub_80073564.c" />
+    <ClCompile Include="scr\st\ST_SsVabClose.c" />
     <ClCompile Include="scr\st\sub_80073994.c" />
     <ClCompile Include="scr\st\sub_800739F4.c" />
     <ClCompile Include="scr\st\sub_80074094.c" />

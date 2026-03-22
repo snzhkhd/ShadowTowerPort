@@ -1,7 +1,9 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_800237A8(uint8_t* rdram, recomp_context* ctx) {
+void sub_800237A8(uint8_t* rdram, recomp_context* ctx) 
+{
+    printf("[800237A8] enter\n");
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -311,7 +313,7 @@ L_80023958:
     // jal         0x80073564
     // nop
 
-    sub_80073564(rdram, ctx);
+    ST_SsVabClose(rdram, ctx);
     goto after_10;
     // nop
 
@@ -404,7 +406,7 @@ L_800239B8:
     ctx->r29 = ADD32(ctx->r29, 0X38);
     // jr          $ra
     // nop
-
+    printf("[800237A8] end\n");
     return;
     // nop
 

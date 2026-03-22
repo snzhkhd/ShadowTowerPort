@@ -374,8 +374,6 @@ L_80014B7C:
 L_80014BD4:
     // jal         0x800164B4
     // nop
-  
-
 
     sub_800164B4(rdram, ctx);
     goto after_34;
@@ -479,7 +477,6 @@ L_80014BD4:
     after_45:
     // jal         0x80058620
     // nop
-
     ProcessCDAudioLoad(rdram, ctx);
     goto after_46;
     // nop
@@ -492,7 +489,6 @@ L_80014BD4:
     ctx->r5 = ADD32(ctx->r16, 0);
 
 
-    
     DrawScene_80026AFC(rdram, ctx);
 
     goto after_47;
