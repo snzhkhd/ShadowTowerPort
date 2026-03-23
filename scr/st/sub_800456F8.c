@@ -1197,7 +1197,6 @@ L_80045D7C:
 L_80045DA0:
     // jal         0x8001531C
     // nop
-    printf("[6F8] before AsyncDataLoad\n");
     AsyncDataLoad(rdram, ctx);
     goto after_30;
     // nop
@@ -1224,7 +1223,7 @@ L_80045DC0:
     ctx->r4 = MEM_HS(0X0, ctx->r18);
     // jal         0x80073564
     // nop
-    printf("[6F8] before ST_SsVabClose\n");
+
     ST_SsVabClose(rdram, ctx);
     goto after_31;
     // nop
@@ -1313,7 +1312,7 @@ L_80045E14:
     // addiu       $a1, $a1, 0x5
     ctx->r5 = ADD32(ctx->r5, 0X5);
 
-    printf("[6F8] before sub_80015D54\n");
+
     sub_80015D54(rdram, ctx);
     goto after_32;
     // addiu       $a1, $a1, 0x5
@@ -1370,7 +1369,7 @@ L_80045E5C:
 L_80045E98:
     // jal         0x80015AD4
     // nop
-    printf("[6F8] before AsyncStructForcedLoadSync\n");
+
     AsyncStructForcedLoadSync(rdram, ctx);
     goto after_34;
     // nop
@@ -1483,7 +1482,7 @@ L_80045F0C:
     // jal         0x80058A0C
     // addiu       $a1, $a1, 0x7
     ctx->r5 = ADD32(ctx->r5, 0X7);
-    printf("[6F8] before sub_80058A0C\n");
+
     sub_80058A0C(rdram, ctx);
     goto after_36;
     // addiu       $a1, $a1, 0x7

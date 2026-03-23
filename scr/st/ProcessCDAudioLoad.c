@@ -3,15 +3,15 @@
 
 void ProcessCDAudioLoad(uint8_t* rdram, recomp_context* ctx) 
 {
-    uint32_t active = MEM_W(0, 0x80088BD8);
-    uint8_t type = MEM_B(0, active);
-    if (type == 4) {
-        uint8_t s17 = MEM_B(17, active);
-        printf("[CDAudioLoad] type=4 s17=%d\n", s17);
-        if (s17 == 2) {
-            printf("[CDAudioLoad] entering transfer loop\n");
-        }
-    }
+    //uint32_t active = MEM_W(0, 0x80088BD8);
+    //uint8_t type = MEM_B(0, active);
+    //if (type == 4) {
+    //    uint8_t s17 = MEM_B(17, active);
+    //    printf("[CDAudioLoad] type=4 s17=%d\n", s17);
+    //    if (s17 == 2) {
+    //        printf("[CDAudioLoad] entering transfer loop\n");
+    //    }
+    //}
 
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;

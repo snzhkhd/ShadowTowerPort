@@ -4,22 +4,29 @@
 #define LOG_PRIMBUF() /* printf("[PRIMBUF] 0x384=%08X 0x390=%08X\n", \
     MEM_W(0, 0x80165384), MEM_W(0, 0x80165390))*/
 
-//int countOTag(uint8_t* rdram, uint32_t otBase, int n) {
-//    int count = 0;
-//    for (int i = 0; i < n; i++) {
-//        uint32_t entry = MEM_W(0, otBase + i * 4);
-//        uint32_t nextLink = otBase + (i - 1) * 4;
-//        // если запись != просто ссылка на предыдущий Ч значит тут примитив
-//        if (i == 0) { if (entry != 0x00FFFFFF) count++; }
-//        else if (entry != (nextLink & 0x00FFFFFF)) count++;
-//    }
-//    return count;
-//}
+int countOTag(uint8_t* rdram, uint32_t otBase, int n) {
+    int count = 0;
+    for (int i = 0; i < n; i++) {
+        uint32_t entry = MEM_W(0, otBase + i * 4);
+        uint32_t nextLink = otBase + (i - 1) * 4;
+        // если запись != просто ссылка на предыдущий Ч значит тут примитив
+        if (i == 0) { if (entry != 0x00FFFFFF) count++; }
+        else if (entry != (nextLink & 0x00FFFFFF)) count++;
+    }
+    return count;
+}
 
 
 void DrawScene_80026AFC(uint8_t* rdram, recomp_context* ctx)
 {
-    //printf("[DrawScene_80026AFC]------------\n");
+    //static int16_t prev_w5920 = 0;
+    //int16_t cur_w5920 = (int16_t)MEM_H(0, 0x801B5920);
+    //if (prev_w5920 == 1 && cur_w5920 == 0) {
+    //    MEM_W(0, 0x801B5938) = 0xFFFFFFFF;  // -1, пропускает overlay
+    //    printf("[FADE-FIX] Reset fade after zone load\n");
+    //}
+    //prev_w5920 = cur_w5920;
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0;
@@ -358,7 +365,7 @@ L_80026C98:
     // addiu       $a2, $zero, 0x8
     ctx->r6 = ADD32(0, 0X8);
 
-    printf("before sub_80026228\n");
+
     sub_80026228(rdram, ctx);
 
     LOG_PRIMBUF();

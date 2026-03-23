@@ -5,7 +5,7 @@
 
 void KF_CDReadSectorsInternal(uint8_t* rdram, recomp_context* ctx)
 {
-    CHECK_HEAP();
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -105,7 +105,7 @@ after_4:
 
         goto L_80015F9C;
     }
-    CHECK_HEAP();
+
     // addiu       $a0, $zero, 0x1
     ctx->r4 = ADD32(0, 0X1);
     // addu        $a0, $zero, $zero

@@ -2,18 +2,6 @@
 #include "disable_warnings.h"
 
 
-int countOTag(uint8_t* rdram, uint32_t otBase, int n) {
-    int count = 0;
-    for (int i = 0; i < n; i++) {
-        uint32_t entry = MEM_W(0, otBase + i * 4);
-        uint32_t nextLink = otBase + (i - 1) * 4;
-        // если запись != просто ссылка на предыдущий Ч значит тут примитив
-        if (i == 0) { if (entry != 0x00FFFFFF) count++; }
-        else if (entry != (nextLink & 0x00FFFFFF)) count++;
-    }
-    return count;
-}
-
 
 void sub_80020A80(uint8_t* rdram, recomp_context* ctx) 
 {

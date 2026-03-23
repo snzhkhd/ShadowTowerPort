@@ -10,7 +10,8 @@ void ST_DrawSync(uint8_t* rdram, recomp_context* ctx)
 {
 
     DrawSync((int)ctx->r4);
-    PsyX_UpdateInput();
+
+
     ctx->r2 = 0;
 
 //    uint64_t hi = 0, lo = 0, result = 0;

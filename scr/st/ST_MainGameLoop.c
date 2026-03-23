@@ -299,21 +299,9 @@ L_80014B58:
 L_80014B74:
     // jal         0x80014544
     // nop
-    uint32_t head;
-    head = MEM_W(0, 0x80087C50);
-    uint32_t next;
-    next = MEM_W(0, head);
-    uint32_t size;
-    size = MEM_W(4, head);
 
-    printf("[MAINLOOP] before sub_80014544, - req=%d head=%08X next=%08X size=%d\n",
-        ctx->r4, head, next, size);
-    
     sub_80014544(rdram, ctx);
-    
 
-    printf("[MAINLOOP] after sub_80014544, - req=%d head=%08X next=%08X size=%d\n",
-        ctx->r4, head, next, size);
     goto after_26;
     // nop
 
@@ -510,6 +498,20 @@ L_80014BD4:
     // jal         0x80026AFC
     // addu        $a1, $s0, $zero
     ctx->r5 = ADD32(ctx->r16, 0);
+
+
+    int32_t fade = (int32_t)MEM_W(0, 0x801B5938);;
+    int increment = fade > -1 ? 10 : 1;
+
+
+    MEM_W(0, 0x80088204) = MEM_W(0, 0x80088204) + increment;
+    MEM_W(0, 0x8008820C) = MEM_W(0, 0x8008820C) + increment;
+    uint8_t fc = MEM_B(0, 0x80198F5B) + 1;
+    if (fc >= 60) {
+        fc = 0;
+        MEM_W(0, 0x80198F5C) = MEM_W(0, 0x80198F5C) + 1;
+    }
+    MEM_B(0, 0x80198F5B) = fc;
 
 
     DrawScene_80026AFC(rdram, ctx);

@@ -41,6 +41,10 @@ void SEQ_Update(uint8_t* rdram, recomp_context* ctx)
 
 void VSync(uint8_t* rdram, recomp_context* ctx) 
 {
+    
+    //sub_800153B4(rdram, ctx);
+    sub_80057744(rdram, ctx);
+    PsyX_UpdateInput();
     auto now = std::chrono::steady_clock::now();
     double elapsed = std::chrono::duration<double>(now - g_lastFrameTime).count();
 
@@ -83,11 +87,11 @@ void VSync(uint8_t* rdram, recomp_context* ctx)
     //}
 
     //update input
-    recomp_context save = *ctx;
 
-    sub_800153B4(rdram, ctx);
 
-    ctx = &save;
+
+
+    //ctx = &save;
 
 
     static uint8_t prevState = 0xFF;

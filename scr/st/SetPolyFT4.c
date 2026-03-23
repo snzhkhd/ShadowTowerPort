@@ -19,6 +19,5 @@ void SetPolyFT4(uint8_t* rdram, recomp_context* ctx)
     // sb          $v0, 0x7($a0)
     MEM_B(0X7, ctx->r4) = ctx->r2;
     return;
-    // sb          $v0, 0x7($a0)
-    MEM_B(0X7, ctx->r4) = ctx->r2;
+
 ;}

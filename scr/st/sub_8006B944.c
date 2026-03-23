@@ -10,12 +10,12 @@ void CdReadWithRetry(uint8_t* rdram, recomp_context* ctx)
     uint32_t destBuffer = ctx->r5;
     uint32_t mode = ctx->r6;
 
-    uint32_t endAddr = destBuffer + sectorCount * 2048;
-    if (destBuffer <= 0x801EFD60 && endAddr > 0x801EFD60) {
-        uint32_t active = MEM_W(0, 0x80088BD8);
-        printf("[CD-HEAP-OVERLAP] dest=%08X end=%08X stream_type=%d stream_addr=%08X\n",
-            destBuffer, endAddr, MEM_B(0, active), active);
-    }
+    //uint32_t endAddr = destBuffer + sectorCount * 2048;
+    //if (destBuffer <= 0x801EFD60 && endAddr > 0x801EFD60) {
+    //    uint32_t active = MEM_W(0, 0x80088BD8);
+    //    printf("[CD-HEAP-OVERLAP] dest=%08X end=%08X stream_type=%d stream_addr=%08X\n",
+    //        destBuffer, endAddr, MEM_B(0, active), active);
+    //}
 
     uint8_t* dest = (uint8_t*)GET_PTR(destBuffer);
 

@@ -1,39 +1,10 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-//void malloc3(uint8_t* rdram, recomp_context* ctx)
-//{
-//
-//    uint32_t size = ctx->r4;
-//    if (size == 0) {
-//        ctx->r2 = 0;
-//        return;
-//    }
-//
-//    size = (size + 7) & ~7; // выравнивание на 8
-//
-//    if (g_heapPtr + size + 8 > g_heapEnd) {
-//        printf("[malloc3] FAIL size=%d (no space)\n", size);
-//        ctx->r2 = 0;
-//        return;
-//    }
-//
-//    uint32_t addr = g_heapPtr;
-//    g_heapPtr += size + 8;
-//
-//    ctx->r2 = addr;
-//}
-
-
 
 void malloc3(uint8_t* rdram, recomp_context* ctx)
 {
 
-    uint32_t head = MEM_W(0, 0x80087C50);
-    uint32_t next = MEM_W(0, head);
-    uint32_t size = MEM_W(4, head);
-    printf("[malloc3] req=%d head=%08X next=%08X size=%d\n",
-        ctx->r4, head, next, size);
 
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
@@ -162,7 +133,7 @@ L_800788D8:
 L_800788DC:
     // jr          $ra
     // nop
-    printf("[malloc3] result=%08X\n", ctx->r2);
+
     return;
     // nop
 
