@@ -52,6 +52,12 @@ void TriggerGpuDma(uint8_t* rdram, recomp_context* ctx)
             uint8_t  len = (tag >> 24) & 0xFF;
             uint32_t next = tag & 0x00FFFFFF;
 
+            //// Validate PS1 RAM bounds
+            //if (next >= 0x200000) {  // beyond 2MB PS1 RAM
+            //    printf("[GPU] OTag corruption: addr=%06X, stopping\n", next);
+            //    break;
+            //}
+
             if (len > 0)
             {
                 uint8_t code = (cur[1] >> 24) & 0xFF;
@@ -80,6 +86,7 @@ void TriggerGpuDma(uint8_t* rdram, recomp_context* ctx)
                 psyx_prim[6] = (cur[1] >> 16) & 0xFF; // b0
                 psyx_prim[7] = (cur[1] >> 24) & 0xFF; // code 
                 memcpy(psyx_prim + 8, &cur[2], (len - 1) * 4);
+
 
                 ParsePrimitivesLinkedList((u_long*)psyx_prim, 0);
 

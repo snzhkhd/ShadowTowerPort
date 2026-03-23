@@ -1,38 +1,39 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
+//void malloc3(uint8_t* rdram, recomp_context* ctx)
+//{
+//
+//    uint32_t size = ctx->r4;
+//    if (size == 0) {
+//        ctx->r2 = 0;
+//        return;
+//    }
+//
+//    size = (size + 7) & ~7; // выравнивание на 8
+//
+//    if (g_heapPtr + size + 8 > g_heapEnd) {
+//        printf("[malloc3] FAIL size=%d (no space)\n", size);
+//        ctx->r2 = 0;
+//        return;
+//    }
+//
+//    uint32_t addr = g_heapPtr;
+//    g_heapPtr += size + 8;
+//
+//    ctx->r2 = addr;
+//}
+
+
+
 void malloc3(uint8_t* rdram, recomp_context* ctx)
 {
 
-    uint32_t size = ctx->r4;
-    if (size == 0) {
-        ctx->r2 = 0;
-        return;
-    }
-
-    size = (size + 7) & ~7; // выравнивание на 8
-
-    if (g_heapPtr + size + 8 > g_heapEnd) {
-        printf("[malloc3] FAIL size=%d (no space)\n", size);
-        ctx->r2 = 0;
-        return;
-    }
-
-    uint32_t addr = g_heapPtr;
-    g_heapPtr += size + 8;
-
-    ctx->r2 = addr;
-}
-
-void _malloc3(uint8_t* rdram, recomp_context* ctx)
-{
-    uint32_t size = ctx->r4;
     uint32_t head = MEM_W(0, 0x80087C50);
-    uint32_t first = MEM_W(0, head);
-    uint32_t firstSize = MEM_W(4, head);
-
-    printf("[malloc3] size=%d head=%08X first=%08X firstSize=%d\n",
-        size, head, first, firstSize);
+    uint32_t next = MEM_W(0, head);
+    uint32_t size = MEM_W(4, head);
+    printf("[malloc3] req=%d head=%08X next=%08X size=%d\n",
+        ctx->r4, head, next, size);
 
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
@@ -55,7 +56,7 @@ L_80078844:
     // andi        $v0, $a0, 0x7
     ctx->r2 = ctx->r4 & 0X7;
 L_80078848:
-    printf("malloc3 -> L_80078844\n");
+    //printf("malloc3 -> L_80078844\n");
     // bne         $v0, $zero, L_80078844
     if (ctx->r2 != 0) {
         // addiu       $a0, $a0, 0x1
@@ -81,7 +82,7 @@ L_80078848:
     // nop
 
 L_80078870:
-    printf("malloc3 -> L_80078870\n");
+   /* printf("malloc3 -> L_80078870\n");*/
     // lw          $v1, 0x4($a0)
     ctx->r3 = MEM_W(0X4, ctx->r4);
     // nop

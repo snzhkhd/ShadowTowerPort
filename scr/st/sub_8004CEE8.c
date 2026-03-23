@@ -1,7 +1,9 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_8004CEE8(uint8_t* rdram, recomp_context* ctx) {
+void sub_8004CEE8(uint8_t* rdram, recomp_context* ctx) 
+{
+    printf("[sub_8004CEE8] call  r3= <%d>\n", (ctx->r3 >> 2) );
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 

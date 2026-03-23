@@ -1,24 +1,31 @@
 #include "recomp.h"
 #include "disable_warnings.h"
-void KF_InitHeap3(uint8_t* rdram, recomp_context* ctx);
+//void KF_InitHeap3(uint8_t* rdram, recomp_context* ctx);
+//
+//void __InitHeap3(uint8_t* rdram, recomp_context* ctx)
+//{
+//    g_heapBase = ctx->r4;
+//    uint32_t size = ctx->r5;
+//    g_heapPtr = g_heapBase + 8; // skip header
+//    g_heapEnd = g_heapBase + size;
+//
+//    printf("[InitHeap3] base=%08X size=%d end=%08X\n",
+//        g_heapBase, size, g_heapEnd);
+//
+//    // Вызываем оригинал
+//    KF_InitHeap3(rdram, ctx);
+//}
 
-void InitHeap3(uint8_t* rdram, recomp_context* ctx)
+void InitHeap3(uint8_t* rdram, recomp_context* ctx) 
 {
-    g_heapBase = ctx->r4;
-    uint32_t size = ctx->r5;
-    g_heapPtr = g_heapBase + 8; // skip header
-    g_heapEnd = g_heapBase + size;
-
-    printf("[InitHeap3] base=%08X size=%d end=%08X\n",
-        g_heapBase, size, g_heapEnd);
-
-    // Вызываем оригинал
-    KF_InitHeap3(rdram, ctx);
-}
-
-void KF_InitHeap3(uint8_t* rdram, recomp_context* ctx) 
-{
-    
+    // Force heap past CD buffer conflict zone
+    uint32_t safeBase = 0x801F0000;
+    uint32_t safeEnd = 0x801FDFF8;  // same end as before
+    if (ctx->r4 < safeBase) {
+        printf("[InitHeap3] Moving base %08X -> %08X\n", ctx->r4, safeBase);
+        ctx->r4 = safeBase;
+        ctx->r5 = safeEnd - safeBase;
+    }
 
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
@@ -88,6 +95,7 @@ L_80078804:
 L_8007882C:
     // jr          $ra
     // nop
+
 
     return;
     // nop

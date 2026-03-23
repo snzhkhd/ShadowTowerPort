@@ -21,6 +21,8 @@ void sub_80015024(uint8_t* rdram, recomp_context* ctx) {
     // sw          $s2, 0x18($sp)
     MEM_W(0X18, ctx->r29) = ctx->r18;
     sub_80014F90(rdram, ctx);
+
+
     goto after_0;
     // sw          $s2, 0x18($sp)
     MEM_W(0X18, ctx->r29) = ctx->r18;
@@ -138,6 +140,7 @@ L_800150A0:
     // nop
 
     sub_80035120(rdram, ctx);
+
     goto after_5;
     // nop
 

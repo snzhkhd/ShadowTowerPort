@@ -3,7 +3,7 @@
 
 void ST_SsVabClose(uint8_t* rdram, recomp_context* ctx) 
 {
-    printf("SsVabClose\n");
+  //  printf("SsVabClose\n");
 
 
     uint64_t hi = 0, lo = 0, result = 0;

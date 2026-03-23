@@ -3,7 +3,7 @@
 
 void AsyncStructForcedLoadSync(uint8_t* rdram, recomp_context* ctx) 
 {
-   // printf("AsyncStructForcedLoadSync\n");
+   
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -65,6 +65,17 @@ L_80015AF8:
     ctx->r29 = ADD32(ctx->r29, 0X18);
     // jr          $ra
     // nop
+
+    //uint32_t active = MEM_W(0, 0x80088BD8);
+    //uint32_t queue = MEM_W(0, 0x80088BD4);
+    //uint8_t type = MEM_B(0, active);
+    //if (active == queue && type == 0) {
+    //    // CD queue drained but caller still waiting
+    //    // Force-break the caller's loop by not returning here
+    //    // The caller checks *v1 == 3, so we can't fix it from here
+    //    printf("[ASFL] Queue empty but caller stuck at %08X *=%d\n",
+    //        ctx->r16, MEM_B(0, ctx->r16));
+    //}
 
     return;
     // nop

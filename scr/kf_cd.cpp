@@ -100,6 +100,18 @@ void KFCD_CdControl(uint8_t* rdram, recomp_context* ctx)
     //    printf("CdlSetmode ctx->r2 = 1;\n");
         return;
     }
+    case 0x0D: // CdlSetFilter
+    {
+        // param[0] = file, param[1] = channel
+        uint32_t paramAddr = ctx->r5;
+        if (paramAddr) {
+            uint8_t file = MEM_B(0, paramAddr);
+            uint8_t channel = MEM_B(1, paramAddr);
+            printf("[CD] SetFilter file=%d chan=%d\n", file, channel);
+        }
+        ctx->r2 = 1;
+        return;
+    }
     case 0x11: // CdlGetlocP (ïîëó÷èòü ïîçèöèş ãîëîâû)
     {
         uint8_t* res = (uint8_t*)GET_PTR(ctx->r5);
@@ -130,9 +142,10 @@ void KFCD_CdControl(uint8_t* rdram, recomp_context* ctx)
                 uint8_t type = stream[0];
 
                 if (type == 4) {
-                    // Audio — ïğîïóñêàåì
-                    ctx->r4 = *p_active;
-                    NextCdTask(rdram, ctx);
+                    // Audio
+                    KFCD_CdlReadN(rdram, ctx);
+                    stream[17] = 2;   // status = ready for transfer (NOT stream[16]!)
+                    // ÍÅ âûçûâàåì NextCdTask — ProcessCDAudioLoad ñäåëàåò ñàì
                     ctx->r2 = 1;
                     return;
                 }

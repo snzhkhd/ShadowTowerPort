@@ -780,7 +780,7 @@ void _spu_gcSPU(uint8_t* rdram, recomp_context* ctx);
 void sub_80073994(uint8_t* rdram, recomp_context* ctx);
 void sub_800739F4(uint8_t* rdram, recomp_context* ctx);
 void SpuMalloc(uint8_t* rdram, recomp_context* ctx);
-void sub_80074094(uint8_t* rdram, recomp_context* ctx);
+void SsVabTransBodyPartly(uint8_t* rdram, recomp_context* ctx);
 void SpuSetTransferStartAddr(uint8_t* rdram, recomp_context* ctx);
 void SpuSetTransferMode(uint8_t* rdram, recomp_context* ctx);
 void SpuWritePartly(uint8_t* rdram, recomp_context* ctx);

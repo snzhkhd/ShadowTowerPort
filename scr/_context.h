@@ -15,6 +15,11 @@ typedef uint32_t gpr;
 
 static uint8_t scratchpad[1024]; // 1KB Scratchpad
 
+#define CHECK_HEAP() { \
+    if (MEM_W(0, 0x801EFD60) == 0) \
+        printf("[HEAP-CORRUPT] zeroed after %s:%d\n", __func__, __LINE__); \
+}
+
 // Режимы округления для FPU
 #define DEFAULT_ROUNDING_MODE 0
 

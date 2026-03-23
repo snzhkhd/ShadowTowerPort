@@ -95,7 +95,9 @@ L_80024074:
     // jal         0x80023BC4
     // addu        $a2, $s4, $zero
     ctx->r6 = ADD32(ctx->r20, 0);
+
     sub_80023BC4(rdram, ctx);
+
     goto after_0;
     // addu        $a2, $s4, $zero
     ctx->r6 = ADD32(ctx->r20, 0);

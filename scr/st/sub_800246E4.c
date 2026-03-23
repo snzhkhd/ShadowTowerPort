@@ -681,7 +681,10 @@ L_80024AB4:
     // jal         0x8005850C
     // addiu       $a1, $a1, 0xD0
     ctx->r5 = ADD32(ctx->r5, 0XD0);
+    printf("[sub_800246E4] - before sub_8005850C\n");
     sub_8005850C(rdram, ctx);
+
+    printf("[sub_800246E4] - after sub_8005850C\n");
     goto after_5;
     // addiu       $a1, $a1, 0xD0
     ctx->r5 = ADD32(ctx->r5, 0XD0);
@@ -746,6 +749,8 @@ L_80024B18:
     // jal         0x8004FD28
     // sll         $a3, $a3, 8
     ctx->r7 = S32(ctx->r7) << 8;
+
+
     sub_8004FD28(rdram, ctx);
     goto after_6;
     // sll         $a3, $a3, 8
@@ -789,7 +794,7 @@ L_80024B18:
 
     // jal         0x80078AC4
     // nop
-
+    printf("[sub_800246E4] - before rand_recomp 1\n");
     rand_recomp(rdram, ctx);
     goto after_7;
     // nop
@@ -828,7 +833,7 @@ L_80024B94:
 
     // jal         0x80078AC4
     // nop
-
+    printf("[sub_800246E4] - before rand_recomp 2\n");
     rand_recomp(rdram, ctx);
     goto after_8;
     // nop
@@ -1037,6 +1042,8 @@ L_80024CC4:
     // jal         0x8005850C
     // addiu       $a1, $a1, 0x454
     ctx->r5 = ADD32(ctx->r5, 0X454);
+
+    printf("[sub_800246E4] - before sub_8005850C 2\n");
     sub_8005850C(rdram, ctx);
     goto after_9;
     // addiu       $a1, $a1, 0x454
@@ -1055,6 +1062,7 @@ L_80024CF8:
     // jal         0x800582F0
     // addiu       $fp, $fp, -0x1
     ctx->r30 = ADD32(ctx->r30, -0X1);
+
     sub_800582F0(rdram, ctx);
     goto after_10;
     // addiu       $fp, $fp, -0x1
@@ -1067,6 +1075,7 @@ L_80024CF8:
     // sh          $v0, 0x54($s0)
     MEM_H(0X54, ctx->r16) = ctx->r2;
 L_80024D08:
+
     // lhu         $v1, 0x4E($s0)
     ctx->r3 = MEM_HU(0X4E, ctx->r16);
     // lh          $a0, 0x54($s0)
@@ -1083,6 +1092,7 @@ L_80024D08:
     if (ctx->r4 == ctx->r23) {
         // sw          $v0, 0x50($s0)
         MEM_W(0X50, ctx->r16) = ctx->r2;
+
         goto L_80025158;
     }
     // sw          $v0, 0x50($s0)
@@ -1097,6 +1107,7 @@ L_80024D34:
     // jal         0x8005850C
     // addiu       $fp, $fp, -0x1
     ctx->r30 = ADD32(ctx->r30, -0X1);
+
     sub_8005850C(rdram, ctx);
     goto after_11;
     // addiu       $fp, $fp, -0x1
@@ -1687,6 +1698,7 @@ L_80025150:
 
     after_17:
 L_80025158:
+
     // addiu       $fp, $fp, -0x1
     ctx->r30 = ADD32(ctx->r30, -0X1);
 L_8002515C:
@@ -1694,6 +1706,7 @@ L_8002515C:
     if (ctx->r30 != ctx->r23) {
         // sll         $v0, $fp, 1
         ctx->r2 = S32(ctx->r30) << 1;
+
         goto L_80024784;
     }
     // sll         $v0, $fp, 1
@@ -1709,6 +1722,7 @@ L_80025168:
     if (ctx->r2 != 0) {
         // addiu       $v0, $s4, 0x224
         ctx->r2 = ADD32(ctx->r20, 0X224);
+
         goto L_80025190;
     }
     // addiu       $v0, $s4, 0x224
@@ -1722,7 +1736,9 @@ L_80025168:
     // jal         0x80024004
     // addiu       $a3, $zero, 0xF9
     ctx->r7 = ADD32(0, 0XF9);
+
     sub_80024004(rdram, ctx);
+
     goto after_18;
     // addiu       $a3, $zero, 0xF9
     ctx->r7 = ADD32(0, 0XF9);

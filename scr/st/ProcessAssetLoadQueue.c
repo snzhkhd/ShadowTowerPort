@@ -3,6 +3,19 @@
 
 void ProcessAssetLoadQueue(uint8_t* rdram, recomp_context* ctx) 
 {
+
+    uint32_t active = MEM_W(0, 0x80088BD8);
+    uint8_t* stream = (uint8_t*)GET_PTR(active);
+    if (stream && stream[0] == 3 && stream[16] == 0 && stream[1] == 0) 
+    {
+        // Initiate first read for this stream
+        KFCD_CdlReadN(rdram, ctx);
+        stream[16] = 1;  // data_ready
+
+        printf("ProcessAssetLoadQueue stream[16] = 1 \n");
+    }
+
+
     //printf("ProcessAssetLoadQueue\n");
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;

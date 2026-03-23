@@ -681,7 +681,9 @@ void TriangulateQuad()
 
 static void AddSplit(bool semiTrans, bool textured)
 {
-	//if (semiTrans) return;
+	if (g_splitIndex < 0 || g_splitIndex >= MAX_DRAW_SPLITS) {
+		return;
+	}
 
 	int tpage = activeDrawEnv.tpage;
 	GPUDrawSplit& curSplit = g_splits[g_splitIndex];
@@ -807,6 +809,11 @@ void DrawAllSplits()
 	// next code ideally should be called before EndScene
 	GR_UpdateVertexBuffer(g_vertexBuffer, g_vertexIndex);
 
+	if (g_splitIndex < 0 || g_splitIndex >= MAX_DRAW_SPLITS) {
+		printf("[DrawAllSplits] INVALID g_splitIndex=%d, resetting\n", g_splitIndex);
+		ClearSplits();
+		return;
+	}
 	// ‘инализировать последний сплит перед рендером!
 	g_splits[g_splitIndex].numVerts = g_vertexIndex - g_splits[g_splitIndex].startVertex;
 
@@ -828,9 +835,11 @@ void ParsePrimitivesLinkedList(u_long* p, int singlePrimitive)
 
 	g_DrawPrimMode = singlePrimitive;
 
+
 	if (singlePrimitive)
 	{
 		P_TAG* polyTag = reinterpret_cast<P_TAG*>(p);
+
 		ParsePrimitive(polyTag);
 	}
 	else
@@ -1576,11 +1585,6 @@ int ParsePrimitive(P_TAG* polyTag)
 {
 	const int primType = polyTag->code & 0xF0;
 
-	/*uint8_t* data = (uint8_t*)polyTag + sizeof(P_TAG);
-	printf("[ParsePrim] code=0x%02X data: %02X %02X %02X %02X %02X %02X %02X %02X\n",
-		polyTag->code,
-		data[0], data[1], data[2], data[3],
-		data[4], data[5], data[6], data[7]);*/
 
 	int primLength = 0;
 

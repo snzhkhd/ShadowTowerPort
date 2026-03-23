@@ -1,7 +1,29 @@
-#include "recomp.h"
+﻿#include "recomp.h"
 #include "disable_warnings.h"
+#include "psx/libspu.h"
+#include "audio/PsyX_SPUAL.h"
 
-void sub_80074094(uint8_t* rdram, recomp_context* ctx) {
+void SsVabTransBodyPartly(uint8_t* rdram, recomp_context* ctx) 
+{
+    int16_t vab_id = (int16_t)(uint16_t)ctx->r6;
+    if (vab_id == -1) {
+        // No VAB slot allocated — signal "not -1" and "not -2" to exit loop
+        // Then ProcessCDAudioLoad won't match vab_id check, so we need
+        // to force NextCdTask from here
+        uint32_t active = MEM_W(0, 0x80088BD8);
+        ctx->r4 = active;
+        NextCdTask(rdram, ctx);
+        // Set stream result status to done
+        uint32_t resultPtr = MEM_W(8, active);
+        if (resultPtr) MEM_H(4, resultPtr) = 1;
+        ctx->r2 = 0;  // break out of while loop, won't match any branch
+        return;
+    }
+    // Valid vab_id — return it to signal complete
+    ctx->r2 = (uint32_t)(int32_t)vab_id;
+
+    return;
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 

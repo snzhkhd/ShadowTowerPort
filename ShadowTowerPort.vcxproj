@@ -440,7 +440,7 @@
     <ClCompile Include="scr\st\sub_80015950.c" />
     <ClCompile Include="scr\st\sub_800159D4.c" />
     <ClCompile Include="scr\st\sub_80015A94.c" />
-    <ClCompile Include="scr\st\sub_80015AD4.c" />
+    <ClCompile Include="scr\st\AsyncStructForcedLoadSync.c" />
     <ClCompile Include="scr\st\sub_80015B2C.c" />
     <ClCompile Include="scr\st\sub_8004CEE8.c" />
     <ClCompile Include="scr\st\VerifyChecksum.c" />
@@ -771,7 +771,7 @@
     <ClCompile Include="scr\st\sub_800456F8.c" />
     <ClCompile Include="scr\st\sub_80045F90.c" />
     <ClCompile Include="scr\st\sub_80045FB8.c" />
-    <ClCompile Include="scr\st\sub_80045FFC.c" />
+    <ClCompile Include="scr\st\ProcessAssetLoadQueue.c" />
     <ClCompile Include="scr\st\sub_80046270.c" />
     <ClCompile Include="scr\st\sub_8004656C.c" />
     <ClCompile Include="scr\st\sub_80046604.c" />
@@ -924,7 +924,7 @@
     <ClCompile Include="scr\st\sub_80058318.c" />
     <ClCompile Include="scr\st\sub_8005850C.c" />
     <ClCompile Include="scr\st\sub_80058534.c" />
-    <ClCompile Include="scr\st\sub_80058620.c" />
+    <ClCompile Include="scr\st\ProcessCDAudioLoad.c" />
     <ClCompile Include="scr\st\sub_80058770.c" />
     <ClCompile Include="scr\st\sub_800588B4.c" />
     <ClCompile Include="scr\st\sub_80058A0C.c" />
@@ -1048,7 +1048,7 @@
     <ClCompile Include="scr\st\ST_SsVabClose.c" />
     <ClCompile Include="scr\st\sub_80073994.c" />
     <ClCompile Include="scr\st\sub_800739F4.c" />
-    <ClCompile Include="scr\st\sub_80074094.c" />
+    <ClCompile Include="scr\st\SsVabTransBodyPartly.c" />
     <ClCompile Include="scr\st\ST_InitGeom.c" />
     <ClCompile Include="scr\st\sub_80074854.c" />
     <ClCompile Include="scr\st\sub_80075E40.c" />

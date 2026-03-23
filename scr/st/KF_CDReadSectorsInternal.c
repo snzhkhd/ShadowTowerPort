@@ -1,9 +1,11 @@
 ﻿#include "recomp.h"
 #include "disable_warnings.h"
 
+
+
 void KF_CDReadSectorsInternal(uint8_t* rdram, recomp_context* ctx)
 {
-
+    CHECK_HEAP();
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -36,6 +38,7 @@ void KF_CDReadSectorsInternal(uint8_t* rdram, recomp_context* ctx)
     // jal         0x80068F50
     // sb          $v0, 0x10($sp)
     MEM_B(0X10, ctx->r29) = ctx->r2;
+
     CdControlB(rdram, ctx);
     goto after_0;
     // sb          $v0, 0x10($sp)
@@ -44,6 +47,7 @@ void KF_CDReadSectorsInternal(uint8_t* rdram, recomp_context* ctx)
     // jal         0x80077104
     // addiu       $a0, $zero, 0x4
     ctx->r4 = ADD32(0, 0X4);
+
     VSync(rdram, ctx);
     goto after_1;
     // addiu       $a0, $zero, 0x4
@@ -65,6 +69,7 @@ L_80015F5C:
     // jal         0x80068CE0
     // addu        $a2, $zero, $zero
     ctx->r6 = ADD32(0, 0);
+
     CdControl(rdram, ctx);
     goto after_3;
     // addu        $a2, $zero, $zero
@@ -85,17 +90,22 @@ L_80015F5C:
     // jal         0x8006B944
     // addiu       $a2, $zero, 0x80
     ctx->r6 = ADD32(0, 0X80);
+
     CdReadWithRetry(rdram, ctx);
+
     goto after_4;
     // addiu       $a2, $zero, 0x80
     ctx->r6 = ADD32(0, 0X80);
-    after_4:
+after_4:
+
     // bne         $v0, $zero, L_80015F9C
     if (ctx->r2 != 0) {
         // addiu       $a0, $zero, 0x1
         ctx->r4 = ADD32(0, 0X1);
+
         goto L_80015F9C;
     }
+    CHECK_HEAP();
     // addiu       $a0, $zero, 0x1
     ctx->r4 = ADD32(0, 0X1);
     // addu        $a0, $zero, $zero
@@ -103,21 +113,26 @@ L_80015F5C:
     // jal         0x80068C78
     // addiu       $a1, $sp, 0x10
     ctx->r5 = ADD32(ctx->r29, 0X10);
+
     CdSync(rdram, ctx);
+
     goto after_5;
     // addiu       $a1, $sp, 0x10
     ctx->r5 = ADD32(ctx->r29, 0X10);
-    after_5:
+after_5:
+
     // j           L_80015F5C
     // addiu       $a0, $zero, 0x2
     ctx->r4 = ADD32(0, 0X2);
     goto L_80015F5C;
     // addiu       $a0, $zero, 0x2
     ctx->r4 = ADD32(0, 0X2);
+
 L_80015F9C:
     // jal         0x8006BA44
     // addiu       $a1, $sp, 0x10
     ctx->r5 = ADD32(ctx->r29, 0X10);
+
     CdCheckStatus(rdram, ctx);
     goto after_6;
     // addiu       $a1, $sp, 0x10
@@ -153,6 +168,7 @@ L_80015FC0:
     // jal         0x80068CE0
     // addu        $a2, $a1, $zero
     ctx->r6 = ADD32(ctx->r5, 0);
+
     CdControl(rdram, ctx);
     goto after_8;
     // addu        $a2, $a1, $zero
@@ -180,6 +196,7 @@ L_80015FC0:
     ctx->r29 = ADD32(ctx->r29, 0X30);
     // jr          $ra
     // nop
+
     return;
     // nop
 

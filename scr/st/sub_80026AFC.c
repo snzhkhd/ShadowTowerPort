@@ -357,6 +357,8 @@ L_80026C98:
     // jal         0x80026228
     // addiu       $a2, $zero, 0x8
     ctx->r6 = ADD32(0, 0X8);
+
+    printf("before sub_80026228\n");
     sub_80026228(rdram, ctx);
 
     LOG_PRIMBUF();
@@ -544,7 +546,6 @@ after_24:
 after_25:
     // jal         0x800255F0
     // nop
-
     sub_800255F0(rdram, ctx);
 
     // otBase = MEM_W(0, 0x80165174); // текущий OTag

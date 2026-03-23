@@ -791,7 +791,7 @@ static FuncEntry section_1_text_funcs[] = {
     { .func = sub_80073994, .offset = 0x00063994 },
     { .func = sub_800739F4, .offset = 0x000639f4 },
     { .func = SpuMalloc, .offset = 0x00063dc4 },
-    { .func = sub_80074094, .offset = 0x00064094 },
+    { .func = SsVabTransBodyPartly, .offset = 0x00064094 },
     { .func = SpuSetTransferStartAddr, .offset = 0x000641f4 },
     { .func = SpuSetTransferMode, .offset = 0x00064254 },
     { .func = SpuWritePartly, .offset = 0x00064284 },

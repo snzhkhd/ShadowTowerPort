@@ -1,6 +1,7 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
+
 void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx) 
 {
 
@@ -25,7 +26,7 @@ void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx)
     after_0:
     // jal         0x80016FB8
     // nop
-
+    
     ST_InitGraphicsSystem(rdram, ctx);
     goto after_1;
     // nop
@@ -33,15 +34,16 @@ void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx)
     after_1:
     // jal         0x800210F4
     // nop
-
+    
     sub_800210F4(rdram, ctx);
+
     goto after_2;
     // nop
 
     after_2:
     // jal         0x80021158
     // nop
-
+    
     sub_80021158(rdram, ctx);
     goto after_3;
     // nop
@@ -49,7 +51,7 @@ void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx)
     after_3:
     // jal         0x80057DA0
     // nop
-
+    
     sub_80057DA0(rdram, ctx);
     goto after_4;
     // nop
@@ -57,7 +59,7 @@ void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx)
     after_4:
     // jal         0x8004EDA8
     // nop
-
+    
     sub_8004EDA8(rdram, ctx);
     goto after_5;
     // nop
@@ -65,7 +67,7 @@ void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx)
     after_5:
     // jal         0x8004AFDC
     // nop
-
+    
     sub_8004AFDC(rdram, ctx);
     goto after_6;
     // nop
@@ -73,7 +75,7 @@ void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx)
     after_6:
     // jal         0x80052CA4
     // nop
-
+    
     sub_80052CA4(rdram, ctx);
     goto after_7;
     // nop
@@ -81,23 +83,25 @@ void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx)
     after_7:
     // jal         0x8003BC10
     // nop
-
+    
     sub_8003BC10(rdram, ctx);
     goto after_8;
     // nop
 
-    after_8:
+after_8:
+    
     // jal         0x80044674
     // nop
-
+    
     sub_80044674(rdram, ctx);
+    
     goto after_9;
     // nop
 
     after_9:
     // jal         0x800559BC
     // nop
-
+    
     sub_800559BC(rdram, ctx);
     goto after_10;
     // nop
@@ -105,7 +109,7 @@ void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx)
     after_10:
     // jal         0x80032058
     // nop
-
+    
     sub_80032058(rdram, ctx);
     goto after_11;
     // nop
@@ -113,7 +117,7 @@ void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx)
     after_11:
     // jal         0x80016508
     // nop
-
+    
     sub_80016508(rdram, ctx);
     goto after_12;
     // nop
@@ -121,7 +125,7 @@ void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx)
     after_12:
     // jal         0x8003216C
     // nop
-
+    
     sub_8003216C(rdram, ctx);
     goto after_13;
     // nop
@@ -131,7 +135,7 @@ void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx)
     ctx->r4 = ADD32(0, 0X7F);
     // jal         0x8006D044
     // addu        $a1, $a0, $zero
-    printf("[MainGameLoop] before SsSetMVol\n");
+    
     ctx->r5 = ADD32(ctx->r4, 0);
     SsSetMVol(rdram, ctx);
     goto after_14;
@@ -179,6 +183,7 @@ void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx)
     // jal         0x80079BE4
     // addu        $a3, $a1, $zero
     ctx->r7 = ADD32(ctx->r5, 0);
+    
     ClearImage(rdram, ctx);
     goto after_15;
     // addu        $a3, $a1, $zero
@@ -189,7 +194,7 @@ void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx)
     // jal         0x80058DC4
     // addu        $a1, $a0, $zero
     ctx->r5 = ADD32(ctx->r4, 0);
-    printf("[MainGameLoop] before sub_80058DC4\n");
+    
     sub_80058DC4(rdram, ctx);
     goto after_16;
     // addu        $a1, $a0, $zero
@@ -198,7 +203,7 @@ void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx)
     // jal         0x80057A28
     // addiu       $s0, $zero, 0x1
     ctx->r16 = ADD32(0, 0X1);
-
+    
     sub_80057A28(rdram, ctx);
     goto after_17;
     // addiu       $s0, $zero, 0x1
@@ -207,7 +212,9 @@ void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx)
     // jal         0x80062C28
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
+    
     sub_80062C28(rdram, ctx);
+    
     goto after_18;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
@@ -222,7 +229,7 @@ void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx)
 
     // jal         0x80057A3C
     // nop
-
+    
     sub_80057A3C(rdram, ctx);
     goto after_19;
     // nop
@@ -233,6 +240,7 @@ void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx)
     // jal         0x80058ED4
     // sb          $s0, -0x2E70($v0)
     MEM_B(-0X2E70, ctx->r2) = ctx->r16;
+    
     sub_80058ED4(rdram, ctx);
     goto after_20;
     // sb          $s0, -0x2E70($v0)
@@ -240,7 +248,7 @@ void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx)
     after_20:
     // jal         0x80021158
     // nop
-
+    
     sub_80021158(rdram, ctx);
     goto after_21;
     // nop
@@ -248,7 +256,7 @@ void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx)
     after_21:
     // jal         0x8003C0E0
     // nop
-
+    
     sub_8003C0E0(rdram, ctx);
     goto after_22;
     // nop
@@ -263,7 +271,7 @@ void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx)
 L_80014B58:
     // jal         0x80057A3C
     // nop
-
+    
     sub_80057A3C(rdram, ctx);
     goto after_23;
     // nop
@@ -274,6 +282,7 @@ L_80014B58:
     // jal         0x80058ED4
     // sb          $s0, -0x2E70($v0)
     MEM_B(-0X2E70, ctx->r2) = ctx->r16;
+    
     sub_80058ED4(rdram, ctx);
     goto after_24;
     // sb          $s0, -0x2E70($v0)
@@ -281,7 +290,7 @@ L_80014B58:
     after_24:
     // jal         0x80021158
     // nop
-
+    
     sub_80021158(rdram, ctx);
     goto after_25;
     // nop
@@ -290,8 +299,21 @@ L_80014B58:
 L_80014B74:
     // jal         0x80014544
     // nop
+    uint32_t head;
+    head = MEM_W(0, 0x80087C50);
+    uint32_t next;
+    next = MEM_W(0, head);
+    uint32_t size;
+    size = MEM_W(4, head);
 
+    printf("[MAINLOOP] before sub_80014544, - req=%d head=%08X next=%08X size=%d\n",
+        ctx->r4, head, next, size);
+    
     sub_80014544(rdram, ctx);
+    
+
+    printf("[MAINLOOP] after sub_80014544, - req=%d head=%08X next=%08X size=%d\n",
+        ctx->r4, head, next, size);
     goto after_26;
     // nop
 
@@ -299,7 +321,7 @@ L_80014B74:
 L_80014B7C:
     // jal         0x8003306C
     // nop
-
+    
     sub_8003306C(rdram, ctx);
     goto after_27;
     // nop
@@ -307,7 +329,7 @@ L_80014B7C:
     after_27:
     // jal         0x80044EE8
     // nop
-    printf("[MainGameLoop] before LoadSomeone sub_80044EE8\n");
+    
     sub_80044EE8(rdram, ctx);
     goto after_28;
     // nop
@@ -315,7 +337,7 @@ L_80014B7C:
     after_28:
     // jal         0x8003EAF8
     // nop
-    printf("[MainGameLoop] after LoadSomeone sub_80044EE8\n");
+    
     sub_8003EAF8(rdram, ctx);
     goto after_29;
     // nop
@@ -330,6 +352,7 @@ L_80014B7C:
     // jal         0x80015144
     // ori         $a1, $a1, 0x6400
     ctx->r5 = ctx->r5 | 0X6400;
+    
     sub_80015144(rdram, ctx);
     goto after_30;
     // ori         $a1, $a1, 0x6400
@@ -337,7 +360,7 @@ L_80014B7C:
     after_30:
     // jal         0x800214A4
     // nop
-
+    
     sub_800214A4(rdram, ctx);
     goto after_31;
     // nop
@@ -345,7 +368,7 @@ L_80014B7C:
     after_31:
     // jal         0x80057A28
     // nop
-
+    
     sub_80057A28(rdram, ctx);
     goto after_32;
     // nop
@@ -353,7 +376,7 @@ L_80014B7C:
     after_32:
     // jal         0x80057A3C
     // nop
-
+    
     sub_80057A3C(rdram, ctx);
     goto after_33;
     // nop
@@ -369,7 +392,7 @@ L_80014B7C:
     ctx->r17 = ADD32(ctx->r29, 0X18);
     // addiu       $s0, $sp, 0x28
     ctx->r16 = ADD32(ctx->r29, 0X28);
-
+    
     printf("[MainGameLoop] before L_80014BD4 LOOP\n");
 L_80014BD4:
     // jal         0x800164B4

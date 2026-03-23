@@ -47,12 +47,27 @@ L_80014FC0:
 L_80014FCC:
     // jal         0x80015AD4
     // nop
-
+    //{
+    //    uint32_t active = MEM_W(0, 0x80088BD8);
+    //    uint32_t queue = MEM_W(0, 0x80088BD4);
+    //    printf("[14F90] v1=%08X *v1=%d active=%08X queue=%08X type=%d\n",
+    //        ctx->r16, MEM_B(0, ctx->r16), active, queue,
+    //        MEM_B(0, active));
+    //}
     AsyncStructForcedLoadSync(rdram, ctx);
     goto after_0;
     // nop
 
-    after_0:
+after_0:
+    {
+        uint32_t active = MEM_W(0, 0x80088BD8);
+        uint32_t queue = MEM_W(0, 0x80088BD4);
+        if (active == queue && MEM_B(0, active) == 0) {
+            // CD queue empty, force asset status to done
+            MEM_B(0, ctx->r16) = 0;  // $s0 = v1 pointer
+        }
+    }
+
     // lbu         $v0, 0x0($s0)
     ctx->r2 = MEM_BU(0X0, ctx->r16);
     // nop

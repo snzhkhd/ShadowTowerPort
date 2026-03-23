@@ -1,6 +1,8 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
+
+
 void sub_8001435C(uint8_t* rdram, recomp_context* ctx) {
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
@@ -47,6 +49,7 @@ void sub_8001435C(uint8_t* rdram, recomp_context* ctx) {
     // subu        $a1, $a1, $a0
     ctx->r5 = SUB32(ctx->r5, ctx->r4);
     InitHeap3(rdram, ctx);
+    printf("[HEAP-CHECK-1] val=%08X\n", MEM_W(0, 0x801EFD60));
     goto after_1;
     // subu        $a1, $a1, $a0
     ctx->r5 = SUB32(ctx->r5, ctx->r4);
@@ -56,6 +59,7 @@ L_800143A8:
     // nop
 
     sub_80068A34(rdram, ctx);
+    printf("[HEAP-CHECK-2] val=%08X\n", MEM_W(0, 0x801EFD60));
     goto after_2;
     // nop
 
@@ -72,6 +76,8 @@ L_800143A8:
     // addiu       $a1, $sp, 0x10
     ctx->r5 = ADD32(ctx->r29, 0X10);
     CdSync(rdram, ctx);
+
+
     goto after_3;
     // addiu       $a1, $sp, 0x10
     ctx->r5 = ADD32(ctx->r29, 0X10);
@@ -87,6 +93,8 @@ L_800143C8:
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
     CdSetDebug(rdram, ctx);
+
+
     goto after_4;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
@@ -95,6 +103,8 @@ L_800143C8:
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
     InitCARD(rdram, ctx);
+
+
     goto after_5;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
@@ -103,6 +113,8 @@ L_800143C8:
     // nop
 
     StartCARD(rdram, ctx);
+
+
     goto after_6;
     // nop
 
@@ -111,6 +123,7 @@ L_800143C8:
     // nop
 
     _bu_init(rdram, ctx);
+
     goto after_7;
     // nop
 
@@ -119,6 +132,8 @@ L_800143C8:
     // nop
 
     sub_80057684(rdram, ctx);
+
+ 
     goto after_8;
     // nop
 
@@ -127,6 +142,8 @@ L_800143C8:
     // nop
 
     ExitCriticalSection(rdram, ctx);
+
+
     goto after_9;
     // nop
 

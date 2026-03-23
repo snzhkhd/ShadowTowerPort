@@ -1,7 +1,10 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_80062C28(uint8_t* rdram, recomp_context* ctx) {
+void sub_80062C28(uint8_t* rdram, recomp_context* ctx) 
+{
+
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -25,6 +28,7 @@ void sub_80062C28(uint8_t* rdram, recomp_context* ctx) {
     // sh          $a0, 0x206($s1)
     MEM_H(0X206, ctx->r17) = ctx->r4;
     sub_80057A3C(rdram, ctx);
+
     goto after_0;
     // sh          $a0, 0x206($s1)
     MEM_H(0X206, ctx->r17) = ctx->r4;
@@ -33,6 +37,7 @@ void sub_80062C28(uint8_t* rdram, recomp_context* ctx) {
     // nop
 
     sub_8002CA84(rdram, ctx);
+
     goto after_1;
     // nop
 
@@ -41,6 +46,7 @@ void sub_80062C28(uint8_t* rdram, recomp_context* ctx) {
     // nop
 
     sub_8002CA84(rdram, ctx);
+
     goto after_2;
     // nop
 
@@ -56,6 +62,7 @@ L_80062C6C:
     // sh          $v0, 0x2DC($s1)
     MEM_H(0X2DC, ctx->r17) = ctx->r2;
     sub_800616F8(rdram, ctx);
+
     goto after_3;
     // sh          $v0, 0x2DC($s1)
     MEM_H(0X2DC, ctx->r17) = ctx->r2;
@@ -78,6 +85,7 @@ L_80062C6C:
     // sh          $v0, 0x2DC($s1)
     MEM_H(0X2DC, ctx->r17) = ctx->r2;
     sub_8002CA84(rdram, ctx);
+
     goto after_4;
     // sh          $v0, 0x2DC($s1)
     MEM_H(0X2DC, ctx->r17) = ctx->r2;
@@ -86,6 +94,7 @@ L_80062C6C:
     // nop
 
     sub_8002CA84(rdram, ctx);
+
     goto after_5;
     // nop
 
@@ -100,6 +109,7 @@ L_80062C6C:
     // sra         $a0, $a0, 16
     ctx->r4 = S32(ctx->r4) >> 16;
     sub_800613E8(rdram, ctx);
+
     goto after_6;
     // sra         $a0, $a0, 16
     ctx->r4 = S32(ctx->r4) >> 16;
@@ -140,6 +150,7 @@ L_80062C6C:
     // sh          $zero, 0x2($s1)
     MEM_H(0X2, ctx->r17) = 0;
     sub_800615D8(rdram, ctx);
+
     goto after_7;
     // sh          $zero, 0x2($s1)
     MEM_H(0X2, ctx->r17) = 0;
@@ -188,6 +199,7 @@ L_80062D14:
     // sh          $v0, 0x2($s1)
     MEM_H(0X2, ctx->r17) = ctx->r2;
     sub_8002CA84(rdram, ctx);
+
     goto after_8;
     // sh          $v0, 0x2($s1)
     MEM_H(0X2, ctx->r17) = ctx->r2;
@@ -522,7 +534,9 @@ L_80062ED4:
     // jal         0x800152D0
     // addiu       $a0, $zero, 0x1E06
     ctx->r4 = ADD32(0, 0X1E06);
+   
     sub_800152D0(rdram, ctx);
+
     goto after_17;
     // addiu       $a0, $zero, 0x1E06
     ctx->r4 = ADD32(0, 0X1E06);

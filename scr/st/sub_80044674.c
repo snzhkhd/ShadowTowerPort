@@ -1,6 +1,8 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
+
+
 void sub_80044674(uint8_t* rdram, recomp_context* ctx) 
 {
  //   printf("sub_80044674\n");
@@ -74,7 +76,10 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // jal         0x80016294
     // addiu       $a0, $zero, 0x2
     ctx->r4 = ADD32(0, 0X2);
+
+    
     sub_80016294(rdram, ctx);
+    
     goto after_0;
     // addiu       $a0, $zero, 0x2
     ctx->r4 = ADD32(0, 0X2);
@@ -86,7 +91,9 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // jal         0x80016294
     // addiu       $a1, $a1, 0x1F24
     ctx->r5 = ADD32(ctx->r5, 0X1F24);
+    
     sub_80016294(rdram, ctx);
+    
     goto after_1;
     // addiu       $a1, $a1, 0x1F24
     ctx->r5 = ADD32(ctx->r5, 0X1F24);
@@ -98,7 +105,9 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // jal         0x80016294
     // addiu       $a1, $a1, 0x1F30
     ctx->r5 = ADD32(ctx->r5, 0X1F30);
+    
     sub_80016294(rdram, ctx);
+    
     goto after_2;
     // addiu       $a1, $a1, 0x1F30
     ctx->r5 = ADD32(ctx->r5, 0X1F30);
@@ -110,7 +119,9 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // jal         0x80016294
     // addiu       $a1, $a1, 0x1F3C
     ctx->r5 = ADD32(ctx->r5, 0X1F3C);
+    
     sub_80016294(rdram, ctx);
+    
     goto after_3;
     // addiu       $a1, $a1, 0x1F3C
     ctx->r5 = ADD32(ctx->r5, 0X1F3C);
@@ -122,7 +133,9 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // jal         0x80016294
     // addiu       $a1, $a1, 0x1F48
     ctx->r5 = ADD32(ctx->r5, 0X1F48);
+    
     sub_80016294(rdram, ctx);
+    
     goto after_4;
     // addiu       $a1, $a1, 0x1F48
     ctx->r5 = ADD32(ctx->r5, 0X1F48);
@@ -135,6 +148,7 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // addiu       $a1, $a1, 0x1F54
     ctx->r5 = ADD32(ctx->r5, 0X1F54);
     sub_80016294(rdram, ctx);
+    
     goto after_5;
     // addiu       $a1, $a1, 0x1F54
     ctx->r5 = ADD32(ctx->r5, 0X1F54);
@@ -147,6 +161,7 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // addiu       $a1, $a1, 0x1F60
     ctx->r5 = ADD32(ctx->r5, 0X1F60);
     sub_80016294(rdram, ctx);
+    
     goto after_6;
     // addiu       $a1, $a1, 0x1F60
     ctx->r5 = ADD32(ctx->r5, 0X1F60);
@@ -159,6 +174,7 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // addiu       $a1, $a1, 0x1F6C
     ctx->r5 = ADD32(ctx->r5, 0X1F6C);
     sub_80016294(rdram, ctx);
+    
     goto after_7;
     // addiu       $a1, $a1, 0x1F6C
     ctx->r5 = ADD32(ctx->r5, 0X1F6C);
@@ -171,6 +187,7 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // addiu       $a1, $a1, 0x1F78
     ctx->r5 = ADD32(ctx->r5, 0X1F78);
     sub_80016294(rdram, ctx);
+    
     goto after_8;
     // addiu       $a1, $a1, 0x1F78
     ctx->r5 = ADD32(ctx->r5, 0X1F78);
@@ -183,6 +200,7 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // addiu       $a1, $a1, 0x1F88
     ctx->r5 = ADD32(ctx->r5, 0X1F88);
     CdSearchFile(rdram, ctx);
+    
     goto after_9;
     // addiu       $a1, $a1, 0x1F88
     ctx->r5 = ADD32(ctx->r5, 0X1F88);
@@ -210,7 +228,9 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // jal         0x8006AA24
     // addiu       $a1, $a1, 0x1F9C
     ctx->r5 = ADD32(ctx->r5, 0X1F9C);
+    
     CdSearchFile(rdram, ctx);
+    
     goto after_10;
     // addiu       $a1, $a1, 0x1F9C
     ctx->r5 = ADD32(ctx->r5, 0X1F9C);
@@ -232,7 +252,9 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // jal         0x8006AA24
     // addiu       $a1, $a1, 0x1FB0
     ctx->r5 = ADD32(ctx->r5, 0X1FB0);
+    
     CdSearchFile(rdram, ctx);
+    
     goto after_11;
     // addiu       $a1, $a1, 0x1FB0
     ctx->r5 = ADD32(ctx->r5, 0X1FB0);
@@ -254,7 +276,9 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // jal         0x8006AA24
     // addiu       $a1, $a1, 0x1FC4
     ctx->r5 = ADD32(ctx->r5, 0X1FC4);
+    
     CdSearchFile(rdram, ctx);
+    
     goto after_12;
     // addiu       $a1, $a1, 0x1FC4
     ctx->r5 = ADD32(ctx->r5, 0X1FC4);
@@ -276,7 +300,9 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // jal         0x8006AA24
     // addiu       $a1, $a1, 0x1FD8
     ctx->r5 = ADD32(ctx->r5, 0X1FD8);
+    
     CdSearchFile(rdram, ctx);
+    
     goto after_13;
     // addiu       $a1, $a1, 0x1FD8
     ctx->r5 = ADD32(ctx->r5, 0X1FD8);
@@ -298,7 +324,9 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // jal         0x8006AA24
     // addiu       $a1, $a1, 0x1FEC
     ctx->r5 = ADD32(ctx->r5, 0X1FEC);
+    
     CdSearchFile(rdram, ctx);
+    
     goto after_14;
     // addiu       $a1, $a1, 0x1FEC
     ctx->r5 = ADD32(ctx->r5, 0X1FEC);
@@ -320,7 +348,9 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // jal         0x8006AA24
     // addiu       $a1, $a1, 0x2000
     ctx->r5 = ADD32(ctx->r5, 0X2000);
+    
     CdSearchFile(rdram, ctx);
+    
     goto after_15;
     // addiu       $a1, $a1, 0x2000
     ctx->r5 = ADD32(ctx->r5, 0X2000);
@@ -1068,6 +1098,7 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // jal         0x80016030
     // addu        $a2, $s2, $zero
     ctx->r6 = ADD32(ctx->r18, 0);
+    
     sub_80016030(rdram, ctx);
     goto after_49;
     // addu        $a2, $s2, $zero
@@ -1082,6 +1113,7 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // jal         0x80045F90
     // addiu       $a2, $a2, 0x43F4
     ctx->r6 = ADD32(ctx->r6, 0X43F4);
+    
     sub_80045F90(rdram, ctx);
     goto after_50;
     // addiu       $a2, $a2, 0x43F4
@@ -1094,6 +1126,7 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // jal         0x80058A0C
     // addu        $a2, $zero, $zero
     ctx->r6 = ADD32(0, 0);
+    
     sub_80058A0C(rdram, ctx);
     goto after_51;
     // addu        $a2, $zero, $zero
@@ -1110,6 +1143,7 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // jal         0x80014CFC
     // srl         $a2, $a2, 2
     ctx->r6 = S32(U32(ctx->r6) >> 2);
+    
     sub_80014CFC(rdram, ctx);
     goto after_52;
     // srl         $a2, $a2, 2
@@ -1132,6 +1166,7 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // jal         0x80014CFC
     // srl         $a2, $a2, 2
     ctx->r6 = S32(U32(ctx->r6) >> 2);
+    
     sub_80014CFC(rdram, ctx);
     goto after_53;
     // srl         $a2, $a2, 2
@@ -1154,6 +1189,7 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // jal         0x80014CFC
     // srl         $a2, $a2, 2
     ctx->r6 = S32(U32(ctx->r6) >> 2);
+    
     sub_80014CFC(rdram, ctx);
     goto after_54;
     // srl         $a2, $a2, 2
@@ -1176,6 +1212,7 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // jal         0x80014CFC
     // srl         $a2, $a2, 2
     ctx->r6 = S32(U32(ctx->r6) >> 2);
+    
     sub_80014CFC(rdram, ctx);
     goto after_55;
     // srl         $a2, $a2, 2
@@ -1198,6 +1235,7 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // jal         0x80014CFC
     // srl         $a2, $a2, 2
     ctx->r6 = S32(U32(ctx->r6) >> 2);
+    
     sub_80014CFC(rdram, ctx);
     goto after_56;
     // srl         $a2, $a2, 2
@@ -1220,6 +1258,7 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // jal         0x80014CFC
     // srl         $a2, $a2, 2
     ctx->r6 = S32(U32(ctx->r6) >> 2);
+    
     sub_80014CFC(rdram, ctx);
     goto after_57;
     // srl         $a2, $a2, 2
@@ -1242,6 +1281,7 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // jal         0x80014CFC
     // srl         $a2, $a2, 2
     ctx->r6 = S32(U32(ctx->r6) >> 2);
+    
     sub_80014CFC(rdram, ctx);
     goto after_58;
     // srl         $a2, $a2, 2
@@ -1264,6 +1304,7 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // jal         0x80014CFC
     // srl         $a2, $a2, 2
     ctx->r6 = S32(U32(ctx->r6) >> 2);
+    
     sub_80014CFC(rdram, ctx);
     goto after_59;
     // srl         $a2, $a2, 2
@@ -1294,6 +1335,7 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // jal         0x80014CFC
     // srl         $a2, $a2, 2
     ctx->r6 = S32(U32(ctx->r6) >> 2);
+    
     sub_80014CFC(rdram, ctx);
     goto after_60;
     // srl         $a2, $a2, 2
@@ -1304,6 +1346,7 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // jal         0x800339C4
     // addu        $a1, $s0, $zero
     ctx->r5 = ADD32(ctx->r16, 0);
+    
     sub_800339C4(rdram, ctx);
     goto after_61;
     // addu        $a1, $s0, $zero
@@ -1311,7 +1354,7 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     after_61:
     // jal         0x80015AD4
     // nop
-
+    
     AsyncStructForcedLoadSync(rdram, ctx);
     goto after_62;
     // nop
@@ -1319,7 +1362,7 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     after_62:
     // jal         0x8003EA20
     // nop
-
+    
     sub_8003EA20(rdram, ctx);
     goto after_63;
     // nop
@@ -1327,7 +1370,7 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     after_63:
     // jal         0x80052D10
     // nop
-
+    
     sub_80052D10(rdram, ctx);
     goto after_64;
     // nop
@@ -1348,6 +1391,7 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // jr          $ra
     // nop
 //    printf("\nsub_80044674  end\n");
+    
     return;
     // nop
 

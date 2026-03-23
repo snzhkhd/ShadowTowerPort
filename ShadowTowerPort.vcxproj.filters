@@ -1851,7 +1851,7 @@
     <ClCompile Include="scr\st\sub_80015A94.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
-    <ClCompile Include="scr\st\sub_80015AD4.c">
+    <ClCompile Include="scr\st\AsyncStructForcedLoadSync.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
     <ClCompile Include="scr\st\sub_80015B2C.c">
@@ -2079,7 +2079,7 @@
     <ClCompile Include="scr\st\sub_80045FB8.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
-    <ClCompile Include="scr\st\sub_80045FFC.c">
+    <ClCompile Include="scr\st\ProcessAssetLoadQueue.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
     <ClCompile Include="scr\st\sub_80048AD0.c">
@@ -3105,7 +3105,7 @@
     <ClCompile Include="scr\st\sub_80058534.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
-    <ClCompile Include="scr\st\sub_80058620.c">
+    <ClCompile Include="scr\st\ProcessCDAudioLoad.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
     <ClCompile Include="scr\st\sub_80058770.c">
@@ -3180,7 +3180,7 @@
     <ClCompile Include="scr\st\sub_80073994.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
-    <ClCompile Include="scr\st\sub_80074094.c">
+    <ClCompile Include="scr\st\SsVabTransBodyPartly.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
     <ClCompile Include="scr\st\sub_80074854.c">

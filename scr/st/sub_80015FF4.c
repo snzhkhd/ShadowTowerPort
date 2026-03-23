@@ -1,7 +1,11 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_80015FF4(uint8_t* rdram, recomp_context* ctx) {
+
+
+void sub_80015FF4(uint8_t* rdram, recomp_context* ctx) 
+{
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -31,7 +35,9 @@ L_8001600C:
     // jal         0x80015F0C
     // srl         $a2, $a2, 11
     ctx->r6 = S32(U32(ctx->r6) >> 11);
+
     KF_CDReadSectorsInternal(rdram, ctx);
+
     goto after_0;
     // srl         $a2, $a2, 11
     ctx->r6 = S32(U32(ctx->r6) >> 11);
