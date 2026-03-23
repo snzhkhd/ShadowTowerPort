@@ -26,9 +26,8 @@ All overlay at same address. Only ST.EXE recompiled. Function table base = `0x80
 - 3D world rendering
 
 ### What Doesn't Work Yet
-- **Input partially broken** — buttons register in `dword_801CD184` and `pad_80198F54` but menu navigation incomplete. Game converts pad→game buttons via player script at 0x801ED498 which may not be initialized.
 - **Audio not implemented** — type=4 CD streams (VAB) skipped with NextCdTask
-- **Load next world**
+
 
 ### Key Addresses (Shadow Tower)
 - g_CDTaskQueue: 0x80088BD4
@@ -104,16 +103,13 @@ sub_8001535C()        — wait CD (stubbed)
 ```
 
 ### Known Issues to Investigate
-1. **Next world not loading**
-2. **Other EXE not loading**
-3. **sub_8003E734 / sub_80058288** — likely copy player position/rotation, similar to KFPlayerCopyPositionRotation in KF2. Need to identify player coordinate addresses.
+1. **Other EXE not loading**
+2. **sub_8003E734 / sub_80058288** — likely copy player position/rotation, similar to KFPlayerCopyPositionRotation in KF2. Need to identify player coordinate addresses.
 
 
 ### Stubbed/HLE Functions (ST)
 - CdReset, CdStatus (return ready)
 - PadGetState (return 6=stable)
 - PadSetAct (vibration — stubbed)
-- malloc3/InitHeap3 (bump allocator)
 - sub_8001535C (wait CD — instant return)
 - dword_8008820C (CD complete flag — set to 1)
-- SquareRoot0 (using recompiled version, PsyX version causes issues)
