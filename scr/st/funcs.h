@@ -1054,3 +1054,5 @@ void setRC2wait(uint8_t* rdram, recomp_context* ctx);
 void chkRC2wait(uint8_t* rdram, recomp_context* ctx);
 void CD_Callback_8001542C(uint8_t* rdram, recomp_context* ctx);
 void sub_8004CEE8(uint8_t* rdram, recomp_context* ctx);
+void sub_80042CEC(uint8_t* rdram, recomp_context* ctx);
+void sub_8004AE38(uint8_t* rdram, recomp_context* ctx);

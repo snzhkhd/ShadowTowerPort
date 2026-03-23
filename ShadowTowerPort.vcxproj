@@ -442,6 +442,8 @@
     <ClCompile Include="scr\st\sub_80015A94.c" />
     <ClCompile Include="scr\st\AsyncStructForcedLoadSync.c" />
     <ClCompile Include="scr\st\sub_80015B2C.c" />
+    <ClCompile Include="scr\st\sub_80042CEC.c" />
+    <ClCompile Include="scr\st\sub_8004AE38.c" />
     <ClCompile Include="scr\st\sub_8004CEE8.c" />
     <ClCompile Include="scr\st\VerifyChecksum.c" />
     <ClCompile Include="scr\st\sub_80015BCC.c" />

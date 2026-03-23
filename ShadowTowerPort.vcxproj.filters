@@ -3318,6 +3318,12 @@
     <ClCompile Include="scr\st\sub_8004CEE8.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
+    <ClCompile Include="scr\st\sub_80042CEC.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\sub_8004AE38.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="scr\st\disable_warnings.h">
