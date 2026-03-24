@@ -258,6 +258,7 @@ L_80026C14:
     // jal         0x80027D18
     // sb          $v0, 0x1A($sp)
     MEM_B(0X1A, ctx->r29) = ctx->r2;
+
     sub_80027D18(rdram, ctx);
 
     LOG_PRIMBUF();
@@ -365,7 +366,7 @@ L_80026C98:
     // addiu       $a2, $zero, 0x8
     ctx->r6 = ADD32(0, 0X8);
 
-
+   
     sub_80026228(rdram, ctx);
 
     LOG_PRIMBUF();
@@ -472,7 +473,12 @@ after_18:
     // jal         0x80020A80
     // nop
 
+    int16_t savedPitch = (int16_t)MEM_H(0, 0x80199190); // ST_PlayerRotation.vx
+    MEM_H(0, 0x80199190) = 0; // обнули pitch для culling
+
     sub_80020A80(rdram, ctx);
+
+    MEM_H(0, 0x80199190) = (uint16_t)savedPitch;
 
     LOG_PRIMBUF();
     goto after_19;

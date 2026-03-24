@@ -1,7 +1,14 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_80058EF4(uint8_t* rdram, recomp_context* ctx) {
+extern bool InMenu;
+
+
+void InGameMenu(uint8_t* rdram, recomp_context* ctx) 
+{
+   // printf("InGameMenu enter\n");
+    InMenu = true;
+    
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -603,7 +610,9 @@ L_800591D4:
     ctx->r29 = ADD32(ctx->r29, 0X28);
     // jr          $ra
     // nop
-
+    //printf("InGameMenu exit\n");
+    
+    InMenu = false;
     return;
     // nop
 

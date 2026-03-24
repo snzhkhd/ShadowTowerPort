@@ -48,7 +48,7 @@ void KF_CDReadSectorsInternal(uint8_t* rdram, recomp_context* ctx)
     // addiu       $a0, $zero, 0x4
     ctx->r4 = ADD32(0, 0X4);
 
-    VSync(rdram, ctx);
+ //   VSync(rdram, ctx);
     goto after_1;
     // addiu       $a0, $zero, 0x4
     ctx->r4 = ADD32(0, 0X4);

@@ -1,7 +1,10 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_80042D74(uint8_t* rdram, recomp_context* ctx) {
+
+void sub_80042D74(uint8_t* rdram, recomp_context* ctx) 
+{
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -288,7 +291,7 @@ L_80042ED0:
     // jal         0x80058EF4
     // sb          $zero, 0x2A($s0)
     MEM_B(0X2A, ctx->r16) = 0;
-    sub_80058EF4(rdram, ctx);
+    InGameMenu(rdram, ctx);
     goto after_6;
     // sb          $zero, 0x2A($s0)
     MEM_B(0X2A, ctx->r16) = 0;
@@ -3651,7 +3654,9 @@ L_8004418C:
     // jal         0x8003D594
     // lui         $s1, 0x801A
     ctx->r17 = S32(0X801A << 16);
+
     sub_8003D594(rdram, ctx);
+
     goto after_115;
     // lui         $s1, 0x801A
     ctx->r17 = S32(0X801A << 16);
@@ -3731,7 +3736,10 @@ L_8004418C:
     // jal         0x80075154
     // sh          $v0, 0x274($s0)
     MEM_H(0X274, ctx->r16) = ctx->r2;
+
     RotMatrixZYX(rdram, ctx);
+
+
     goto after_116;
     // sh          $v0, 0x274($s0)
     MEM_H(0X274, ctx->r16) = ctx->r2;
@@ -3832,7 +3840,10 @@ L_800442C8:
     // jal         0x800402AC
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
+
+
     sub_800402AC(rdram, ctx);
+
     goto after_117;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
@@ -3840,7 +3851,9 @@ L_800442C8:
     // jal         0x800402AC
     // addiu       $a0, $zero, 0x1
     ctx->r4 = ADD32(0, 0X1);
+
     sub_800402AC(rdram, ctx);
+
     goto after_118;
     // addiu       $a0, $zero, 0x1
     ctx->r4 = ADD32(0, 0X1);
@@ -3848,7 +3861,9 @@ L_800442C8:
     // jal         0x80040024
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
+
     sub_80040024(rdram, ctx);
+
     goto after_119;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
@@ -3856,7 +3871,9 @@ L_800442C8:
     // jal         0x80040024
     // addiu       $a0, $zero, 0x1
     ctx->r4 = ADD32(0, 0X1);
+
     sub_80040024(rdram, ctx);
+
     goto after_120;
     // addiu       $a0, $zero, 0x1
     ctx->r4 = ADD32(0, 0X1);
@@ -3933,7 +3950,9 @@ L_80044338:
     // jal         0x8003CF28
     // addiu       $a0, $zero, 0x1
     ctx->r4 = ADD32(0, 0X1);
+
     sub_8003CF28(rdram, ctx);
+
     goto after_121;
     // addiu       $a0, $zero, 0x1
     ctx->r4 = ADD32(0, 0X1);

@@ -1,7 +1,9 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_8005335C(uint8_t* rdram, recomp_context* ctx) {
+void PreviewPickUp(uint8_t* rdram, recomp_context* ctx) 
+{
+ 
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -46,6 +48,7 @@ void sub_8005335C(uint8_t* rdram, recomp_context* ctx) {
     // addu        $t1, $v1, $v0
     ctx->r9 = ADD32(ctx->r3, ctx->r2);
 L_800533AC:
+
     // lw          $v0, 0x0($a2)
     ctx->r2 = MEM_W(0X0, ctx->r6);
     // lw          $v1, 0x4($a2)
@@ -791,7 +794,9 @@ L_80053888:
 
     // j           L_80053704
     // addiu       $s0, $s0, -0x1
-    ctx->r16 = ADD32(ctx->r16, -0X1);
+
+    //pickup anim speed
+    ctx->r16 = ADD32(ctx->r16, -0X2); //ADD32(ctx->r16, -0X1);
     goto L_80053704;
     // addiu       $s0, $s0, -0x1
     ctx->r16 = ADD32(ctx->r16, -0X1);

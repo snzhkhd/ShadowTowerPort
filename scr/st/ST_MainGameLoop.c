@@ -1,5 +1,6 @@
-#include "recomp.h"
+﻿#include "recomp.h"
 #include "disable_warnings.h"
+
 
 
 void ST_MainGameLoop(uint8_t* rdram, recomp_context* ctx) 
@@ -387,6 +388,7 @@ L_80014BD4:
     // nop
 
     sub_800164B4(rdram, ctx);
+
     goto after_34;
     // nop
 
@@ -395,6 +397,8 @@ L_80014BD4:
     // nop
 
     sub_80016508(rdram, ctx);
+
+
     goto after_35;
     // nop
 
@@ -403,6 +407,8 @@ L_80014BD4:
     // nop
 
     sub_80042D74(rdram, ctx);
+
+
     goto after_36;
     // nop
 
@@ -411,6 +417,7 @@ L_80014BD4:
     // nop
 
     sub_80050768(rdram, ctx);
+
     goto after_37;
     // nop
 
@@ -419,6 +426,7 @@ L_80014BD4:
     // nop
 
     sub_8004E324(rdram, ctx);
+
     goto after_38;
     // nop
 
@@ -426,7 +434,8 @@ L_80014BD4:
     // jal         0x80053AA4
     // nop
 
-    sub_80053AA4(rdram, ctx);
+    PlayerInteract(rdram, ctx);
+
     goto after_39;
     // nop
 
@@ -435,6 +444,7 @@ L_80014BD4:
     // nop
 
     sub_8003BC40(rdram, ctx);
+
     goto after_40;
     // nop
 
@@ -444,6 +454,7 @@ L_80014BD4:
     MEM_B(0X21C, ctx->r18) = 0;
 
     sub_8005735C(rdram, ctx);
+
     goto after_41;
     // sb          $zero, 0x21C($s2)
     MEM_B(0X21C, ctx->r18) = 0;
@@ -452,6 +463,7 @@ L_80014BD4:
     // nop
 
     sub_800456F8(rdram, ctx);
+
     goto after_42;
     // nop
 
@@ -463,6 +475,7 @@ L_80014BD4:
     ctx->r5 = ADD32(ctx->r16, 0);
 
     sub_8003E734(rdram, ctx);
+
     goto after_43;
     // addu        $a1, $s0, $zero
     ctx->r5 = ADD32(ctx->r16, 0);
@@ -474,6 +487,7 @@ L_80014BD4:
     ctx->r5 = ADD32(ctx->r16, 0);
 
     sub_80058288(rdram, ctx);
+
     goto after_44;
     // addu        $a1, $s0, $zero
     ctx->r5 = ADD32(ctx->r16, 0);
@@ -482,13 +496,16 @@ L_80014BD4:
     // nop
 
     ProcessAssetLoadQueue(rdram, ctx);
+
     goto after_45;
     // nop
 
     after_45:
     // jal         0x80058620
     // nop
+
     ProcessCDAudioLoad(rdram, ctx);
+
     goto after_46;
     // nop
 

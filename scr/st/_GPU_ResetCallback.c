@@ -26,7 +26,7 @@ void _GPU_ResetCallback(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80077104
     // addiu       $a0, $zero, -0x1
     ctx->r4 = ADD32(0, -0X1);
-    VSync(rdram, ctx);
+ //   VSync(rdram, ctx);
     goto after_1;
     // addiu       $a0, $zero, -0x1
     ctx->r4 = ADD32(0, -0X1);

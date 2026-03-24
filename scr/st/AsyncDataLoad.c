@@ -60,7 +60,7 @@ void AsyncDataLoad(uint8_t* rdram, recomp_context* ctx)
     // jal         0x80077104
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);
-    VSync(rdram, ctx);
+//    VSync(rdram, ctx);
     goto after_4;
     // addu        $a0, $zero, $zero
     ctx->r4 = ADD32(0, 0);

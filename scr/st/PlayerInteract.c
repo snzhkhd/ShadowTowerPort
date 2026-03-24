@@ -1,7 +1,17 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_80053AA4(uint8_t* rdram, recomp_context* ctx) {
+
+void PlayerInteract(uint8_t* rdram, recomp_context* ctx) 
+{
+    //for (int i = 0; i < 64 && g_watchSlot < 0; i++) {
+    //    if (MEM_B(0, 0x801CAE2A + i * 0x30) == 2) {
+    //        g_watchSlot = i;
+    //        printf("[WATCH] tracking item %d\n", i);
+    //    }
+    //}
+
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -44,6 +54,14 @@ void sub_80053AA4(uint8_t* rdram, recomp_context* ctx) {
     // sw          $s2, 0x40($sp)
     MEM_W(0X40, ctx->r29) = ctx->r18;
 L_80053AF0:
+    static uint8_t prevStates[64] = {};
+    uint8_t curState = MEM_B(0x0A, ctx->r16);
+    int idx = (ctx->r16 - 0x801CAE20) / 0x30;
+    if (idx >= 0 && idx < 64 && prevStates[idx] != curState) {
+        printf("[ITEM-%d] state %d -> %d\n", idx, prevStates[idx], curState);
+        prevStates[idx] = curState;
+    }
+   
     // lhu         $v1, 0x0($s1)
     ctx->r3 = MEM_HU(0X0, ctx->r17);
     // ori         $v0, $zero, 0xFFFF
@@ -150,31 +168,40 @@ L_80053AF0:
     // jr          $v0
     // nop
 
+
     switch (jr_addend_80053B9C >> 2) {
         case 0: goto L_80053CF8; break;
         case 1: goto L_80053BA4; break;
         case 2: goto L_80053CF8; break;
         case 3: goto L_80053CE8; break;
         case 4: goto L_80053CF8; break;
-        default: switch_error(__func__, 0x80053B9C, 0x80012738);
+        default: 
+        {
+            
+            switch_error(__func__, 0x80053B9C, 0x80012738);
+        }
+            
+            
     }
     // nop
 
+   
 L_80053BA4:
     // lb          $v1, 0xD($s0)
     ctx->r3 = MEM_BS(0XD, ctx->r16);
     // nop
 
     // slti        $v0, $v1, 0x4
-    ctx->r2 = SIGNED(ctx->r3) < 0X4 ? 1 : 0;
+    ctx->r2 = SIGNED(ctx->r3) < 0X4 ? 1 : 0;//0X4 ? 1 : 0;
     // beq         $v0, $zero, L_80053CD4
     if (ctx->r2 == 0) {
         // addiu       $v0, $zero, 0x4
-        ctx->r2 = ADD32(0, 0X4);
+        ctx->r2 = ADD32(0, 0x4); //ADD32(0, 0X4);
         goto L_80053CD4;
     }
+  
     // addiu       $v0, $zero, 0x4
-    ctx->r2 = ADD32(0, 0X4);
+    ctx->r2 = ADD32(0, 0x2);// ADD32(0, 0X4);
     // lw          $v0, -0x10($s0)
     ctx->r2 = MEM_W(-0X10, ctx->r16);
     // lw          $v1, -0xC($s0)
@@ -366,12 +393,13 @@ L_80053CD4:
     // sh          $zero, 0x0($s0)
     MEM_H(0X0, ctx->r16) = 0;
 L_80053CE8:
+    printf("PlayerInteract case 3 \n");
     // addu        $a0, $s1, $zero
     ctx->r4 = ADD32(ctx->r17, 0);
     // jal         0x8005335C
     // addu        $a1, $zero, $zero
     ctx->r5 = ADD32(0, 0);
-    sub_8005335C(rdram, ctx);
+    PreviewPickUp(rdram, ctx);
     goto after_3;
     // addu        $a1, $zero, $zero
     ctx->r5 = ADD32(0, 0);
@@ -379,6 +407,9 @@ L_80053CE8:
     // sb          $zero, 0x218($s4)
     MEM_B(0X218, ctx->r20) = 0;
 L_80053CF8:
+   
+   
+
     // addiu       $s0, $s0, 0x30
     ctx->r16 = ADD32(ctx->r16, 0X30);
     // addiu       $s3, $s3, -0x1

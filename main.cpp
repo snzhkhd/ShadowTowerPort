@@ -30,7 +30,7 @@ extern "C"
 #include <SDL2/SDL.h>
 
 
-
+bool InMenu = false;
 
 /////////
 

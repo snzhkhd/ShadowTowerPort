@@ -43,8 +43,8 @@ void VSync(uint8_t* rdram, recomp_context* ctx)
 {
     
     //sub_800153B4(rdram, ctx);
-    sub_80057744(rdram, ctx);
-    PsyX_UpdateInput();
+   
+    
     auto now = std::chrono::steady_clock::now();
     double elapsed = std::chrono::duration<double>(now - g_lastFrameTime).count();
 
@@ -76,22 +76,24 @@ void VSync(uint8_t* rdram, recomp_context* ctx)
     WRITE_W(0x1F801814, 0x1C000000);
 
     // Обновляем pad input для ST
-    uint8_t* pad = (uint8_t*)GET_PTR(0x801CD130);
-    //if (pad[0] == 0x00 && pad[1] == 0x41) {
+    //uint8_t* pad = (uint8_t*)GET_PTR(0x801CD130);
+    //if (pad[0] == 0x00 && pad[1] == 0x41) 
+    //{
+
     //    uint16_t raw = *(uint16_t*)(pad + 2);
     //    uint16_t buttons = ~raw;
-    //    uint32_t prev184 = MEM_W(0, 0x801CD184);
-    //    MEM_W(0, 0x801CD184) = buttons;
-    //    MEM_W(0, 0x801CD180) = buttons & ~prev184;
-    //    // УБРАТЬ запись в 0x80198F54/58
+
+    //    if (buttons != 0)
+    //    {
+    //        printf("pad=%d\n", buttons);
+    //    }
     //}
 
-    //update input
 
-
-
-
-    //ctx = &save;
+    uint16_t key = MEM_HU(0, 0x801CD184);
+    if (key & 1) {
+        printf("[START] state=%d\n", MEM_B(0, 0x80199140));
+    }
 
 
     static uint8_t prevState = 0xFF;
@@ -100,7 +102,8 @@ void VSync(uint8_t* rdram, recomp_context* ctx)
         printf("[STATE] changed %d → %d\n", prevState, state);
         prevState = state;
     }
-
+    //update input
+    sub_80057744(rdram, ctx);
     //MEM_W(0, 0x80199170) = 0x00040000;
     //MEM_W(0, 0x80199174) = 0x000419C0;
     //MEM_W(0, 0x80199178) = 0x0003F000;

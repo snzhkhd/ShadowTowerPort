@@ -1953,7 +1953,7 @@
     <ClCompile Include="scr\st\sub_80026A88.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
-    <ClCompile Include="scr\st\sub_80026AFC.c">
+    <ClCompile Include="scr\st\DrawScene.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
     <ClCompile Include="scr\st\sub_80026DD4.c">
@@ -2130,7 +2130,7 @@
     <ClCompile Include="scr\st\sub_80052F30.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
-    <ClCompile Include="scr\st\sub_80053AA4.c">
+    <ClCompile Include="scr\st\PlayerInteract.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
     <ClCompile Include="scr\st\sub_80053EE4.c">
@@ -2226,7 +2226,7 @@
     <ClCompile Include="scr\st\sub_80058ED4.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
-    <ClCompile Include="scr\st\sub_80058EF4.c">
+    <ClCompile Include="scr\st\InGameMenu.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
     <ClCompile Include="scr\st\sub_80059CEC.c">
@@ -2721,7 +2721,7 @@
     <ClCompile Include="scr\st\sub_8005066C.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
-    <ClCompile Include="scr\st\sub_8005335C.c">
+    <ClCompile Include="scr\st\PreviewPickUp.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
     <ClCompile Include="scr\st\sub_8005408C.c">

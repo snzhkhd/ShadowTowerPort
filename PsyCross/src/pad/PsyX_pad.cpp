@@ -405,6 +405,10 @@ bool IsKeyPressed(int key)
 	return result;
 }
 
+#define G_PITCH (0x801991A0) //(0x801991A0)
+#define G_YAW (0x801991A2)
+
+extern bool InMenu;
 u_short PsyX_Pad_UpdateKeyboardInput()
 {
 	u_short ret = 0xFFFF;
@@ -416,23 +420,37 @@ u_short PsyX_Pad_UpdateKeyboardInput()
 	if (g_sdlKeyboardState[SDL_SCANCODE_W] || g_sdlKeyboardState[SDL_SCANCODE_UP] )        ret &= ~0x10;   // Up
 	if (g_sdlKeyboardState[SDL_SCANCODE_S] || g_sdlKeyboardState[SDL_SCANCODE_DOWN])         ret &= ~0x40;   // Down
 
-	if (g_sdlKeyboardState[SDL_SCANCODE_A] || g_sdlKeyboardState[SDL_SCANCODE_LEFT] )         ret &= ~0x400;  // L1	
-	if (g_sdlKeyboardState[SDL_SCANCODE_D] || g_sdlKeyboardState[SDL_SCANCODE_RIGHT])         ret &= ~0x800;  // R1	
+	if (InMenu)
+	{
+		if (g_sdlKeyboardState[SDL_SCANCODE_A] || g_sdlKeyboardState[SDL_SCANCODE_LEFT])         ret &= ~0x80;  // D-pad Left
+		if (g_sdlKeyboardState[SDL_SCANCODE_D] || g_sdlKeyboardState[SDL_SCANCODE_RIGHT])         ret &= ~0x20;  // D-pad Right
+	}
+	else
+	{
+		if (g_sdlKeyboardState[SDL_SCANCODE_A] || g_sdlKeyboardState[SDL_SCANCODE_LEFT])         ret &= ~0x400;  // L1	
+		if (g_sdlKeyboardState[SDL_SCANCODE_D] || g_sdlKeyboardState[SDL_SCANCODE_RIGHT])         ret &= ~0x800;  // R1	
+	}
+
+	
+
+
+	
 
 
 	// Кнопки
 	if (g_sdlKeyboardState[SDL_SCANCODE_SPACE] 
 		|| g_sdlKeyboardState[SDL_SCANCODE_LSHIFT] 
 		|| g_sdlKeyboardState[SDL_SCANCODE_E] 
-		|| g_sdlKeyboardState[SDL_SCANCODE_F] )     ret &= ~0x2000; // Cross		
+		|| g_sdlKeyboardState[SDL_SCANCODE_F] )     ret &= ~0x4000; // Cross			
 
 
 	if (g_sdlKeyboardState[SDL_SCANCODE_Q] 
-		|| g_sdlKeyboardState[SDL_SCANCODE_ESCAPE])         ret &= ~0x1000; // Triangle
+		|| g_sdlKeyboardState[SDL_SCANCODE_ESCAPE])         ret &= ~0x2000; // Triangle		
 
 	if (g_sdlKeyboardState[SDL_SCANCODE_RETURN])    ret &= ~0x8;    // Start  Enter
 
 	if (g_sdlKeyboardState[SDL_SCANCODE_TAB])       ret &= ~0x1;    // Select
+
 
 
 	static bool g_prevF1 = false;
@@ -455,7 +473,7 @@ u_short PsyX_Pad_UpdateKeyboardInput()
 	uint32_t mouseBtn = SDL_GetRelativeMouseState(&mouseX, &mouseY);
 	
 	// LMB = Cross
-	if (mouseBtn & SDL_BUTTON(1)) ret &= ~0x4000;
+	if (mouseBtn & SDL_BUTTON(1)) ret &= ~0x1000;
 	// RMB = Square
 	if (mouseBtn & SDL_BUTTON(3)) ret &= ~0x8000;	//Magic
 
@@ -466,8 +484,8 @@ u_short PsyX_Pad_UpdateKeyboardInput()
 
 		if (!g_mouseInitialized) {
 			// Считываем текущий yaw при первом включении
-			g_mouseYaw = (int16_t)MEM_HU(0, 0x8019B5BE);
-			g_mousePitch = (int16_t)MEM_HU(0, 0x8019B5BC);
+			g_mouseYaw = (int16_t)MEM_HU(0, G_YAW);
+			g_mousePitch = (int16_t)MEM_HU(0, G_PITCH); // 801991A0
 			g_mouseInitialized = true;
 		}
 
@@ -477,8 +495,8 @@ u_short PsyX_Pad_UpdateKeyboardInput()
 		if (g_mousePitch < -800) g_mousePitch = -800;
 
 		// Пишем в БАЗОВЫЙ компонент — PlayerUpdate сам пересчитает финальный
-		MEM_H(0, 0x8019B5BE) = (uint16_t)g_mouseYaw;   // base yaw
-		MEM_H(0, 0x8019B5BC) = (uint16_t)g_mousePitch;  // base pitch
+		MEM_H(0, G_YAW) = (uint16_t)g_mouseYaw;   // base yaw
+		MEM_H(0, G_PITCH) = (uint16_t)g_mousePitch;  // base pitch
 
 	}
 

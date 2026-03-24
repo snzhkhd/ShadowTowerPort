@@ -34,7 +34,7 @@ void CD_ready(uint8_t* rdram, recomp_context* ctx) {
     // jal         0x80077104
     // sw          $s0, 0x18($sp)
     MEM_W(0X18, ctx->r29) = ctx->r16;
-    VSync(rdram, ctx);
+//    VSync(rdram, ctx);
     goto after_0;
     // sw          $s0, 0x18($sp)
     MEM_W(0X18, ctx->r29) = ctx->r16;
@@ -77,7 +77,7 @@ L_80069B20:
     // jal         0x80077104
     // addiu       $a0, $zero, -0x1
     ctx->r4 = ADD32(0, -0X1);
-    VSync(rdram, ctx);
+//    VSync(rdram, ctx);
     goto after_1;
     // addiu       $a0, $zero, -0x1
     ctx->r4 = ADD32(0, -0X1);
