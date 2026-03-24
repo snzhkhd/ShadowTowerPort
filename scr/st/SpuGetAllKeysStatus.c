@@ -1,7 +1,22 @@
 #include "recomp.h"
 #include "disable_warnings.h"
+#include "psx/libspu.h"
+#include <string>
 
-void SpuGetAllKeysStatus(uint8_t* rdram, recomp_context* ctx) {
+
+
+void SpuGetAllKeysStatus(uint8_t* rdram, recomp_context* ctx) 
+{
+    char status[24];
+    memset(status, 0, 24);
+    SpuGetAllKeysStatus(status);
+
+    uint8_t* dest = (uint8_t*)GET_PTR(ctx->r4);
+    memcpy(dest, status, 24);
+    ctx->r2 = 1;
+    return;
+
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 

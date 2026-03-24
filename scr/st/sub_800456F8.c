@@ -1483,7 +1483,7 @@ L_80045F0C:
     // addiu       $a1, $a1, 0x7
     ctx->r5 = ADD32(ctx->r5, 0X7);
 
-    sub_80058A0C(rdram, ctx);
+    StartAudioStream(rdram, ctx);
     goto after_36;
     // addiu       $a1, $a1, 0x7
     ctx->r5 = ADD32(ctx->r5, 0X7);

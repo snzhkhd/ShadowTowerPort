@@ -1,9 +1,10 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_80058A0C(uint8_t* rdram, recomp_context* ctx) 
+void StartAudioStream(uint8_t* rdram, recomp_context* ctx) 
 {
- 
+    printf("StartAudioStream (80058A0C) \n");
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -231,7 +232,7 @@ L_80058B34:
     // jal         0x80058770
     // sw          $v0, 0x10($sp)
     MEM_W(0X10, ctx->r29) = ctx->r2;
-    sub_80058770(rdram, ctx);
+    FindFreeAudioChannel(rdram, ctx);
     goto after_0;
     // sw          $v0, 0x10($sp)
     MEM_W(0X10, ctx->r29) = ctx->r2;

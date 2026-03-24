@@ -1,4 +1,4 @@
-#include "recomp.h"
+п»ї#include "recomp.h"
 #include "kf_cd.h"
 #include <string.h>
 #include <unordered_map>
@@ -17,6 +17,25 @@ int g_cdReading = 0;
 int KFCD_Init(const char* path)
 {
     g_cdImage = fopen(path, "rb");
+
+    //// Disk test
+    //int lba = 2658;
+    //uint8_t test[16];
+    //printf("[DISK-2658] at +16: ");
+    //fseek(g_cdImage, lba * 2352 + 16, SEEK_SET);
+    //fread(test, 1, 16, g_cdImage);
+    //printf("%02X%02X%02X%02X %02X%02X%02X%02X\n", test[0], test[1], test[2], test[3], test[4], test[5], test[6], test[7]);
+
+    //printf("[DISK-2658] at +24: ");
+    //fseek(g_cdImage, lba * 2352 + 24, SEEK_SET);
+    //fread(test, 1, 16, g_cdImage);
+    //printf("%02X%02X%02X%02X %02X%02X%02X%02X\n", test[0], test[1], test[2], test[3], test[4], test[5], test[6], test[7]);
+
+    //printf("[DISK-2658] at +0: ");
+    //fseek(g_cdImage, lba * 2352, SEEK_SET);
+    //fread(test, 1, 16, g_cdImage);
+    //printf("%02X%02X%02X%02X %02X%02X%02X%02X\n", test[0], test[1], test[2], test[3], test[4], test[5], test[6], test[7]);
+
     return g_cdImage != NULL;
 }
 
@@ -112,11 +131,11 @@ void KFCD_CdControl(uint8_t* rdram, recomp_context* ctx)
         ctx->r2 = 1;
         return;
     }
-    case 0x11: // CdlGetlocP (получить позицию головы)
+    case 0x11: // CdlGetlocP (РїРѕР»СѓС‡РёС‚СЊ РїРѕР·РёС†РёСЋ РіРѕР»РѕРІС‹)
     {
         uint8_t* res = (uint8_t*)GET_PTR(ctx->r5);
         if (res) {
-            // Превращаем текущий сектор обратно в минуты:секунды:фреймы
+            // РџСЂРµРІСЂР°С‰Р°РµРј С‚РµРєСѓС‰РёР№ СЃРµРєС‚РѕСЂ РѕР±СЂР°С‚РЅРѕ РІ РјРёРЅСѓС‚С‹:СЃРµРєСѓРЅРґС‹:С„СЂРµР№РјС‹
             int s = g_cdCurrentSector + 150;
             int m = s / (75 * 60);
             s %= (75 * 60);
@@ -128,7 +147,7 @@ void KFCD_CdControl(uint8_t* rdram, recomp_context* ctx)
             res[2] = itob(f);   // frames/sector
             res[3] = 1;         // track
         }
-        ctx->r2 = 1; // Успех
+        ctx->r2 = 1; // РЈСЃРїРµС…
     //    printf("CdlGetlocP\n");
         return;
     }
@@ -141,11 +160,36 @@ void KFCD_CdControl(uint8_t* rdram, recomp_context* ctx)
             if (stream && stream[0] != 0) {
                 uint8_t type = stream[0];
 
-                if (type == 4) {
-                    // Audio
+                if (type == 4) 
+                {
+                    CdlLOC* loc = (CdlLOC*)(stream + 24);
+                    int lba = KFCD_CdPosToInt(loc);
+                    printf("[SeekL] CdlLOC=%02X:%02X:%02X:%02X в†’ lba=%d\n",
+                        loc->minute, loc->second, loc->sector, loc->track, lba);
+                    // Audio вЂ” С‡РёС‚Р°РµРј РґР°РЅРЅС‹Рµ РљРђРљ type 2
                     KFCD_CdlReadN(rdram, ctx);
-                    stream[17] = 2;   // status = ready for transfer (NOT stream[16]!)
-                    // НЕ вызываем NextCdTask — ProcessCDAudioLoad сделает сам
+                    stream[16] = 1;
+
+                    // Р’С‹Р·С‹РІР°РµРј callback (OnAudioStreamComplete)
+                    uint32_t cb = *(uint32_t*)(stream + 44);
+                    if (cb) {
+                        uint32_t saved_r4 = ctx->r4;
+                        uint32_t saved_ra = ctx->r31;
+                        ctx->r4 = *p_active;
+                        recomp_func_t handler = lookup_recomp_func(cb);
+                        if (handler) {
+                            printf("[CD] Type4 callback %08X\n", cb);
+                            handler(rdram, ctx);
+                        }
+                        ctx->r4 = saved_r4;
+                        ctx->r31 = saved_ra;
+                    }
+                    else {
+                        // РќРµС‚ callback вЂ” РїСЂРѕСЃС‚Рѕ СЃС‚Р°РІРёРј status
+                        stream[17] = 2;
+                        ctx->r4 = *p_active;
+                        NextCdTask(rdram, ctx);
+                    }
                     ctx->r2 = 1;
                     return;
                 }
@@ -156,7 +200,7 @@ void KFCD_CdControl(uint8_t* rdram, recomp_context* ctx)
                     stream[16] = 1;
                 }
                 else if (type == 2) {
-                    // Type 2: данные прочитаны, вызываем callback
+                    // Type 2: РґР°РЅРЅС‹Рµ РїСЂРѕС‡РёС‚Р°РЅС‹, РІС‹Р·С‹РІР°РµРј callback
                     stream[1] = 2;
                     stream[16] = 1;
 
@@ -173,7 +217,7 @@ void KFCD_CdControl(uint8_t* rdram, recomp_context* ctx)
                         ctx->r4 = saved_r4;
                         ctx->r31 = saved_ra;
                     }
-                    // Переходим к следующей задаче
+                    // РџРµСЂРµС…РѕРґРёРј Рє СЃР»РµРґСѓСЋС‰РµР№ Р·Р°РґР°С‡Рµ
                     ctx->r4 = *p_active;
                     NextCdTask(rdram, ctx);
                 }
@@ -242,6 +286,8 @@ void KFCD_CdlReadN(uint8_t* rdram, recomp_context* ctx)
         g_cdCurrentSector = current_lba + sectors;
     }
 
+
+
     stream[16] = 1; // data_ready
     ctx->r2 = 1;
     //uint32_t* p_active = (uint32_t*)GET_PTR(ADDR_G_ACTIVECDSTREAM);
@@ -269,7 +315,7 @@ void KFCD_CdlReadN(uint8_t* rdram, recomp_context* ctx)
     //    uint16_t remain = *(uint16_t*)(stream + 34);
     //    uint16_t total = sectors + remain;
 
-    //    // Проверяем реальный размер по LBA
+    //    // РџСЂРѕРІРµСЂСЏРµРј СЂРµР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ РїРѕ LBA
     //    auto it = g_stream_file_sizes.find(base_lba);
     //    if (it != g_stream_file_sizes.end()) {
     //        uint16_t expected = (it->second + 2047) / 2048;
@@ -340,7 +386,7 @@ int KFCD_CdReadSync(int mode)
         uint32_t fileOffset = g_cdReq.sector * RAW_SECTOR_SIZE;
 
         fseek(g_cdImage, fileOffset + 24, SEEK_SET);
-        // +24 пропускаем sync/header чтобы получить 2048 data
+        // +24 РїСЂРѕРїСѓСЃРєР°РµРј sync/header С‡С‚РѕР±С‹ РїРѕР»СѓС‡РёС‚СЊ 2048 data
 
         fread(g_cdReq.dst, 1, SECTOR_SIZE, g_cdImage);
 
@@ -389,7 +435,7 @@ void KFCD_InvokeCallback(uint8_t* rdram, recomp_context* ctx, uint32_t cbAddr, u
     if (!func)
         return;
 
-    // Сохраняем volatile регистры
+    // РЎРѕС…СЂР°РЅСЏРµРј volatile СЂРµРіРёСЃС‚СЂС‹
     uint32_t saved_r4 = ctx->r4;
     uint32_t saved_r5 = ctx->r5;
     uint32_t saved_r2 = ctx->r2;
@@ -398,7 +444,7 @@ void KFCD_InvokeCallback(uint8_t* rdram, recomp_context* ctx, uint32_t cbAddr, u
     uint8_t result[8] = { 0 };
     result[0] = status;
 
-    // Копируем result в rdram (любая свободная область)
+    // РљРѕРїРёСЂСѓРµРј result РІ rdram (Р»СЋР±Р°СЏ СЃРІРѕР±РѕРґРЅР°СЏ РѕР±Р»Р°СЃС‚СЊ)
     uint32_t result_addr = 0x80010000; 
     memcpy(rdram + result_addr, result, sizeof(result));
 
@@ -407,7 +453,7 @@ void KFCD_InvokeCallback(uint8_t* rdram, recomp_context* ctx, uint32_t cbAddr, u
 
     func(rdram, ctx);
 
-    // Восстановление
+    // Р’РѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёРµ
     ctx->r4 = saved_r4;
     ctx->r5 = saved_r5;
     ctx->r2 = saved_r2;
@@ -426,19 +472,19 @@ void KDCD_SetupDmaTransfer(uint8_t* rdram, recomp_context* ctx)
 
     printf("KDCD_SetupDmaTransfer dest_vram : <0x%08X>", dest_vram);
     if (g_cdImage && dest_ptr) {
-        // Убираем +150! Твой .bin начинается сразу с LBA 0
+        // РЈР±РёСЂР°РµРј +150! РўРІРѕР№ .bin РЅР°С‡РёРЅР°РµС‚СЃСЏ СЃСЂР°Р·Сѓ СЃ LBA 0
         uint32_t physSector = g_cdCurrentSector;
 
-        // 2352 - размер RAW-сектора
+        // 2352 - СЂР°Р·РјРµСЂ RAW-СЃРµРєС‚РѕСЂР°
         uint32_t fileOffset = physSector * RAW_SECTOR_SIZE;
 
-        // +24 для пропуска заголовка сектора Mode 2 (Form 1)
+        // +24 РґР»СЏ РїСЂРѕРїСѓСЃРєР° Р·Р°РіРѕР»РѕРІРєР° СЃРµРєС‚РѕСЂР° Mode 2 (Form 1)
         fseek(g_cdImage, fileOffset + 24, SEEK_SET);
 
         fread(dest_ptr, 1, 2048, g_cdImage);
 
-        // В ISO9660 строка "CD001" лежит начиная с 1-го байта сектора 
-        // (нулевой байт - это тип дескриптора)
+        // Р’ ISO9660 СЃС‚СЂРѕРєР° "CD001" Р»РµР¶РёС‚ РЅР°С‡РёРЅР°СЏ СЃ 1-РіРѕ Р±Р°Р№С‚Р° СЃРµРєС‚РѕСЂР° 
+        // (РЅСѓР»РµРІРѕР№ Р±Р°Р№С‚ - СЌС‚Рѕ С‚РёРї РґРµСЃРєСЂРёРїС‚РѕСЂР°)
         printf("[HLE CD] SetupDmaTransfer: Read LBA %d to 0x%08X. Data: %c%c%c%c%c\n",
             g_cdCurrentSector, dest_vram,
             dest_ptr[1], dest_ptr[2], dest_ptr[3], dest_ptr[4], dest_ptr[5]);
@@ -446,7 +492,7 @@ void KDCD_SetupDmaTransfer(uint8_t* rdram, recomp_context* ctx)
         g_cdCurrentSector++;
     }
 
-    ctx->r2 = 0; // Сообщаем об успехе
+    ctx->r2 = 0; // РЎРѕРѕР±С‰Р°РµРј РѕР± СѓСЃРїРµС…Рµ
 }
 
 void KFCD_ResetReadState()
@@ -461,18 +507,18 @@ bool KFCD_FindFile(const char* filename, CdFile* out)
 {
     if (!g_cdImage) return false;
 
-    // Убираем ведущий backslash
+    // РЈР±РёСЂР°РµРј РІРµРґСѓС‰РёР№ backslash
     const char* cleanName = filename;
     while (*cleanName == '\\' || *cleanName == '/')
         cleanName++;
 
-    // Убираем ";1"
+    // РЈР±РёСЂР°РµРј ";1"
     char searchName[256] = {};
     strncpy(searchName, cleanName, 255);
     char* semi = strchr(searchName, ';');
     if (semi) *semi = 0;
 
-    // Разбиваем путь на компоненты: ST/CHR0/M00.T
+    // Р Р°Р·Р±РёРІР°РµРј РїСѓС‚СЊ РЅР° РєРѕРјРїРѕРЅРµРЅС‚С‹: ST/CHR0/M00.T
     char pathCopy[256] = {};
     strncpy(pathCopy, searchName, 255);
 
@@ -489,7 +535,7 @@ bool KFCD_FindFile(const char* filename, CdFile* out)
     uint32_t dirLBA = *(uint32_t*)(sector + 156 + 2);
     uint32_t dirSize = *(uint32_t*)(sector + 156 + 10);
 
-    // Разбираем путь по разделителям
+    // Р Р°Р·Р±РёСЂР°РµРј РїСѓС‚СЊ РїРѕ СЂР°Р·РґРµР»РёС‚РµР»СЏРј
     char* context = nullptr;
     char* token = strtok_s(pathCopy, "\\/", &context);
 
@@ -497,7 +543,7 @@ bool KFCD_FindFile(const char* filename, CdFile* out)
         char* nextToken = strtok_s(nullptr, "\\/", &context);
         bool isLastComponent = (nextToken == nullptr);
 
-        // Читаем директорию
+        // Р§РёС‚Р°РµРј РґРёСЂРµРєС‚РѕСЂРёСЋ
         uint8_t* dirBuf = new uint8_t[dirSize + 2048];
         uint32_t sectorsToRead = (dirSize + 2047) / 2048;
         for (uint32_t i = 0; i < sectorsToRead; i++) {
@@ -527,7 +573,7 @@ bool KFCD_FindFile(const char* filename, CdFile* out)
                 uint8_t flags = dirBuf[pos + 25];
 
                 if (isLastComponent) {
-                    // Это файл
+                    // Р­С‚Рѕ С„Р°Р№Р»
                     out->lba = entryLBA;
                     out->size = entrySize;
                     delete[] dirBuf;
@@ -536,7 +582,7 @@ bool KFCD_FindFile(const char* filename, CdFile* out)
                     return true;
                 }
                 else {
-                    // Это директория — спускаемся
+                    // Р­С‚Рѕ РґРёСЂРµРєС‚РѕСЂРёСЏ вЂ” СЃРїСѓСЃРєР°РµРјСЃСЏ
                     dirLBA = entryLBA;
                     dirSize = entrySize;
                     found = true;
@@ -569,7 +615,7 @@ bool LoadGameEXEFromCD(recomp_context* ctx)
     if (!KFCD_FindFile("ST.EXE", &exeFile))
         return false;
 
-    // Читаем заголовок (первый сектор)
+    // Р§РёС‚Р°РµРј Р·Р°РіРѕР»РѕРІРѕРє (РїРµСЂРІС‹Р№ СЃРµРєС‚РѕСЂ)
     PSXHeader header;
     fseek(g_cdImage, exeFile.lba * 2352 + 24, SEEK_SET);
     fread(&header, 1, sizeof(header), g_cdImage);
@@ -597,10 +643,10 @@ bool LoadGameEXEFromCD(recomp_context* ctx)
         ctx->r29 = 0x801FFFF0;
     }
 
-    // Загрузка кода — читаем посекторно (пропускаем 2048 заголовок)
+    // Р—Р°РіСЂСѓР·РєР° РєРѕРґР° вЂ” С‡РёС‚Р°РµРј РїРѕСЃРµРєС‚РѕСЂРЅРѕ (РїСЂРѕРїСѓСЃРєР°РµРј 2048 Р·Р°РіРѕР»РѕРІРѕРє)
     uint32_t ram_offset = header.t_addr & 0x1FFFFF;
     uint32_t remaining = header.t_size;
-    uint32_t sector = exeFile.lba + 1; // +1 = пропускаем заголовок EXE
+    uint32_t sector = exeFile.lba + 1; // +1 = РїСЂРѕРїСѓСЃРєР°РµРј Р·Р°РіРѕР»РѕРІРѕРє EXE
     uint32_t written = 0;
 
     while (remaining > 0) {

@@ -1,7 +1,179 @@
 #include "recomp.h"
 #include "disable_warnings.h"
+#include "psx/libspu.h"
+#include <string>
+#include <chrono>
+#include "audio/PsyX_SPUAL.h"
+#define SPU_MEMSIZE				(2048*1024)
 
-void _SsVmFlush(uint8_t* rdram, recomp_context* ctx) {
+
+void _SsVmFlush(uint8_t* rdram, recomp_context* ctx) 
+{
+   // printf("_SsVmFlush\n");
+    //uint8_t max_voices = MEM_BU(0, 0x8019B628);
+
+    //for (int i = 0; i < 24 && i < max_voices; i++) {
+    //    uint8_t flags = MEM_BU(0, 0x80078A38 + i);
+    //    if (flags == 0) continue;
+
+    //    // ¬нутренн€€ таблица: 16 байт на голос (8 halfwords)
+    //    // Layout: volL, volR, pitch, startAddr, ADSR1, ADSR2, ...
+    //    uint32_t base = 0x800788B8 + i * 16;
+
+    //    SpuVoiceAttr attr;
+    //    memset(&attr, 0, sizeof(attr));
+    //    attr.voice = (1 << i);
+    //    attr.mask = 0;
+    //    if (flags & 1) {
+    //        attr.volume.left = (int16_t)MEM_HS(0, base);
+    //        attr.volume.right = (int16_t)MEM_HS(2, base);
+    //        attr.mask |= SPU_VOICE_VOLL | SPU_VOICE_VOLR;
+    //    }
+    //    if (flags & 4) {
+    //        attr.pitch = MEM_HU(4, base);
+    //        attr.mask |= SPU_VOICE_PITCH;
+    //    }
+    //    if (flags & 8) {
+    //        uint32_t raw_addr = MEM_HU(6, base);
+    //        uint32_t real_addr = raw_addr << 3;
+    //        if (real_addr < 0x80000) {
+    //            attr.addr = real_addr;
+    //            attr.mask |= SPU_VOICE_WDSA;
+    //        }
+    //    }
+    //    if (flags & 0x10) {
+    //        attr.adsr1 = MEM_HU(8, base);
+    //        attr.adsr2 = MEM_HU(10, base);
+    //        attr.mask |= SPU_VOICE_ADSR_ADSR1 | SPU_VOICE_ADSR_ADSR2;
+    //    }
+
+    //    if (attr.mask) {
+    //        SpuSetVoiceAttr(&attr);
+    //    }
+
+    //    MEM_B(0, 0x80078A38 + i) = 0;
+    //}
+
+    //// KeyOn
+    //uint16_t kon_lo = MEM_HU(0, 0x80079160);
+    //uint16_t kon_hi = MEM_HU(0, 0x80079168);
+    //uint32_t kon = kon_lo | (kon_hi << 16);
+    //if (kon)
+    //{
+    //    ;
+
+    //    for (int i = 0; i < 24; i++)
+    //    {
+    //        if (kon & (1 << i))
+    //        {
+    //            uint32_t vbase = 0x800788B8 + i * 16;
+
+    //            uint16_t addr_raw = MEM_HU(6, vbase);
+    //            uint32_t byte_addr = addr_raw * 8;
+
+    //            // ќпредел€ем какой VAB по адресу
+    //            int vabIdx = -1;
+    //            for (int v = 0; v < 16; v++) {
+    //                uint8_t active = MEM_BU(0, 0x8019E6F0 + v);
+    //                if (active == 0) continue;
+    //                uint32_t vab_base = MEM_W(0, 0x801DEFA4 + v * 4);
+    //                uint32_t vab_size = MEM_W(0, 0x801DEF5C + v * 4);
+    //                if (byte_addr >= vab_base && byte_addr < vab_base + vab_size) {
+    //                    vabIdx = v;
+    //                    break;
+    //                }
+    //            }
+
+    //            uint32_t next_addr = 0x80000;
+    //            if (vabIdx >= 0) {
+    //                uint32_t prog_table = MEM_W(0, 0x8009DEF0 + vabIdx * 4);
+    //                if (prog_table) {
+    //                    uint32_t vab_header = MEM_W(0, 0x8009E08C + vabIdx * 4);
+    //                    int num_progs = vab_header ? MEM_HU(18, vab_header) : 0;
+    //                    for (int p = 0; p < num_progs && p < 128; p++) {
+    //                        uint32_t entry = prog_table + p * 16;
+    //                        uint16_t a12 = MEM_HU(12, entry);
+    //                        uint16_t a14 = MEM_HU(14, entry);
+    //                        uint32_t a12_byte = a12 * 8;
+    //                        uint32_t a14_byte = a14 * 8;
+    //                        if (a12_byte > byte_addr && a12_byte < next_addr)
+    //                            next_addr = a12_byte;
+    //                        if (a14_byte > byte_addr && a14_byte < next_addr)
+    //                            next_addr = a14_byte;
+    //                    }
+    //                }
+    //            }
+    //            SetSpuSampleSize(i, next_addr - byte_addr);
+
+    //            uint16_t vol_l = MEM_HU(0, vbase);
+    //            uint16_t vol_r = MEM_HU(2, vbase);
+    //            uint16_t pitch = MEM_HU(4, vbase);
+    //            uint16_t addr = MEM_HU(6, vbase);
+    //            uint16_t adsr1 = MEM_HU(8, vbase);
+    //            uint16_t adsr2 = MEM_HU(10, vbase);
+
+    //            uint8_t f = MEM_BU(0, 0x80078A38 + i);
+
+    //            SpuVoiceAttr attr;
+    //            memset(&attr, 0, sizeof(attr));
+
+
+    //            attr.voice = (1 << i);
+
+
+    //            attr.mask = SPU_VOICE_VOLL | SPU_VOICE_VOLR | SPU_VOICE_PITCH |
+    //                SPU_VOICE_WDSA | SPU_VOICE_ADSR_AMODE | SPU_VOICE_ADSR_SMODE |
+    //                SPU_VOICE_ADSR_RMODE | SPU_VOICE_ADSR_AR | SPU_VOICE_ADSR_DR |
+    //                SPU_VOICE_ADSR_SR | SPU_VOICE_ADSR_RR | SPU_VOICE_ADSR_SL;
+
+    //            attr.volume.left = vol_l;
+    //            attr.volume.right = vol_r;
+    //            attr.pitch = pitch;
+    //            attr.addr = addr * 8;
+
+    //            // ADSR1 (Attack, Decay, Sustain Level)
+    //            attr.a_mode = (adsr1 >> 15) & 1;     // Ѕит 15: Attack Mode
+    //            attr.ar = (adsr1 >> 8) & 0x7F;  // Ѕиты 14-8: Attack Rate (7 бит)
+    //            attr.dr = (adsr1 >> 4) & 0x0F;  // Ѕиты 7-4: Decay Rate (4 бита)
+    //            attr.sl = adsr1 & 0x0F;  // Ѕиты 3-0: Sustain Level (4 бита)
+
+    //            // ADSR2 (Attack, Decay, Sustain Level)
+    //            attr.s_mode = (adsr2 >> 13) & 7;     // Ѕиты 15-13: Sustain Mode (3 бита)
+    //            attr.sr = (adsr2 >> 6) & 0x7F;  // Ѕиты 12-6: Sustain Rate (7 бит)
+    //            attr.r_mode = (adsr2 >> 5) & 1;     // Ѕит 5: Release Mode
+    //            attr.rr = adsr2 & 0x1F;  // Ѕиты 4-0: Release Rate (5 бит)
+
+    //            attr.adsr1 = adsr1;
+    //            attr.adsr2 = adsr2;
+
+    //            SpuSetVoiceAttr(&attr);
+    //        }
+    //    }
+
+
+    //    SpuSetKey(SPU_ON, kon);
+
+    //    MEM_H(0, 0x80079160) = 0;
+    //    MEM_H(0, 0x80079168) = 0;
+    //}
+
+    //// KeyOff
+    //uint16_t koff_lo = MEM_HU(0, 0x801DF028);
+    //uint16_t koff_hi = MEM_HU(0, 0x801DF030);
+    //uint32_t koff = koff_lo | (koff_hi << 16);
+    //if (koff)
+    //{
+
+    //    SpuSetKey(SPU_OFF, koff);
+    //    MEM_H(0, 0x801DF028) = 0;
+    //    MEM_H(0, 0x801DF030) = 0;
+    //}
+
+    //ctx->r2 = 0;
+
+    //return;
+
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 

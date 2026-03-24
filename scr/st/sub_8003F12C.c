@@ -511,7 +511,7 @@ L_8003F400:
     // jal         0x80058A0C
     // addiu       $a2, $a2, -0x16
     ctx->r6 = ADD32(ctx->r6, -0X16);
-    sub_80058A0C(rdram, ctx);
+    StartAudioStream(rdram, ctx);
     goto after_14;
     // addiu       $a2, $a2, -0x16
     ctx->r6 = ADD32(ctx->r6, -0X16);

@@ -62,7 +62,7 @@ static const char* getALErrorString(int err)
 }
 
 #define SPU_REALMEMSIZE			(512 * 1024)
-#define SPU_MEMSIZE				SPU_REALMEMSIZE//(2048*1024)		// SPU_REALMEMSIZE
+#define SPU_MEMSIZE				(2048*1024)		// SPU_REALMEMSIZE
 
 typedef struct
 {
@@ -860,6 +860,8 @@ typedef enum
 
 static int decodeSound(u_char* iData, int soundSize, short* oData, int* loopStart, int* loopLength, int breakOnEnd)
 {
+
+	const int MAX_DECODE_SAMPLES = 128 * 1024;  // 128K samples max
 	double s_1 = 0.0;
 	double s_2 = 0.0;
 	int k = 0;
@@ -898,6 +900,13 @@ static int decodeSound(u_char* iData, int soundSize, short* oData, int* loopStar
 				int result = (int)output;
 				if (result > 32767) result = 32767;
 				if (result < -32768) result = -32768;
+
+
+				if (k >= MAX_DECODE_SAMPLES) {
+				//	printf("[SPU] decodeSound overflow, breaking\n");
+					break;  // prevent overflow
+				}
+
 				oData[k++] = (short)result;
 			}
 		}
@@ -944,6 +953,17 @@ static void UpdateVoiceSample(SPUALVoice* voice)
 	int maxSize = voice->sampleSize;
 	if (maxSize <= 0 || maxSize > (int)(SPU_MEMSIZE - voice->attr.addr))
 		maxSize = SPU_MEMSIZE - voice->attr.addr;
+
+	printf("[DECODE] voice=%d addr=%08X first16=%02X%02X%02X%02X %02X%02X%02X%02X\n",
+		voiceIdx, voice->attr.addr,
+		s_SpuMemory.samplemem[voice->attr.addr],
+		s_SpuMemory.samplemem[voice->attr.addr + 1],
+		s_SpuMemory.samplemem[voice->attr.addr + 2],
+		s_SpuMemory.samplemem[voice->attr.addr + 3],
+		s_SpuMemory.samplemem[voice->attr.addr + 4],
+		s_SpuMemory.samplemem[voice->attr.addr + 5],
+		s_SpuMemory.samplemem[voice->attr.addr + 6],
+		s_SpuMemory.samplemem[voice->attr.addr + 7]);
 
 	count = decodeSound(s_SpuMemory.samplemem + voice->attr.addr, maxSize, waveBuffer, &loopStart, &loopLen, 1);
 

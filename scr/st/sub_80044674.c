@@ -1127,7 +1127,7 @@ void sub_80044674(uint8_t* rdram, recomp_context* ctx)
     // addu        $a2, $zero, $zero
     ctx->r6 = ADD32(0, 0);
     
-    sub_80058A0C(rdram, ctx);
+    StartAudioStream(rdram, ctx);
     goto after_51;
     // addu        $a2, $zero, $zero
     ctx->r6 = ADD32(0, 0);

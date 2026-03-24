@@ -1,7 +1,23 @@
 #include "recomp.h"
 #include "disable_warnings.h"
+#include "psx/libspu.h"
 
-void SpuSetTransferStartAddr(uint8_t* rdram, recomp_context* ctx) {
+
+void SpuSetTransferStartAddr(uint8_t* rdram, recomp_context* ctx) 
+{
+
+    uint32_t addr = ctx->r4;
+    // Выравниваем на 8 байт
+    if (addr % 8) addr = (addr + 8) & ~7;
+    g_spu_transfer_addr = addr;
+    SpuSetTransferStartAddr(addr);
+
+    printf("[SpuSetTransferStartAddr] SetTransferAddr=%08X\n", addr);
+
+    ctx->r2 = ctx->r4;
+    return;
+
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 

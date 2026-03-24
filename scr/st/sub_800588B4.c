@@ -1,7 +1,11 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void sub_800588B4(uint8_t* rdram, recomp_context* ctx) {
+void OnAudioStreamComplete(uint8_t* rdram, recomp_context* ctx) 
+{
+    printf("OnAudioStreamComplete\n");
+
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -146,7 +150,7 @@ L_80058964:
     // jal         0x80073994
     // addiu       $a1, $zero, -0x1
     ctx->r5 = ADD32(0, -0X1);
-    sub_80073994(rdram, ctx);
+    SsVabOpenHeadReal(rdram, ctx);
     goto after_3;
     // addiu       $a1, $zero, -0x1
     ctx->r5 = ADD32(0, -0X1);

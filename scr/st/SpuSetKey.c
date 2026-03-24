@@ -1,7 +1,17 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void SpuSetKey(uint8_t* rdram, recomp_context* ctx) {
+#include "psx/libspu.h"
+
+
+void SpuSetKey(uint8_t* rdram, recomp_context* ctx) 
+{
+    if (ctx->r4 == 1 && ctx->r5 != 0)
+        printf("[SPU] SetKey ON voices=%08X\n", ctx->r5);
+    SpuSetKey(ctx->r4, ctx->r5);
+
+    return;
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 

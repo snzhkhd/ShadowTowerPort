@@ -385,6 +385,7 @@
     <ClCompile Include="scr\st\SsUtSetReverbType.c" />
     <ClCompile Include="scr\st\SsUtVibrateOff.c" />
     <ClCompile Include="scr\st\SsUtVibrateOn.c" />
+    <ClCompile Include="scr\st\SsVabOpenHead.c" />
     <ClCompile Include="scr\st\SsVabTransCompleted.c" />
     <ClCompile Include="scr\st\start.c" />
     <ClCompile Include="scr\st\StartCARD.c" />
@@ -929,7 +930,7 @@
     <ClCompile Include="scr\st\ProcessCDAudioLoad.c" />
     <ClCompile Include="scr\st\sub_80058770.c" />
     <ClCompile Include="scr\st\sub_800588B4.c" />
-    <ClCompile Include="scr\st\sub_80058A0C.c" />
+    <ClCompile Include="scr\st\StartAudioStream.c" />
     <ClCompile Include="scr\st\sub_80058C4C.c" />
     <ClCompile Include="scr\st\sub_80058CC8.c" />
     <ClCompile Include="scr\st\sub_80058D30.c" />
@@ -1048,7 +1049,7 @@
     <ClCompile Include="scr\st\sub_800732F8.c" />
     <ClCompile Include="scr\st\sub_800733EC.c" />
     <ClCompile Include="scr\st\ST_SsVabClose.c" />
-    <ClCompile Include="scr\st\sub_80073994.c" />
+    <ClCompile Include="scr\st\SsVabOpenHeadReal.c" />
     <ClCompile Include="scr\st\sub_800739F4.c" />
     <ClCompile Include="scr\st\SsVabTransBodyPartly.c" />
     <ClCompile Include="scr\st\ST_InitGeom.c" />

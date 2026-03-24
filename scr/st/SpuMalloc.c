@@ -1,7 +1,26 @@
 #include "recomp.h"
 #include "disable_warnings.h"
+#include "psx/libspu.h"
 
-void SpuMalloc(uint8_t* rdram, recomp_context* ctx) {
+void __SpuMalloc(uint8_t* rdram, recomp_context* ctx);
+
+void SpuMalloc(uint8_t* rdram, recomp_context* ctx)
+{
+
+    uint32_t saved_size = ctx->r4;  
+
+    //вызов ориганала
+    __SpuMalloc(rdram, ctx);
+
+     printf("[SpuMalloc] size=%d addr=%08X\n", saved_size, ctx->r2);
+    g_spu_total_size = saved_size;
+    g_spu_transferred = 0;
+    g_spu_actual_written = 0;
+}
+
+void __SpuMalloc(uint8_t* rdram, recomp_context* ctx)
+{
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 

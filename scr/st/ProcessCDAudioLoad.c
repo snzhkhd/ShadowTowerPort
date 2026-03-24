@@ -126,7 +126,7 @@ L_8005867C:
     // jal         0x80058A0C
     // nop
 
-    sub_80058A0C(rdram, ctx);
+    StartAudioStream(rdram, ctx);
     goto after_3;
     // nop
 

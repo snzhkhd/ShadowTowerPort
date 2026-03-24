@@ -1,7 +1,10 @@
 #include "recomp.h"
 #include "disable_warnings.h"
 
-void SsSetMVol(uint8_t* rdram, recomp_context* ctx) {
+void SsSetMVol(uint8_t* rdram, recomp_context* ctx) 
+{
+    printf("[SsSetMVol] left=%d right=%d\n", (int16_t)ctx->r4, (int16_t)ctx->r5);
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
@@ -37,6 +40,9 @@ void SsSetMVol(uint8_t* rdram, recomp_context* ctx) {
     // sh          $v0, 0x16($sp)
     MEM_H(0X16, ctx->r29) = ctx->r2;
     SpuSetCommonAttr(rdram, ctx);
+
+    
+
     goto after_0;
     // sh          $v0, 0x16($sp)
     MEM_H(0X16, ctx->r29) = ctx->r2;

@@ -30,7 +30,7 @@ void SEQ_Update(uint8_t* rdram, recomp_context* ctx)
 
     while (g_seqAccumulator >= SEQ_TICK_INTERVAL)
     {
-    //    KF_SsSeqCalledTbyT(rdram, ctx);
+        SsSeqCalledTbyT(rdram, ctx);
         PsyX_Update_ADSR((float)SEQ_TICK_INTERVAL);
         g_seqAccumulator -= SEQ_TICK_INTERVAL;
     }
@@ -64,7 +64,7 @@ void VSync(uint8_t* rdram, recomp_context* ctx)
     uint32_t saved_ra = ctx->r31;
 
 
-//    SEQ_Update(rdram, ctx);
+    SEQ_Update(rdram, ctx);
 
     ctx->r4 = saved_r4;
     ctx->r31 = saved_ra;

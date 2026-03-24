@@ -1,7 +1,29 @@
 #include "recomp.h"
 #include "disable_warnings.h"
+#include "psx/libspu.h"
 
-void SpuWritePartly(uint8_t* rdram, recomp_context* ctx) {
+
+void SpuWritePartly(uint8_t* rdram, recomp_context* ctx) 
+{
+
+    uint32_t src_addr = ctx->r4;  // адрес данных в PS1 RAM
+    uint32_t size = ctx->r5;
+
+    if (size > 0x7F000) size = 0x7F000;
+
+    uint8_t* src = (uint8_t*)GET_PTR(src_addr);
+
+    SpuSetTransferMode(SpuTransByDMA);
+    SpuSetTransferStartAddr(g_spu_transfer_addr);
+    SpuWrite(src, size);
+
+    // Обновляем адрес после записи
+    g_spu_transfer_addr += size;
+    printf("[ST_SpuWritePartly] Write src=%08X size=%d to SPU addr=%08X\n", src_addr, size, g_spu_transfer_addr);
+    ctx->r2 = size;
+    return;
+
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 

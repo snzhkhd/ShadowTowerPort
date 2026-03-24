@@ -1,7 +1,15 @@
 #include "recomp.h"
 #include "disable_warnings.h"
+#include "psx/libspu.h"
+#include <string>
 
-void SpuSetVoiceAttr(uint8_t* rdram, recomp_context* ctx) {
+void SpuSetVoiceAttr(uint8_t* rdram, recomp_context* ctx) 
+{
+    SpuVoiceAttr attr;
+    memset(&attr, 0, sizeof(attr));
+    memcpy(&attr, GET_PTR(ctx->r4), sizeof(attr));
+    SpuSetVoiceAttr(&attr);
+    return;
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 

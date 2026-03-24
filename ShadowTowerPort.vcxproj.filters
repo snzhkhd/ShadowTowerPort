@@ -2208,7 +2208,7 @@
     <ClCompile Include="scr\st\sub_80057FC4.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
-    <ClCompile Include="scr\st\sub_80058A0C.c">
+    <ClCompile Include="scr\st\StartAudioStream.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
     <ClCompile Include="scr\st\sub_80058C4C.c">
@@ -3177,7 +3177,7 @@
     <ClCompile Include="scr\st\ST_SsVabClose.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
-    <ClCompile Include="scr\st\sub_80073994.c">
+    <ClCompile Include="scr\st\SsVabOpenHeadReal.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
     <ClCompile Include="scr\st\SsVabTransBodyPartly.c">
@@ -3322,6 +3322,9 @@
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
     <ClCompile Include="scr\st\sub_8004AE38.c">
+      <Filter>Исходные файлы\scr\st</Filter>
+    </ClCompile>
+    <ClCompile Include="scr\st\SsVabOpenHead.c">
       <Filter>Исходные файлы\scr\st</Filter>
     </ClCompile>
   </ItemGroup>

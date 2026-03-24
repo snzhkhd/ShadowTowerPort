@@ -3,8 +3,57 @@
 #include "psx/libspu.h"
 #include "audio/PsyX_SPUAL.h"
 
+#define g_SPUVoiceActive 0x801E9718 //g_SPUVoiceActive
+#define g_TransferStartAddr 0x801E9778 //TransferStartAddr
+
+
 void SsVabTransBodyPartly(uint8_t* rdram, recomp_context* ctx) 
 {
+    uint32_t src_addr = ctx->r4;
+    uint32_t size = ctx->r5;  // 0xA000 from ProcessCDAudioLoad
+    int16_t voice = (int16_t)(ctx->r6 & 0xFFFF);
+
+    printf("[VabTrans] voice=%d src=%08X size=%08X\n", voice, src_addr, size);
+
+    if (voice < 0 || voice >= 17) {
+        ctx->r2 = (uint32_t)-1;
+        return;
+    }
+
+    uint32_t spu_addr = MEM_W(0, g_TransferStartAddr + voice * 4);
+    uint8_t* src = (uint8_t*)GET_PTR(src_addr);
+
+    if (src && size > 0 && size <= 0x80000) 
+    {
+        // Пропускаем gap сектор
+        if (src && size > 2048 && src[0] == 0 && src[1] == 0 && src[2] == 0 && src[3] == 0
+            && (src[2048] != 0 || src[2049] != 0)) {
+            src += 2048;
+            size -= 2048;
+        }
+
+        SpuSetTransferMode(SpuTransByDMA);
+        SpuSetTransferStartAddr(spu_addr);
+
+        printf("[SpuWrite] spu_addr=%08X size=%d first4=%02X%02X%02X%02X\n",
+            spu_addr, size,
+            src[0], src[1], src[2], src[3]);
+
+        SpuWrite(src, size);
+
+        printf("[SpuWrite-verify] at+0=%02X%02X at+2048=%02X%02X%02X%02X\n",
+            src[0], src[1],
+            src[2048], src[2049], src[2050], src[2051]);
+        
+    }
+
+    MEM_B(0, g_SPUVoiceActive + voice) = 1;
+    _SpuSetInTransfer(0);
+    ctx->r2 = (uint32_t)voice;
+
+
+    return;
+    /*
     int16_t vab_id = (int16_t)(uint16_t)ctx->r6;
     if (vab_id == -1) {
         // No VAB slot allocated — signal "not -1" and "not -2" to exit loop
@@ -21,8 +70,9 @@ void SsVabTransBodyPartly(uint8_t* rdram, recomp_context* ctx)
     }
     // Valid vab_id — return it to signal complete
     ctx->r2 = (uint32_t)(int32_t)vab_id;
+    */
 
-    return;
+
 
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;

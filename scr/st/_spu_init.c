@@ -1,7 +1,15 @@
 #include "recomp.h"
 #include "disable_warnings.h"
+#include "psx/libspu.h"
 
-void _spu_init(uint8_t* rdram, recomp_context* ctx) {
+
+void _spu_init(uint8_t* rdram, recomp_context* ctx) 
+{
+    SpuInit();
+    printf("_spu_init\n");
+    return;
+
+
     uint64_t hi = 0, lo = 0, result = 0;
     unsigned int rounding_mode = DEFAULT_ROUNDING_MODE;
     int c1cs = 0; 
